@@ -1,0 +1,298 @@
+## section-media-hero
+P|A battery youcan’t outrun.
+P|Available starting September eighteenthAvailable starting 9.18
+
+## section-highlights
+H2|Get the highlights.
+P|The longest battery life of any Apple Watch. Now with up to 45 hours of Max Extended Workout tracking.1
+P|All-new Health Sensing System delivers the most accurate heart rate sensing in a wearable.2
+P|A new personal readiness score tells you whether to rest or put yourself to the test.
+P|More frequent heart rate variability, or HRV, readings help provide insights on stress and recovery.
+P|In the redesigned Health app, learn which habits are influencing your Health Age and how to improve them.3
+P|Coming late 2026.
+P|Make every day more effortless with Siri AI.4 And seamless with Audio Intelligence, powered by the S11 chip.5
+P|Siri AI is rolling out in English.Some Audio Intelligence features coming in beta late 2026.Usage limits may apply.
+P|Apple Watch Ultra 4 features built‑in satellite communications that help you stay connected and safe off the grid.6
+
+## section-product-viewer
+H2|Take a closer look.
+P|Finishes. Choose from two aerospace-grade titanium finishes — natural and black. Ultra 4 shown in Black.
+P|Battery life and fast charging. Get long-lasting battery life with up to 50 hours of normal use.7 Fast-charge in just 15 minutes for up to 18 hours of use.8
+P|Health Sensing System. Redesigned with more capable optical and electrical sensors and larger, more power-efficient green LEDs, the sensing system unlocks deeper health and fitness insights.
+P|Durability. Ultra 4 is built to last with a rugged titanium case and a display crafted from sapphire crystal — one of the strongest naturally occurring materials on Earth.And it’s MIL-STD-810H tested for extreme environments.9
+P|Water and dust resistance. Ultra 4 is rated WR100 — fit for recreational scuba diving to 40 meters and high-speed water sports.10 It’s also IP6X dust resistant.11
+P|Action button. One quick press gives you precise, physical control over a variety of customizable functions — like starting a workout, marking a segment, advancing to the next interval, or turning on the flashlight.
+P|Make it yours. Choose from beautiful, endlessly versatile band styles that meet the demands of your daily activities, from workouts to nights out. And create limitless watch face combinations, including the new Siri Modular watch face.
+
+## section-health-tracking
+H2|Advanced Health and Fitness Tracking
+P|Run with all your heart.
+P|Apple Watch Ultra was designed to be the ultimate running watch, with powerful features that help you train smarter and precision dual-frequency GPS. Now Apple Watch Ultra 4 takes it to the next level with game-changing health and fitness tracking to help you elevate your performance. And new extended battery life for workouts to keep you moving toward your goals. Run better, run longer.
+H2|Heartcore innovation.
+P|Heart data is fundamental in tracking your overall health and performance. Redesigned with more capable optical and electrical sensors, the all‑new Health Sensing System works with the S11 chip to provide higher-frequency heart monitoring. The updated sensors and larger, more power-efficient green LEDs give you richer heart data for more meaningful insights.
+
+## section-readiness
+P|Ready advice. The new readiness experience can help you determine your capacity to take on the day by providing you with one simple score. Your score is determined each morning by analyzing your recent activity, vitals, and sleep — and it adjusts as you go about your day. So whether you’re training for a race or juggling a busy schedule, you can spend your energy on what matters most.
+
+## section-heart-rate
+P|HRV? Check. Heart rate variability, or HRV, is an indicator of how your body responds to stress and recovery. Overtraining or poor sleep can raise your stress and lower your HRV. With the most accurate heart rate sensing in a wearable,2 Apple Watch Ultra 4 measures HRV as often as every five minutes and takes background heart rate readings every five seconds — the most frequent sensing ever for Apple Watch. And with the updated Heart Rate app and new watch face complications, you can easily view your readings anytime.
+
+## section-running
+H2|Run circles around your data.
+P|Ultra 4 goes the extra mile to ensure that you can precisely track and analyze your running workouts. With real‑time metrics, deeper insights into training and performance, and personalized encouragement, you’ll be motivated to hit your goals like never before.
+H3|Advance with advanced metrics.
+P|Track your progress with metrics like running power and cadence. And if you create a Custom Workout on your watch or iPhone, you can add work and recovery intervals, set a pace for outdoor workouts, and more. You can even get an estimate of your VO2 max after your run.
+H3|Monitor your Heart Rate Zones.
+P|Quickly see your exercise intensity level with Heart Rate Zones, which are automatically calculated and personalized using your health data. You can adjust them manually or set up alerts.
+H3|Hit the ground running with the Action button.
+P|It’s customizable and gives you quick control over a variety of functions, so you can do things like control a workout, move to your next interval, mark a segment, and more. All with extreme precision.
+H3|Keep pace with Pacer.
+P|Set specific time and distance goals with Pacer for a running or outdoor cycle workout, and track whether you’re keeping pace.
+H3|Get ahead of yourself with Race Route.
+P|Race against your best times on your favorite runs. See how far ahead or behind you are and how far you have to go.
+H3|Slay in your lane with Automatic Track Detection.
+P|Ultra 4 automatically detects when you arrive at a track and combines Apple Maps data with precision GPS to deliver the most accurate track running experience. Create a Custom Workout with a warmup period, recovery interval, and more.
+H3|Push your progress with enhanced Workout Buddy.
+P|Get real-time encouragement right when you need it with new insights about your pace, distance, and workout progress. And you can finally leave your iPhone at home — all you need is Apple Watch with cellular.12
+H3|Never miss a step with an improved step tracker.
+P|Whether you’re out for a leisurely stroll with your coffee in the morning or running on a treadmill at night, Ultra 4 gives you a more accurate step count and distance measurements all day long. And now you can more easily check your step count, right from your watch face.
+H3|Track your training load.
+P|Helpful insights from training load show the impact your workouts have on your body over time, so it’s easier to plan when you’re training for your next big event.
+H3|Step it up with Strava.
+P|Track every run, ride, or hike with real-time motivation. Live Segments show your progress against your PRs and Live Elevation Stats track your climb. Subscribers can also follow Routes hands-free with Off-Route Alerts to stay on track. Your workout data automatically syncs with the Fitness app on iPhone.
+
+## section-battery
+H2|Extreme staying power.
+P|With optimized, more efficient workout algorithms, Ultra 4 delivers even longer battery life. While providing up to 50 hours of everyday battery use,7 it now gives you up to 18 hours of standard workout tracking and up to 45 hours of Max Extended Workout tracking — enough time to complete a 100‑mile race.1
+P|Everyday battery
+P|Workout battery
+
+## section-insights
+H2|Boost your performance with a body of metrics.
+P|The more health insights you have, the more empowered you are to take actions that will optimize how you perform. With in-depth clinical validation and FDA-cleared features, Apple Watch Ultra 4 provides a fuller picture of your health, so you can stay informed.
+H3|Wake up to your sleep score.
+P|Sleep quality is influenced by factors such as sleep duration, bedtime consistency, how often you wake up, and time spent in each sleep stage. Sleep score analyzes these factors every night and provides a classification and a score. You’ll see how the score is calculated, so you can understand the quality of your sleep and learn how to make it more restorative.
+H3|A new read on HRV.
+P|Now you can better understand insights on stress and recovery with HRV in the Vitals app.13 HRV is sampled as often as every five minutes, both during the day and night.
+H3|Track and understand changes in your cycle.
+P|Cycle Tracking is with you through every stage of your menstrual health journey. Log your cycle and get predictions for your period, fertile window, and retrospective ovulation estimates. Cycle Tracking can notify you when your cycle patterns are suggestive of perimenopause as well as provide support during menopause.14
+H3|Follow your heart more frequently.
+P|Ultra 4 uses high-frequency heart rate tracking to monitor your background heart rate, even when you’re not working out, and surfaces a value every five seconds in a new watch face complication.
+H3|Measure your blood oxygen. It’s a breathtaking innovation.
+P|The Health app on iPhone uses data from the sensor in Apple Watch to enable you to take on-demand readings of your blood oxygen as well as background readings, day and night.15
+H3|Receive hypertension notifications.
+P|Ultra 4 can notify you if it identifies patterns of hypertension.16 How? The optical sensor provides data to an algorithm that can detect potential hypertension by analyzing how your blood vessels respond to beats of the heart over 30‑day periods.
+H3|Take an ECG anytime, anywhere.
+P|Check for signs of an irregular heart rhythm, also known as atrial fibrillation, by using the ECG app to generate a single-lead electrocardiogram. You can share your ECG reading with your healthcare provider.17
+H3|Heart this app.
+P|Check your heart rate at any time with the Heart Rate app. And get notifications of a high or low heart rate or an irregular rhythm.18
+
+## section-health-app
+H2|Coming late 2026 Redesigned Health app. Your present and future. On tap.
+P|With Apple Intelligence at its core, the redesigned Health app transforms your health and fitness data into proactive insights delivering a whole new view of your health — today and over time.3 Featuring groundbreaking privacy protections, your personalized hub securely brings together data from your Apple Watch and synced medical records. And since the Health app adapts to you, you’ll get a real-time read on your health and longevity.
+P|Insights
+P|Tap into the Insights tab for a quick look at daily metrics and trends in your heart, sleep, fitness, vitals, readiness, and cycle tracking. Apple Intelligence makes sense of your daily habits and offers personalized guidance, like tips on how to improve your sleep routine.4 It’s all about you — right here, right now.
+P|Health Age
+P|Health Age shows you exactly which factors are adding years and which ones are taking them off. With combined data from your Apple Watch like VO2 max, HRV, and sleep, you’ll learn what’s affecting your Health Age and how to improve it. You can even add biometrics from your blood work for deeper insights.3
+P|Longevity
+P|The Longevity tab turns metrics from your Apple Watch and iPhone into helpful analytics that build a foundation for a healthier future. Explore categories like heart health, sleep, and movement to get a clear read on your health. Unlock personal insights by taking in-depth physical assessments at home. The more you understand your health, the better you can take care of it.
+P|Personalized guidance
+P|Personalization is built into every part of the Health app, so you always know where you stand and how to improve. Get timely, personalized guidance powered by Apple Intelligence, like a suggestion to boost your cardio by adding intervals to your morning run. And helpful videos and articles explain the results of your physical assessments with your data layered in so you can better understand your health. It’s expert insight, made personal.4
+
+## section-siri
+H2|Wearable AI Assistant
+P|Say hello to Siri AI.
+P|With all-new Siri AI, Apple Watch Ultra 4 can tap into broad world knowledge and your personal context to be even more helpful.4 Using just your voice, you can engage in natural, back-and-forth conversations, brainstorm ideas for workout routines, and get the latest wellness tips with Siri — all from your wrist. And now Audio Intelligence uses the built-in microphone and secure S11 chip in Ultra 4, alongside the power of Apple Intelligence, to make sense of what you hear in a private and secure way.5 Just as Visual Intelligence on iPhone helps you make sense of what you see.
+P|Siri AI is rolling out in English.Some Audio Intelligence features coming in beta late 2026.Usage limits may apply.
+H3|Revisit conversations in the Siri app.
+P|Ask Siri a question on your iPhone or any other Apple device synced with iCloud, and pick up where you left off on your Apple Watch. Pin conversations and see the same content, including images, across your devices. Here’s to a little more conversation and a lot more Siri.
+H3|Siri Recap can summarize your chats to refresh your memory.
+P|Siri Recap transforms your conversations into high-level notes, so you can stay focused and present. Each Siri Recap includes a title, a summary, and key points that you can review in the Siri app on your Apple Watch or iPhone. You can turn Siri Recap off or on at any time from Control Center or choose where and when it takes notes, such as only at work or never at night.19
+P|Siri Recap coming in beta late 2026.Usage limits may apply.
+H3|Live Rewind catches what you missed.
+P|Did someone say something you couldn’t hear in a loud restaurant or share cooking instructions you didn’t quite catch? Just double-click the Digital Crown, and Live Rewind transcribes what was said in the last 15 seconds. You can ask Siri about the content of the transcript or save it to the new Siri app to revisit later.19
+P|Live Rewind coming in beta late 2026.Usage limits may apply.
+H3|Sound Recognition notifies you when it detects important sounds.
+P|Designed for those who are Deaf or hard of hearing, Sound Recognition can listen for sounds you don’t want to miss, like sirens, alarms, doorbells, or a crying baby. You’ll be alerted with a notification on your watch — even when your iPhone isn’t nearby.20
+H3|Shazam can now automatically tell you what song is playing.
+P|Shazam can instantly detect the music playing around you and automatically display the song title and artist’s name on the Music Recognition widget in the Smart Stack — all without a tap. You can also see the song info when you use the Shazam app or Siri. Talk about music to your ears.21
+
+## section-privacy
+H2|Great powers come with great privacy.
+P|Made possible by the new S11 chip, Audio Intelligence features are designed to protect your privacy and security at every step. These features do not create or store audio recordings, and raw audio used for processing is completely inaccessible, even to Apple, and is deleted after processing. There is no speaker attribution, and your Live Rewind transcripts and Siri Recaps in the Siri app are end-to-end encrypted through iCloud syncing. You decide whether to opt in to these features, and you control how you use them.5
+
+## section-more-sports
+H2|More Sports
+P|Ultraversatile.
+P|Apple Watch Ultra 4 ups your game in every sport. When you’re cycling, it actively monitors your speed and efficiency so you can see your progress in real time. And in the water, it can track your sets as you swim, automatically detect stroke patterns, and calculate your total distance. Time to clock your best.
+H3|Master the Multisport workout.
+P|Ultra 4 can recognize when you transition between swimming, cycling, and running — and record your metrics for each. Tracking your segments for a triathlon has never been easier.
+H3|Watch your cycling metrics on your iPhone.
+P|When you start a cycling workout on Ultra 4, it automatically shows up as a Live Activity on your iPhone — making it easier to see and safer when it’s mounted on your handlebars.
+H3|Find your Power Zones.
+P|Connect your personal power meter to Ultra 4 to estimate your Functional Threshold Power (FTP), the highest level of intensity theoretically maintainable for an hour. Your FTP enables Power Zones to show your current power, time in a zone, and average power.
+H3|Crank it up with Workout Views.
+P|Want to check your current speed as you ride? Workout Views put your chosen metrics front and center so they’re easy to track. And it’s simple to switch between metrics like Heart Rate Zones, splits, and elevation by turning the Digital Crown.
+H3|Strength training. Easy flex.
+P|The Workout app features extensive strength training capabilities, so you can more accurately track your bench press and barbell lift workouts. Making light work of your heavy lifting.
+H3|Make a splash with swim stroke.
+P|When you’re in a pool, Ultra 4 automatically detects your swim stroke, calculates auto sets with distance and pace, and provides advanced metrics like SWOLF to measure efficiency.
+H3|Know what’s Up Next.
+P|For any Custom Workout you create, the Up Next view allows you to see what’s remaining in your current interval and what you’ll be tackling next. Pro moves.
+
+## section-adventure
+H2|Adventure
+P|Geared to go farther.
+P|Hiking to new heights and diving to new depths requires specialized tools. Apple Watch Ultra 4 has pioneering features like a powerful compass and a full dive computer, so you can pack light and still be equipped for every expedition.
+H3|Retrace your steps with Backtrack.
+P|To get back on route, Backtrack uses GPS data to automatically create a path of where you’ve been when you’re off grid. You can easily add waypoints for locations, like trailheads or campsites.
+H3|Aim higher with a Hiking workout.
+P|Ultra 4 has a Hiking workout that lets you track your pace, distance, elevation gain, and calories burned. See how high you’ve climbed in real time, and get your total elevation gain when you’re finished. Sky’s the limit.
+H3|Blaze a trail with custom routes.
+P|Create and save custom walking and hiking routes on your iPhone. Choose from different route options: One way, out and back, or a loop — even get turn-by-turn directions — right from your wrist.
+H3|Download offline maps.
+P|Plan ahead and download a map of where you’ll be hiking on your iPhone. It will automatically sync to your watch, so you’ll know where to go, even when you don’t.22
+H3|Create waypoints in the Compass app.
+P|Mark your current location or drop one on a trailhead or campsite. Cellular and emergency call waypoints automatically mark your most recent location within your available networks.
+H3|Go deeper with full dive capabilities.
+P|The Oceanic+ app from Huish Outdoors and other apps turn Ultra 4 into a fully capable dive computer.23 Turn the Digital Crown to get useful data at a glance. Equipped with all the safety warnings you’d expect, the app constantly calculates and monitors your dive parameters.
+H3|Let the Tides app guide you.
+P|Get seven days of estimated information including rising, falling, high, and low tides, sunrise, and sunset. Check conditions at shorelines around the world, or search over 115,000 beaches by name.
+
+## section-on-the-go
+H2|On the Go
+P|Connected. Protected.
+P|Now when you’re off the grid without cellular or Wi-Fi, Ultra 4 can help you stay connected using built-in satellite communications. So wherever adventure takes you, you can still keep in touch with loved ones. And if you need critical help, you can contact emergency services via satellite — right from your wrist. Packed with innovative safety firsts, Apple Watch Ultra 4 has your back. It’s designed to summon help when you need it most — even if you can’t reach your iPhone.6
+H3|Get help with Emergency SOS via satellite.
+P|With a few simple taps, Ultra 4 can gather critical information, connect you to a satellite, and reach out to emergency services, so you can get the assistance you need as quickly as possible.24
+H3|Fall Detection at the ready.
+P|If Ultra 4 detects that you’ve taken a hard fall, it can automatically help connect you with emergency services, provide dispatchers with your location, and notify loved ones.24
+H3|Crash Detection. Your guardian on the go.
+P|If you’ve been in a severe car crash, Ultra 4 can automatically help call emergency services, share your location, and notify your emergency contacts.24
+H3|Activate a siren.
+P|If you need to attract attention when you’re lost or injured, hold down the Action button to activate a siren that can be heard up to 600 feet or 180 meters away.
+H3|Stay connected and safe with Messages.
+P|Use Messages via satellite to stay in touch or contact emergency services wherever you are. You can also send and receive texts, emoji, and Tapbacks via iMessage or use SMS.6
+H3|Be found with Find My.
+P|Use Find My to share your location via satellite so friends and family know where you are. Before you go off grid, add the contacts you plan to share your location with using your paired iPhone or Ultra 4.6
+H3|Let there be flashlight.
+P|Illuminate nearby objects, alert others when you’re running at night, or shine a light in a campsite. You can also customize the Action button to control it.
+H3|Set up your Medical ID.
+P|In an emergency, first responders are able to quickly access critical medical information — like allergies or medications — directly from your Ultra 4.
+H3|All you need is your watch.
+P|With Apple Watch Ultra 4, you can keep in touch with the people and things that matter most no matter where you are.25 Superfast 5G capability lets you text, talk, download apps, stream music or podcasts, and work out on the go.26
+
+## section-upgrade
+H2|Worth the upgrade? 100 percent.
+P|A few ways Ultra 4 gives you more.
+P|Most accurate heart rate sensing in a wearable2
+P|Readiness and Vitals with improved HRV13
+P|Siri AI4 and Audio Intelligence5
+P|Sleep apnea27 and hypertension notifications16
+P|Stay safe and connected with satellite communications6
+P|Larger display, Action button, and improved GPS
+P|Most accurate heart rate sensing in a wearable2
+P|Audio Intelligence5
+P|Readiness and Vitals with improved HRV13
+P|Increased durability and dive to 40m10
+P|Get credit toward a new Apple Watch when you trade in an eligible device.28
+
+## section-incentive
+H2|Why Apple is the best place to buy Apple Watch.
+H3|Apple Upgrade
+P|Love it. Lease it. Upgrade it.
+P|Lease a new Apple Watch with low monthly payments for 12 or 24 months and upgrade at the end of your term.◊
+H3|Apple Trade In
+P|Save on a new Apple Watch with a trade‑in.
+P|Get up to $200 in credit toward your next Apple Watch when you trade in an eligible device.28
+H3|Ways to Buy
+P|Pay over time, interest‑free.
+P|When you choose to check out at Apple with Apple Card Monthly Installments.◊◊
+H3|Education
+P|Save on Apple Watch29 with education pricing.**
+P|College students and educators can save through the Apple Store.**
+H3|Delivery and Pickup
+P|Get your order quickly and easily.
+P|Choose two‑hour delivery from an Apple Store, free delivery, or easy pickup options.
+H3|Personal Setup
+P|Make the most of your Apple Watch with an online session.
+P|Talk one on one with a Specialist to set up your Apple Watch and discover new features.
+H3|Guided Video Shopping
+P|Shop live with a Specialist.
+P|Let us help you find what you need and answer all of your questions, one on one over video.
+H3|Apple Store App
+P|Explore a shopping experience designed around you.
+P|Use the app to get a more personal way to shop.
+
+## section-contrast
+H2|Keep exploring Apple Watch.
+H3|New Apple Watch Ultra 4 Apple Watch Ultra 4
+P|The ultimate sports and adventure watch.
+P|From $799 or $66.58/mo. for 12 mo.* Lease from $24.99/mo. for 24 mo. with Apple Upgrade◊
+P|49mm titanium case
+P|Wide-angle Always-On Retina display
+P|Up to 3000 nits
+P|Readiness app
+P|Recovery HRV
+P|High-frequency background heart rate tracking
+P|Hypertension notifications16
+P|ECG app17
+P|Blood Oxygen app15
+P|High and low heart rate notifications
+P|Irregular rhythm notifications18
+P|Sleep score
+P|Sleep apnea notifications27
+P|S11 chip
+P|Siri AI4
+P|Audio Intelligence5
+P|Precision Finding for iPhone30
+P|Up to 50 hours of normal use7
+P|Up to 84 hours in Low Power Mode7
+P|Up to 45 hours of Max Extended Workout tracking1
+H3|New Apple Watch Series 12 Apple Watch Series 12
+P|The ultimate way towatch your health.
+P|From $399 or $33.25/mo. for 12 mo.* Lease from $11.99/mo. for 24 mo. with Apple Upgrade◊
+P|46mm or 42mm aluminum, titanium, or ceramic case
+P|Wide-angle Always-On Retina display
+P|Up to 2000 nits
+P|Readiness app
+P|Recovery HRV
+P|High-frequency background heart rate tracking
+P|Hypertension notifications16
+P|ECG app17
+P|Blood Oxygen app15
+P|High and low heart rate notifications
+P|Irregular rhythm notifications18
+P|Sleep score
+P|Sleep apnea notifications27
+P|S11 chip
+P|Siri AI4
+P|Audio Intelligence5
+P|Precision Finding for iPhone30
+P|Up to 24 hours of normal use31
+P|Up to 38 hours in Low Power Mode31
+P|— Max Extended Workout tracking not applicable
+
+## section-environment
+H2|Apple Watch Ultra 4 and the environment.
+H3|Made with 45% recycled material by weight.
+H3|Manufactured with 100% renewable electricity.
+H3|Ships in compact packaging for 30% more units per trip.
+
+## section-values
+H2|Our values lead the way.
+H3|A plan as innovative as our products.
+P|We’re committed to bringing net emissions to zero across our entire carbon footprint by 2030.
+P|Learn more about environment
+H3|Privacy. That’s Apple.
+P|Privacy is a fundamental human right. Every product and service is designed to help keep your data safe and secure.
+P|Learn more about privacy
+H3|Innovation that’s accessible by design.
+P|Our products and services are designed for everyone, with built-in features to help you do what you love, your way.
+P|Learn more about accessibility
+
+## section-index
+H2|Apple Watch
+H3|Explore Watch
+H3|Shop Watch
+H3|More from Watch

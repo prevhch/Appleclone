@@ -43,6 +43,7 @@ export default function InlineMedia({
   videoBase,
   tall = false,
   loop = false,
+  ext = "jpg",
   className = "",
   imgStart = "hero-img",
   imgEnd = "hero-img",
@@ -52,6 +53,7 @@ export default function InlineMedia({
   videoBase: string;
   tall?: boolean;
   loop?: boolean;
+  ext?: "jpg" | "png";
   className?: string;
   imgStart?: string;
   imgEnd?: string;
@@ -238,6 +240,7 @@ export default function InlineMedia({
         <figure className="start-frame">
           <ApplePicture
             stem={startStem}
+            ext={ext}
             alt=""
             tall={tall}
             eager
@@ -260,6 +263,7 @@ export default function InlineMedia({
       <picture className="end-frame">
         <ApplePicture
           stem={endStem}
+          ext={ext}
           alt=""
           tall={tall}
           className="h-full w-full [&>img]:h-full [&>img]:w-full"

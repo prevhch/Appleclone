@@ -1,0 +1,164 @@
+#  | 
+  cls: section section-media-hero section-media-hero theme-dark headline-uppercase media-layout-i
+  video: /105/media/us/apple-watch-ultra-4/2026/6adeb6e9-f28b-4ea3-83d8-682065bc12b1/anim/hero/ loop=false pi=true mute=true
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/media-hero/hero_logo__bjse7ox0ul9e_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/media-hero/hero_startframe__byn66fgbfjea_xlarge.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/media-hero/hero_endframe__bhft73uaplpu_xlarge.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/media-hero/hero_endframe__bhft73uaplpu_xlarge.jpg
+#  | Get the highlights.
+  cls: section section-highlights theme-dark background-alt staggered-start
+  video: /105/media/us/apple-watch-ultra-4/2026/6adeb6e9-f28b-4ea3-83d8-682065bc12b1/anim/watch-highlights/ loop=false pi=true mute=true
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/highlights/highlights_battery__gp6imvvzffau_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/highlights/highlights_health_sensing_startframe__cbmd214st6fm_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/highlights/highlights_health_sensing_endframe__ddd950jsec8y_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/highlights/highlights_health_sensing__cya9u68365w2_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/highlights/highlights_readiness__eed7bf55wpm6_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/highlights/highlights_hrv__df03z907voeq_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/highlights/highlights_health_age__fvwiomn5p5ua_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/highlights/highlights_siri_ai__bp591ly01rte_large.jpg
+#  | Take a closer look.
+  cls: section section-product-viewer theme-dark background-alt staggered-start
+  video: /105/media/us/apple-watch-ultra-4/2026/6adeb6e9-f28b-4ea3-83d8-682065bc12b1/anim/watch-product/ loop=false pi=true mute=true
+  video: /105/media/us/apple-watch-ultra-4/2026/6adeb6e9-f28b-4ea3-83d8-682065bc12b1/anim/action-button/ loop=false pi=true mute=true
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/product-viewer/product_finishes__dbkgeoads3e6_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/product-viewer/product_finishes_black__d8fehns3thg2_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/product-viewer/product_finishes_natural__fcf2wz3wghea_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/product-viewer/product_battery__etznv2xltg8y_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/product-viewer/product_health_sensing_startframe__fcqj710qpkeq_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/product-viewer/product_health_sensing_endframe__csfpe8mokp4y_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/product-viewer/product_health_sensing__cxww807cgnsm_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/product-viewer/product_durability__gf8brtp59qmq_large.jpg
+#  | Advanced Health and Fitness Tracking
+  cls: section section-health-tracking theme-dark section-subsection
+  video: /105/media/us/apple-watch-ultra-4/2026/6adeb6e9-f28b-4ea3-83d8-682065bc12b1/anim/health-tracking/ loop=false pi=true mute=true
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/health-tracking/health_tracking_startframe__ctk2hkfl7weq_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/health-tracking/health_tracking_startframe__ctk2hkfl7weq_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/health-tracking/health_tracking_endframe__ezy13bl8s6eu_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/health-tracking/health_tracking_endframe__ezy13bl8s6eu_large.jpg
+#  | 
+  cls: section section-readiness theme-dark preserve-pad-bottom section-subsection
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/readiness/health_tracking_readiness__eg5eqa4z3cq6_large.jpg
+#  | 
+  cls: section section-heart-rate theme-dark section-subsection
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/health-tracking/health_tracking_hrv__e6ml1yjazqye_large.jpg
+#  | Run circles around your data.
+  cls: section section-running theme-dark background-alt no-pad-top
+  video: /105/media/us/apple-watch-ultra-4/2026/6adeb6e9-f28b-4ea3-83d8-682065bc12b1/anim/workout/ loop=false pi=true mute=true
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/running/running_hero__9uoyqxtm536a_xlarge.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/running/running_advanced_metrics__cuh6fpt8g8q6_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/running/running_heart_rate_zones__d1zy5p9pwnyq_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/running/running_action_button__9r02nnapo8i2_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/running/running_pacer__nk29sv5k9syi_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/running/running_race_route__ghkta8x2njma_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/running/running_track__el68rx5zm9qq_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/running/running_workout_buddy__3bynmr1qkj6u_large.jpg
+#  | Extreme staying power.
+  cls: section section-battery theme-dark background-alt no-pad
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/battery/icon_power__cb12wlgl7tea_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/battery/icon_battery__frqvne0ij56y_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/battery/icon_workout__cck69mj5as6a_large.png
+#  | Boost your performance with a body of metrics.
+  cls: section section-insights theme-dark background-alt
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/insights/vitals_sleep_score__dazwznpeldw2_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/insights/vitals_hrv__bu24ochut9rm_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/insights/vitals_cycle__ec6ie7ras1me_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/insights/vitals_heart_rate_tracking__d0xyq2exkf8m_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/insights/vitals_blood_oxygen__fo8nt89xslay_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/insights/vitals_hypertension__bblxn4zswhk2_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/insights/vitals_ecg__bfokcr55jbua_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/insights/vitals_heart_app__eh8skry8f682_large.jpg
+#  | Coming late 2026 Redesigned Health app. Your present and future. On tap.
+  cls: section section-health-app theme-dark background-alt
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/health-app/health_today__gccfg3lehiuu_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/health-app/health_age__cz0p6uytj18i_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/health-app/health_check__e1m8w2lkghea_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/health-app/health_personalized__d1wcn5kt9w02_large.jpg
+#  | Wearable AI Assistant
+  cls: section section-siri theme-dark no-pad-top type-layout-gradient
+  video: /105/media/us/apple-watch-ultra-4/2026/6adeb6e9-f28b-4ea3-83d8-682065bc12b1/anim/siri-orb/ loop=false pi=true mute=true
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/siri/siri_orb_startframe__drussexrkk8y_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/siri/siri_orb_endframe__cpu1dui2bi2q_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/siri/siri_orb_endframe__cpu1dui2bi2q_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/siri/siri_app__fjzn49gc47au_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/siri/siri_recap__el60mga9266a_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/siri/siri_live_rewind__f5yx8ayagkae_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/siri/siri_sound_recognition__e5ph14avwkq6_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/siri/siri_shazam__fwoobobzf2ie_large.jpg
+#  | Great powers come with great privacy.
+  cls: section section-privacy theme-dark background-alt no-pad-top preserve-pad-bottom
+  video: /105/media/us/apple-watch-ultra-4/2026/6adeb6e9-f28b-4ea3-83d8-682065bc12b1/anim/apple-lock/ loop=false pi=true mute=true
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/privacy/apple_lock_startframe__c5iyo0d6ymc2_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/privacy/apple_lock_endframe__bnd00wkb99si_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/privacy/apple_lock_endframe__bnd00wkb99si_large.png
+#  | More Sports
+  cls: section section-more-sports theme-dark background-alt no-pad-top
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/more-sports/sports_hero__d7ihuk8knl6q_xlarge.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/more-sports/sports_multisport__eu6muvw2f7qu_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/more-sports/sports_iphone__gag6dvu98iie_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/more-sports/sports_power_zones__eghmuks41bu6_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/more-sports/sports_workout_views__rn5qs94z00yu_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/more-sports/sports_strength_training__clufbqsic3de_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/more-sports/sports_swim_stroke__f7tok32nbtqy_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/more-sports/sports_next__ceult2d9ya5e_large.jpg
+#  | Adventure
+  cls: section section-adventure theme-dark background-alt no-pad-top
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/adventure/adventure_hero__b4jb89dzm76u_xlarge.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/adventure/adventure_backtrack__gkxuorruntiu_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/adventure/adventure_hiking__ezuoydzq6zo2_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/adventure/adventure_custom_routes__f1wdpauyn6qa_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/adventure/adventure_offline_maps__ea1lvjboo4ae_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/adventure/adventure_compass_app__bx5orj85p1w2_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/adventure/adventure_dive__f1eq01ftrbam_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/adventure/adventure_tides_app__df79wf7rh7iq_large.jpg
+#  | On the Go
+  cls: section section-on-the-go theme-dark preserve-pad-bottom
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/on-the-go/go_hero__df3r8mztpmoi_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/on-the-go/icon_sos__etxaj2zyxms2_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/on-the-go/icon_fall_detection__cgri1eb15sfm_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/on-the-go/icon_detection__zdmrlko9rgiy_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/on-the-go/icon_siren__dhr7870rshea_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/on-the-go/icon_messages__1kbywutv18i6_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/on-the-go/icon_find_my__eovmd9ynwrki_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/on-the-go/icon_flashlight__fv44soq1ddu2_large.png
+#  | Worth the upgrade? 100 percent.
+  cls: section section-upgrade theme-dark
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/upgrade/upgraders_ultra_health_sensing__coyzh23059qq_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/upgrade/upgraders_ultra_hrv__bq8dwsn934wi_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/upgrade/upgraders_ultra_siri_ai__bewm16yeb0z6_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/upgrade/upgraders_ultra_health_notifications__bptt0mx62sr6_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/upgrade/upgraders_ultra_connected__eltnfliatvau_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/upgrade/upgraders_series_display__cgr2ax6g81w2_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/upgrade/upgraders_series_health_sensing__fbkwu0n3ajiy_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/upgrade/upgraders_ultra_siri_ai__bewm16yeb0z6_large.jpg
+#  | Why Apple is the best place to buy Apple Watch.
+  cls: section section-incentive background-alt staggered-start
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/incentive/incentive_upgrade_watch__edxoel1vo12e_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/incentive/incentive_trade_in__bxy4gy82ov6u_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/incentive/incentive_card__b4if26wfnhma_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/incentive/incentive_education__cnrghv4anhci_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/incentive/incentive_delivery_and_pickup__eqx3p0o33quu_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/incentive/incentive_personal_session__esyb8vwkksgi_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/incentive/incentive_support__dqi9xhb68c2u_large.jpg
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/incentive/incentive_store_app__ckx04hi31ifm_large.jpg
+#  | Keep exploring Apple Watch.
+  cls: section section-contrast background-alt no-pad-top staggered-start
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/contrast/compare_ultra4__d5x92dr0j3sm_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/contrast/icon_case__tjmehdv57kqe_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/contrast/icon_case_filled__cy8ld6ebf4gi_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/contrast/icon_health__dizrs4c7kfo2_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/contrast/icon_chip_s11_fill__iywi1223r8ia_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/contrast/icon_battery__frqvne0ij56y_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/contrast/contrast_s12__os0o0gt226ym_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/contrast/icon_case_size__cf8l2d5935ua_large.png
+#  | Apple Watch Ultra 4 and the environment.
+  cls: section section-environment background-alt no-pad-top staggered-start
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/environment/icon_recycling__csdx2jvieqc2_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/environment/icon_electricity__gb9sibi6l1aq_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/environment/icon_package__czaoa91q0l26_large.png
+#  | Our values lead the way.
+  cls: section section-values background-alt no-pad-top staggered-start
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/values/icon_environment__e9tgg0axcoy2_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/values/icon_privacy__bmyx0fqh262q_large.png
+  pic: https://www.apple.com/v/apple-watch-ultra-4/a/images/overview/values/icon_accessibility__cs1srmzy5fau_large.png
+#  | Apple Watch
+  cls: section section-index staggered-start
