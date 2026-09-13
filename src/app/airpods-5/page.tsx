@@ -1,5 +1,6 @@
 import { ProductSubnav, FeatureBlocks } from "@/components/Product";
 import { A } from "@/lib/site";
+import Link from "next/link";
 
 export const metadata = { title: "AirPods 5" };
 
@@ -29,7 +30,7 @@ export default function AirPods5Page() {
           </div>
           <div className="absolute right-8 md:right-16 flex items-center gap-4" style={{ bottom: "96px" }}>
             <span style={{ fontSize: "17px", lineHeight: "21px", color: "#f5f5f7" }}>Starting at $129</span>
-            <a href="/us/shop/goto/buy_airpods/airpods_5" className="bg-[#2997ff] text-white text-[17px] px-5 py-2 rounded-full hover:bg-[#1d7de8] transition-colors">Pre-order</a>
+            <Link href="/us/shop/goto/buy_airpods/airpods_5" className="bg-[#2997ff] text-white text-[17px] px-5 py-2 rounded-full hover:bg-[#1d7de8] transition-colors">Pre-order</Link>
           </div>
         </div>
       </section>

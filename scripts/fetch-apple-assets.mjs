@@ -26,14 +26,15 @@ const IMAGE_STEMS = [
   ["/v/homepage/images/iphone-18-pro/a/hero_iphone_18_pro_preorder__dd68unjbzswi", "jpg"],
   // iPhone Duo (static hero tile)
   ["/v/homepage/images/iphone-duo/a/hero_iphone_duo_announce__fh4u8yzndpe2", "jpg"],
-  // Apple Upgrade (video promo tile, LIGHT theme, logo headline)
+  // Apple Watch Series 12 (full-width SPLIT tile — logo headline + hero image)
+  ["/v/homepage/images/apple-watch-series-12/a/hero_apple_watch_series_12_preorder__cv2wd7ow8926", "jpg"],
+  ["/v/homepage/images/logos/apple-watch-series-12/a/hero_logo_apple_watch_series_12__eze8r897c5me", "png"],
+  // Apple Upgrade (PROMO grid tile, LIGHT theme, logo headline + promo video)
   ["/v/homepage/images/apple-upgrade/a/promo_apple_upgrade_startframe__e9bf3nb054ae", "jpg"],
   ["/v/homepage/images/apple-upgrade/a/promo_apple_upgrade__jvn6udm4tx2e", "jpg"],
   ["/v/homepage/images/logos/apple-upgrade/a/promo_logo_apple_upgrade__lwuohffdzjem", "png"],
   // Promo tiles
   ["/v/homepage/images/carriers/a/promo_carriers__bkbchi56n5qq", "jpg"],
-  ["/v/homepage/images/apple-watch-series-12/a/promo_apple_watch_series_12_preorder__bq5beop71hle", "jpg"],
-  ["/v/homepage/images/logos/apple-watch-series-12/a/promo_logo_apple_watch_series_12__eck6698frlqq", "png"],
   ["/v/homepage/images/apple-watch-ultra-4/a/promo_apple_watch_ultra_4_preorder__fvnta8sy0wa6", "jpg"],
   ["/v/homepage/images/logos/apple-watch-ultra-4/a/promo_logo_apple_watch_ultra_4__bc6ish8cjaeq", "png"],
   ["/v/homepage/images/airpods-5/a/promo_airpods_5_preorder__lydvte0llb6i", "jpg"],
@@ -53,13 +54,6 @@ for (const [stem, ext] of IMAGE_STEMS) {
   }
 }
 
-// Inline-media video basepaths found by inspecting apple.com HTML:
-// <video id="iphone-18-pro-animated" data-inline-media-basepath="/105/media/.../anim/hero/">
-// <video id="apple-upgrade" data-inline-media-basepath="/105/media/.../anim/promo/">
-const VIDEO_BASES = [
-  "/105/media/us/home/2026/6f46e780-4ab4-4688-915a-7aa0694378e3/anim/hero/",
-  "/105/media/us/home/2026/abb2ec52-6e62-4771-84e4-d1e689324d6d/anim/promo/",
-];
 const VIDEO_FILES = [
   "large.mp4",
   "large_2x.mp4",
@@ -73,6 +67,14 @@ const VIDEO_FILES = [
   "largetall_2x.mp4",
   "mediumtall.mp4",
   "mediumtall_2x.mp4",
+];
+
+// Inline-media video basepaths found by inspecting apple.com HTML:
+//  - iPhone 18 Pro: full-width HERO, tall framings served (largetall/mediumtall).
+//  - Apple Upgrade: PROMO grid tile, tall framings 404 (promo tiles don't serve them).
+const VIDEO_BASES = [
+  { base: "/105/media/us/home/2026/6f46e780-4ab4-4688-915a-7aa0694378e3/anim/hero/", files: VIDEO_FILES },
+  { base: "/105/media/us/home/2026/abb2ec52-6e62-4771-84e4-d1e689324d6d/anim/promo/", files: VIDEO_FILES.filter((f) => !f.includes("tall")) },
 ];
 
 async function dl(urlPath) {
@@ -114,9 +116,9 @@ for (const img of IMAGES) {
   const r = await dl(img);
   results[r === "saved" ? "saved" : r === "skip" ? "skip" : "miss"]++;
 }
-for (const b of VIDEO_BASES) {
-  for (const f of VIDEO_FILES) {
-    const r = await dl(b + f);
+for (const { base, files } of VIDEO_BASES) {
+  for (const f of files) {
+    const r = await dl(base + f);
     results[r === "saved" ? "saved" : r === "skip" ? "skip" : "miss"]++;
   }
 }

@@ -31,18 +31,15 @@ export const HERO_DUO = {
   stem: A("/v/homepage/images/iphone-duo/a/hero_iphone_duo_announce__fh4u8yzndpe2"),
 };
 
-export const HERO_UPGRADE = {
-  // NOTE: the live tile uses promo_ files on a LIGHT theme with a logo headline
-  tileLink: "/us/shop/goto/apple_upgrade",
-  startStem: A(
-    "/v/homepage/images/apple-upgrade/a/promo_apple_upgrade_startframe__e9bf3nb054ae"
-  ),
-  endStem: A("/v/homepage/images/apple-upgrade/a/promo_apple_upgrade__jvn6udm4tx2e"),
+export const WATCH12 = {
+  // Full-width split tile: logo headline top, watch hero image full-bleed behind.
+  tileLink: "/apple-watch-series-12/",
   logoStem: A(
-    "/v/homepage/images/logos/apple-upgrade/a/promo_logo_apple_upgrade__lwuohffdzjem"
+    "/v/homepage/images/logos/apple-watch-series-12/a/hero_logo_apple_watch_series_12__eze8r897c5me"
   ),
-  videoBase:
-    "/apple/105/media/us/home/2026/abb2ec52-6e62-4771-84e4-d1e689324d6d/anim/promo",
+  imgStem: A(
+    "/v/homepage/images/apple-watch-series-12/a/hero_apple_watch_series_12_preorder__cv2wd7ow8926"
+  ),
 };
 
 export type Promo = {
@@ -59,41 +56,13 @@ export type Promo = {
   dark?: boolean;
   /** Logo-image headline stem (PNG); when set, no visible text headline. */
   logoStem?: string;
+  /** When set, the tile plays this inline promo video (autoplay loop in-view). */
+  videoBase?: string;
+  /** Poster/static image while the promo video is not playing. */
+  startStem?: string;
 };
 
 export const PROMOS: Promo[] = [
-  {
-    title: "Incredible carrier deals at Apple",
-    sub: "Explore deals that accept eligible trade-in devices in any condition.",
-    sup: 2,
-    cta: [
-      {
-        label: "Find your deal",
-        href: "/us/shop/goto/buy_iphone/carrier_offers",
-        ariaLabel: "Find your deal, Carriers",
-      },
-    ],
-    imgStem: A("/v/homepage/images/carriers/a/promo_carriers__bkbchi56n5qq"),
-    tileLink: "/us/shop/goto/buy_iphone/carrier_offers",
-  },
-  {
-    title: "Apple Watch Series 12",
-    sub: "The most accurate heart rate sensing in a wearable.",
-    avail: "Available starting 9.18",
-    sup: 3,
-    cta: [
-      { label: "Learn more", href: "/apple-watch-series-12", ariaLabel: "Learn more, Apple Watch Series 12" },
-      { label: "Pre-order", href: "/us/shop/goto/buy_watch/apple_watch_series_12", ariaLabel: "Pre-order, Apple Watch Series 12" },
-    ],
-    imgStem: A(
-      "/v/homepage/images/apple-watch-series-12/a/promo_apple_watch_series_12_preorder__bq5beop71hle"
-    ),
-    logoStem: A(
-      "/v/homepage/images/logos/apple-watch-series-12/a/promo_logo_apple_watch_series_12__eck6698frlqq"
-    ),
-    tileLink: "/apple-watch-series-12/",
-    dark: true,
-  },
   {
     title: "Apple Watch Ultra 4",
     sub: "A battery you can\u2019t outrun.",
@@ -121,6 +90,39 @@ export const PROMOS: Promo[] = [
     ],
     imgStem: A("/v/homepage/images/airpods-5/a/promo_airpods_5_preorder__lydvte0llb6i"),
     tileLink: "/airpods-5/",
+    dark: true,
+  },
+  {
+    title: "Apple Upgrade",
+    sub: "Love it. Lease it. Upgrade it.",
+    sup: 2,
+    cta: [
+      {
+        label: "Learn more",
+        href: "/us/shop/goto/apple_upgrade",
+        ariaLabel: "Learn more, Apple Upgrade",
+      },
+    ],
+    imgStem: A("/v/homepage/images/apple-upgrade/a/promo_apple_upgrade__jvn6udm4tx2e"),
+    startStem: A("/v/homepage/images/apple-upgrade/a/promo_apple_upgrade_startframe__e9bf3nb054ae"),
+    logoStem: A("/v/homepage/images/logos/apple-upgrade/a/promo_logo_apple_upgrade__lwuohffdzjem"),
+    videoBase:
+      "/apple/105/media/us/home/2026/abb2ec52-6e62-4771-84e4-d1e689324d6d/anim/promo",
+    tileLink: "/us/shop/goto/apple_upgrade",
+  },
+  {
+    title: "Incredible carrier deals at Apple",
+    sub: "Explore deals that accept eligible trade-in devices in any condition.",
+    sup: 3,
+    cta: [
+      {
+        label: "Find your deal",
+        href: "/us/shop/goto/buy_iphone/carrier_offers",
+        ariaLabel: "Find your deal, Carriers",
+      },
+    ],
+    imgStem: A("/v/homepage/images/carriers/a/promo_carriers__bkbchi56n5qq"),
+    tileLink: "/us/shop/goto/buy_iphone/carrier_offers",
   },
   {
     title: "MacBook Air",

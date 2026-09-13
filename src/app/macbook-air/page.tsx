@@ -1,5 +1,4 @@
 import { ProductSubnav, FeatureBlocks } from "@/components/Product";
-import ApplePicture from "@/components/ApplePicture";
 import Link from "next/link";
 import { A } from "@/lib/site";
 

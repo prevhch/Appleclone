@@ -1,9 +1,10 @@
 import Link from "next/link";
 import ApplePicture from "@/components/ApplePicture";
 import HeroScrub from "@/components/HeroScrub";
+import PromoVideo from "@/components/PromoVideo";
 import Reveal from "@/components/Reveal";
 import Entertainment from "@/components/Entertainment";
-import { HERO_18PRO, HERO_DUO, HERO_UPGRADE, PROMOS, type Promo } from "@/lib/site";
+import { HERO_18PRO, HERO_DUO, WATCH12, PROMOS, type Promo } from "@/lib/site";
 
 function Ctas({ links, dark = false }: { links: Promo["cta"]; dark?: boolean }) {
   return (
@@ -83,20 +84,56 @@ export default function Home() {
         />
       </section>
 
-      {/* Hero 3: Apple Upgrade — LIGHT theme with logo headline */}
-      <HeroScrub
-        title="Apple Upgrade"
-        sub="Love it. Lease it. Upgrade it."
-        sup={1}
-        theme="light"
-        logoStem={HERO_UPGRADE.logoStem}
-        tileLink={HERO_UPGRADE.tileLink}
-        links={[{ label: "Learn more", href: "/us/shop/goto/apple_upgrade", ariaLabel: "Learn more, Apple Upgrade" }]}
-        startStem={HERO_UPGRADE.startStem}
-        endStem={HERO_UPGRADE.endStem}
-        videoBase={HERO_UPGRADE.videoBase}
-        videoLabel="Apple Upgrade, iPhone silhouette fans out into spectrum of colors"
-      />
+      {/* Hero 3: Apple Watch Series 12 — full-width SPLIT tile (dark, static image) */}
+      <section className="hero-band relative flex flex-col items-center overflow-hidden bg-black text-center">
+        <a href={WATCH12.tileLink} aria-hidden="true" tabIndex={-1} className="tile-link">
+          <span className="visuallyhidden">Apple Watch Series 12</span>
+        </a>
+        <div className="hero-copy z-20 flex w-full flex-1 flex-col items-center px-4 pt-11 md:pt-14 pointer-events-none">
+          <h2 className="flex justify-center">
+            <ApplePicture
+              stem={WATCH12.logoStem}
+              ext="png"
+              className="h-[44px] md:h-[66px] [&>img]:h-[44px] [&>img]:md:h-[66px] [&>img]:w-auto [&>img]:object-contain"
+              ariaHidden
+            />
+            <span className="visuallyhidden">Apple Watch Series 12</span>
+          </h2>
+          <div className="mt-auto flex flex-col items-center pb-[63px]">
+            <p className="hero-sub !mb-0 text-[#f5f5f7]">
+              The most accurate heart rate sensing in a wearable.
+              <Sup n={1} dark />
+            </p>
+            <p className="hero-avail !text-[#86868b]" style={{ marginTop: 9 }}>
+              Available starting 9.18
+            </p>
+            <div
+              className="pointer-events-auto grid grid-flow-col gap-[17px] theme-dark"
+              style={{ marginTop: 15 }}
+            >
+              <Link className="btn" href="/apple-watch-series-12/" aria-label="Learn more, Apple Watch Series 12">
+                Learn more
+              </Link>
+              <Link
+                className="btn btn-secondary"
+                href="/us/shop/goto/buy_watch/apple_watch_series_12"
+                aria-label="Pre-order, Apple Watch Series 12"
+              >
+                Pre-order
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="hero-media absolute inset-0 z-10">
+          <ApplePicture
+            stem={WATCH12.imgStem}
+            alt="Apple Watch Series 12"
+            eager
+            className="absolute inset-0 h-full w-full"
+            imgClassName="hero-img"
+          />
+        </div>
+      </section>
 
       {/* Promo tiles — pill buttons like Apple promo tiles */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-white max-w-[2560px] mx-auto">
@@ -131,12 +168,22 @@ export default function Home() {
                   <Ctas links={p.cta} dark={p.dark} />
                 </div>
               </div>
-              <ApplePicture
-                stem={p.imgStem}
-                alt={p.title}
-                className="promo-media"
-                imgClassName="promo-img mt-4 transition-transform duration-700 hover:scale-[1.02]"
-              />
+              {p.videoBase && p.startStem ? (
+                <PromoVideo
+                  startStem={p.startStem}
+                  videoBase={p.videoBase}
+                  imgClassName="promo-img mt-4 transition-transform duration-700 hover:scale-[1.02]"
+                  ariaHidden
+                />
+              ) : (
+                <ApplePicture
+                  stem={p.imgStem}
+                  alt={p.title}
+                  className="promo-media"
+                  imgClassName="promo-img mt-4 transition-transform duration-700 hover:scale-[1.02]"
+                  ariaHidden
+                />
+              )}
             </div>
           </Reveal>
         ))}

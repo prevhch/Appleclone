@@ -6,7 +6,7 @@
   --apple-blue: #0071e3;
   --apple-link-dark: #2997ff;
   --apple-gray: #86868b;
-  --hero-h: 580px;
+  --hero-h: 580px; 
   --promo-h: 580px;
 }
 @media (max-width: 1068px) {
@@ -330,13 +330,17 @@ body {
   min-height: 0;
   width: 100%;
 }
-.promo-tile img.promo-img {
+.promo-tile img.promo-img,
+.promo-tile video.promo-img {
   width: 100%;
   height: 100%;
   flex: 1;
   min-height: 0;
   object-fit: cover;
   object-position: center bottom;
+}
+.promo-tile video.promo-img {
+  z-index: 1;
 }
 
 /* Carousel */

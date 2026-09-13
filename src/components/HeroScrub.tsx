@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useSyncExternalStore, useState, useCallback } from "react";
+import { useEffect, useRef, useSyncExternalStore, useState } from "react";
 import ApplePicture from "@/components/ApplePicture";
 
 const MQ = {

@@ -1,5 +1,6 @@
 import { ProductSubnav, ProductGrid, FeatureBlocks } from "@/components/Product";
 import { A } from "@/lib/site";
+import Link from "next/link";
 
 export const metadata = { title: "AirPods" };
 
@@ -22,8 +23,8 @@ export default function AirPodsPage() {
           <h1 className="hero-title text-4xl md:text-6xl">AirPods</h1>
           <p className="mt-3 text-xl md:text-2xl opacity-80">Discover the magic of Active Noise Cancellation.</p>
           <div className="mt-4 flex gap-5 justify-center text-[17px]">
-            <a href="/airpods-5" className="hero-link">Learn more <span aria-hidden="true" className="chev">›</span></a>
-            <a href="/us/shop/goto/store" className="hero-link">Buy <span aria-hidden="true" className="chev">›</span></a>
+            <Link href="/airpods-5" className="hero-link">Learn more <span aria-hidden="true" className="chev">›</span></Link>
+            <Link href="/us/shop/goto/store" className="hero-link">Buy <span aria-hidden="true" className="chev">›</span></Link>
           </div>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
