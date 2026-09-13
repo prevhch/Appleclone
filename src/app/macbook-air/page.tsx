@@ -29,9 +29,10 @@ export default function MacBookAirPage() {
           <h1 style={{ fontSize: "28px", lineHeight: "32px", fontWeight: 600, color: "#1d1d1f" }}>MacBook Air</h1>
           <p style={{ fontSize: "64px", lineHeight: "70px", fontWeight: 600, marginTop: "8px", background: "linear-gradient(90deg, #022640, #5786ab)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Might takes flight.</p>
           <p style={{ fontSize: "17px", lineHeight: "21px", marginTop: "7px", color: "#bf4800" }}><strong>Now supercharged by M5.</strong></p>
+          <p style={{ fontSize: "17px", lineHeight: "21px", marginTop: "10px", fontWeight: 600, color: "#1d1d1f" }}>From $999, or $83.25/mo. for 12 mo.</p>
           <div className="mt-3 flex gap-5 justify-center text-[17px]">
-            <Link href="/us/shop/goto/store" className="link-blue">Buy <span aria-hidden="true" className="chev">›</span></Link>
-            <Link href="/macbook-air" className="link-blue">Learn more <span aria-hidden="true" className="chev">›</span></Link>
+            <Link href="/us/shop/goto/buy_mac/macbook_air" className="link-blue">Buy <span aria-hidden="true" className="chev">›</span></Link>
+            <Link href="/us/shop/goto/store" className="link-blue">Get the highlights <span aria-hidden="true" className="chev">›</span></Link>
           </div>
         </div>
       </section>
@@ -83,6 +84,15 @@ export default function MacBookAirPage() {
           </div>
         </div>
         <p className="mt-6 text-center text-[15px] text-[#6e6e73]">The M5 chip brings even more speed and fluidity to everything you do, like seamless switching between loads of apps and tabs, editing 4K video, or playing immersive games. All with a silent, fanless design.</p>
+      </section>
+      <section className="mx-auto max-w-[1024px] px-4 py-12">
+        <h2 className="text-[28px] font-semibold text-center mb-4">AI</h2>
+        <p className="text-center text-lg text-[#6e6e73] mb-8">Built for AI. From the silicon up.</p>
+        <p className="mx-auto max-w-[640px] text-center text-[15px] text-[#6e6e73]">
+          Run your favorite AI tools — from ChatGPT and LM Studio to Topaz Photo AI — at impressive speeds.
+          Apple Intelligence is built right in, with on-device processing and Private Cloud Compute, so your data
+          stays private. AI tools, apps, and features work across your Mac, iPhone, and iPad with continuity built in.
+        </p>
       </section>
       <section className="mx-auto max-w-[1024px] px-4 py-12">
         <h2 className="text-[28px] font-semibold text-center mb-4">Display</h2>
