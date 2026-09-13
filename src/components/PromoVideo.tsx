@@ -97,32 +97,44 @@ export default function PromoVideo({
 
   return (
     <div ref={wrapRef} className="promo-media" aria-hidden={ariaHidden || undefined}>
+      <video
+        ref={videoRef}
+        muted
+        loop
+        playsInline
+        preload="auto"
+        disablePictureInPicture
+        src={src}
+        poster={poster}
+        className={imgClassName}
+        style={{
+          position: "absolute",
+          inset: 0,
+          objectFit: "cover",
+          objectPosition: "center bottom",
+          opacity: playing && !reduced ? 1 : 0,
+          transition: "opacity 0.5s ease",
+        }}
+        onPlay={() => setPlaying(true)}
+        onWaiting={() => setPlaying(false)}
+        onError={() => setPlaying(false)}
+      />
       <img
         src={`${startStem}_${posterSize}.jpg`}
         alt=""
         loading="lazy"
-        className={`${imgClassName} transition-opacity duration-500 ${
-          playing ? "opacity-0" : "opacity-100"
-        }`}
+        className={`${imgClassName} transition-opacity duration-500`}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center bottom",
+          opacity: playing && !reduced ? 0 : 1,
+        }}
         draggable={false}
       />
-      {!reduced && (
-        <video
-          ref={videoRef}
-          muted
-          loop
-          playsInline
-          preload="auto"
-          disablePictureInPicture
-          src={src}
-          poster={poster}
-          className={imgClassName}
-          style={{ position: "absolute", inset: 0, display: playing ? "block" : "none" }}
-          onPlay={() => setPlaying(true)}
-          onWaiting={() => setPlaying(false)}
-          onError={() => setPlaying(false)}
-        />
-      )}
     </div>
   );
 }
