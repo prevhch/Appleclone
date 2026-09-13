@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import { NAV } from "@/lib/site";
 
 function AppleMark() {
@@ -24,9 +23,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-  const textColor = isHome && !scrolled ? "rgba(255,255,255,.8)" : "rgba(0,0,0,.8)";
+  const textColor = "rgba(0,0,0,.8)";
 
   return (
     <>
@@ -86,7 +83,7 @@ export default function Navbar() {
                     alignItems: "center",
                     padding: "0 8px",
                   }}
-                  className="hover:!text-white transition-colors"
+                  className="transition-opacity hover:opacity-80"
                 >
                   {n.label}
                 </Link>
