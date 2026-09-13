@@ -1,0 +1,372 @@
+@import "tailwindcss";
+
+:root {
+  --apple-bg: #f5f5f7;
+  --apple-text: #1d1d1f;
+  --apple-blue: #0071e3;
+  --apple-link-dark: #2997ff;
+  --apple-gray: #86868b;
+  --hero-h: 580px;
+  --promo-h: 580px;
+}
+@media (max-width: 1068px) {
+  :root {
+    --hero-h: 570px;
+    --promo-h: 500px;
+  }
+}
+@media (max-width: 734px) {
+  :root {
+    --hero-h: 500px;
+    --promo-h: 500px;
+  }
+}
+@media (min-width: 1069px) and (min-height: 776px) {
+  :root {
+    --hero-h: 692px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: var(--apple-text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.apple-nav-blur {
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(245, 245, 247, 0.8);
+}
+
+.apple-nav-light {
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(251, 251, 253, 0.8);
+}
+
+/* ---- Apple link styling ----
+   Light surfaces: #0071e3. Dark surfaces: #2997ff.
+   Never underlined by default; underline on hover only.
+   Chevron "›" spaced from label, matching apple.com CTAs. */
+.link-blue {
+  color: var(--apple-blue);
+  text-decoration: none;
+}
+.link-blue:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.hero-link {
+  color: var(--apple-link-dark);
+  text-decoration: none;
+}
+.hero-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.chev {
+  font-size: 1.05em;
+  line-height: 1;
+  margin-left: 2px;
+}
+
+.visuallyhidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(0 0 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
+/* ---- Apple pill buttons (from homepage.built.css .button) ----
+   Primary: filled #0071e3, white text. Secondary: transparent with
+   1px outline (#0066cc light / #2997ff dark), fills on hover.
+   Heroes use 17px sizing (.section-hero .button); promos use 14px. */
+.btn {
+  display: inline-block;
+  border-radius: 980px;
+  border: 1px solid transparent;
+  background: #0071e3;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.1765;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  padding: 11px 21px;
+  min-width: 28px;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #0076df;
+  color: #fff;
+  text-decoration: none;
+}
+.btn-secondary {
+  background: transparent;
+  color: #06c;
+  border-color: #06c;
+}
+.btn-secondary:hover {
+  background: #0076df;
+  border-color: transparent;
+  color: #fff;
+}
+.theme-dark .btn-secondary {
+  color: #2997ff;
+  border-color: #2997ff;
+}
+/* Promo tiles use the base 14px button */
+.promo-tile .btn {
+  font-size: 14px;
+  line-height: 1.2857;
+  letter-spacing: -0.016em;
+  padding: 8px 15px;
+}
+.tile-ctas {
+  display: grid;
+  justify-content: center;
+  grid-auto-flow: column;
+  column-gap: 17px;
+  margin-top: 17px;
+  z-index: 3;
+}
+.tile-headline {
+  margin: 0 auto;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: 0em;
+}
+.tile-subhead {
+  margin-top: 6px;
+  font-size: 21px;
+  line-height: 1.1904761905;
+  font-weight: 400;
+  letter-spacing: 0.011em;
+}
+
+/* ---- Hero band (matches Apple --hero-content-height) ---- */
+.hero-band {
+  height: var(--hero-h);
+  max-height: 92svh;
+  min-height: 480px;
+  max-width: 2560px;
+  margin: 0 auto;
+}
+.hero-media {
+  position: absolute;
+  inset: 0;
+}
+/* Ultra-wide Apple assets: fill band, anchored like Apple (50% 30%) */
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  display: block;
+  background: #000;
+}
+.hero-copy {
+  position: relative;
+}
+.hero-title {
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.05;
+  font-size: clamp(32px, 4.5vw, 56px);
+}
+.hero-sub {
+  margin-top: 6px;
+  font-size: clamp(17px, 2vw, 28px);
+  line-height: 1.2;
+  font-weight: 400;
+}
+.hero-avail {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #a1a1a6;
+}
+.hero-cta {
+  margin-top: 10px;
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  font-size: 17px;
+}
+.hero-link .chev {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+/* ---- Tile whole-link overlay + footnote sups (Apple tile-link) ---- */
+.tile-link {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+}
+.footnote-number {
+  font-size: 0.6em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 2px;
+}
+.footnote-number a {
+  color: inherit;
+  text-decoration: none;
+}
+.footnote-number a:hover {
+  text-decoration: underline;
+}
+
+/* ---- White pill buttons (Apple .button-neutral on galleries) ---- */
+.btn-neutral {
+  background: #fff;
+  color: #1d1d1f;
+  border-color: transparent;
+}
+.btn-neutral:hover {
+  background: #fff;
+  color: #1d1d1f;
+  text-decoration: none;
+  opacity: 0.92;
+}
+.btn-sm {
+  font-size: 14px;
+  line-height: 1.2857;
+  letter-spacing: -0.016em;
+  padding: 8px 15px;
+}
+
+/* ---- Entertainment galleries (Apple endless-entertainment) ---- */
+.media-gallery-headline {
+  font-size: 56px;
+  line-height: 1.07;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: #000;
+}
+@media (max-width: 734px) {
+  .media-gallery-headline {
+    font-size: 32px;
+    line-height: 1.125;
+    letter-spacing: 0.004em;
+  }
+}
+.tv-card {
+  width: min(1250px, 88vw);
+  aspect-ratio: 1250 / 668;
+  flex-basis: min(1250px, 88vw);
+}
+.tv-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 734px) {
+  .tv-card {
+    width: min(274px, 72vw);
+    aspect-ratio: 274 / 496;
+    flex-basis: min(274px, 72vw);
+  }
+}
+.fam-wide {
+  width: min(470px, 78vw);
+  aspect-ratio: 470 / 264;
+  flex-basis: min(470px, 78vw);
+}
+.fam-square {
+  width: min(264px, 44vw);
+  aspect-ratio: 1 / 1;
+  flex-basis: min(264px, 44vw);
+}
+.media-longnote {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.35;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+.media-genre {
+  font-weight: 700;
+  display: block;
+}
+
+/* Static hero band (Duo — no video on apple.com) */
+.hero-static {
+  height: var(--hero-h);
+  max-width: 2560px;
+  margin: 0 auto;
+}
+
+/* ---- Promo tiles (matches Apple --promo-content-height) ---- */
+.promo-tile {
+  min-height: var(--promo-h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 53px 0 60px;
+  position: relative;
+}
+.promo-media {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+.promo-tile img.promo-img {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* Carousel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Fade-up reveal (mirrors Apple scroll animation) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
