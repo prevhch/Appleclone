@@ -19,7 +19,6 @@ export default function IPhone18Pro() {
         endStem={HERO_18PRO.endStem}
         tall
         videoBase={HERO_18PRO.videoBase}
-        videoLabel="iPhone 18 Pro rotating Burgundy Glacier Black"
       />
       <section className="mx-auto max-w-[800px] px-4 py-16 text-center">
         <Reveal>

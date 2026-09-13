@@ -375,3 +375,29 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* ===== Apple inline-media layout overrides =====
+ * Non-published source: apple.com inline-media.built.css is loaded verbatim via
+ * <link> in layout.tsx. These overrides adapt its centering rule (translate(-50%))
+ * to our wrappers, which are already sized to the band, and pin the frame crop to
+ * Apple's object-position. Classnames match Apple's markup exactly.
+ */
+[data-component-list~=InlineMedia] .inline-media-wrapper {
+  inset: 0;
+}
+[data-component-list~=InlineMedia] .inline-media-wrapper video,
+[data-component-list~=InlineMedia] .inline-media-wrapper .start-frame img {
+  left: 0;
+  transform: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+[data-component-list~=InlineMedia] .inline-media-wrapper .start-frame {
+  width: 100%;
+  height: 100%;
+}
+[data-component-list~=InlineMedia] .inline-media-wrapper .start-frame img {
+  display: block;
+}

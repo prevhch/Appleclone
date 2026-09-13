@@ -51,7 +51,6 @@ export default function Home() {
         startStem={HERO_18PRO.startStem}
         endStem={HERO_18PRO.endStem}
         videoBase={HERO_18PRO.videoBase}
-        videoLabel="iPhone 18 Pro rear exterior rotating, cycling Black, Glacier, Burgundy against PRO"
       />
 
       {/* Hero 2: iPhone Duo — light static band (no video on apple.com) */}
@@ -171,9 +170,8 @@ export default function Home() {
               {p.videoBase && p.startStem ? (
                 <PromoVideo
                   startStem={p.startStem}
+                  endStem={p.imgStem}
                   videoBase={p.videoBase}
-                  imgClassName="promo-img mt-4 transition-transform duration-700 hover:scale-[1.02]"
-                  ariaHidden
                 />
               ) : (
                 <ApplePicture
