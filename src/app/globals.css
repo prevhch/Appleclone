@@ -401,3 +401,12 @@ body {
 [data-component-list~=InlineMedia] .inline-media-wrapper .start-frame img {
   display: block;
 }
+[data-component-list~=InlineMedia] .inline-media-wrapper .end-frame {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+[data-component-list~=InlineMedia] .inline-media-wrapper.loaded.ended .end-frame {
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import ApplePicture from "@/components/ApplePicture";
 
 const MQ = {
@@ -17,7 +17,7 @@ function pickSrc(base: string, tall: boolean) {
   if (q(MQ.large)) size = tall && q(MQ.tallL) ? "largetall" : "large";
   else if (q(MQ.small)) size = "small";
   else size = tall && q(MQ.tallM) ? "mediumtall" : "medium";
-  return `${base}/${size}${retina ? "_2x" : ""}.mp4`;
+  return `${base.replace(/\/+$/, "")}/${size}${retina ? "_2x" : ""}.mp4`;
 }
 
 type Mode = "loading" | "ready" | "playing" | "ended";
@@ -59,13 +59,9 @@ export default function InlineMedia({
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mode, setMode] = useState<Mode>("loading");
-  const modeRef = useRef<Mode>("loading");
   const userPausedRef = useRef(false);
   const frozenRef = useRef(false);
-
-  useEffect(() => {
-    modeRef.current = mode;
-  }, [mode]);
+  const stallRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [reduced, setReduced] = useState(
     () =>
@@ -74,6 +70,46 @@ export default function InlineMedia({
   );
 
   const [src, setSrc] = useState<string | null>(null);
+
+  // Shared by the initial element and watchdog-swapped replacements so every
+  // <video> carries the full state-event wiring (ready/play/pause/ended).
+  const bindVideo = useCallback((v: HTMLVideoElement) => {
+    const clearStall = () => {
+      if (stallRef.current) {
+        clearTimeout(stallRef.current);
+        stallRef.current = null;
+      }
+    };
+    const onReady = () => {
+      clearStall();
+      try {
+        v.currentTime = 0;
+      } catch {}
+      setMode("ready");
+    };
+    const onCanplay = () => {
+      clearStall();
+      v.muted = true;
+      v.play().catch(() => {});
+    };
+    const onPlay = () => setMode("playing");
+    const onPause = () => setMode(v.ended ? "ended" : "ready");
+    const onEnded = () => {
+      if (loop) {
+        try {
+          v.currentTime = 0;
+        } catch {}
+        v.play().catch(() => {});
+      } else {
+        setMode("ended");
+      }
+    };
+    v.addEventListener("loadeddata", onReady);
+    v.addEventListener("canplay", onCanplay);
+    v.addEventListener("play", onPlay);
+    v.addEventListener("pause", onPause);
+    v.addEventListener("ended", onEnded);
+  }, [loop]);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -84,23 +120,25 @@ export default function InlineMedia({
 
   useEffect(() => {
     const wrap = wrapRef.current;
-    const v = videoRef.current;
-    if (!wrap || !v) return;
+    if (!wrap) return;
     if (reduced) return; // static endframe rendered instead
 
-    v.muted = true;
-    v.defaultMuted = true;
-    const want = pickSrc(videoBase, tall);
+    const cur = videoRef.current;
+    if (!cur) return;
+    cur.muted = true;
+    cur.defaultMuted = true;
 
     const ensureSrc = () => {
       if (!frozenRef.current) {
         frozenRef.current = true;
-        setSrc(want);
+        setSrc(pickSrc(videoBase, tall));
       }
     };
     const tryPlay = () => {
       if (userPausedRef.current) return;
       ensureSrc();
+      const v = videoRef.current;
+      if (!v) return;
       if (v.readyState >= 2) {
         v.muted = true;
         v.play().catch(() => {});
@@ -115,39 +153,13 @@ export default function InlineMedia({
         );
       }
     };
-    const onReady = () => {
-      ensureSrc();
-      try {
-        v.currentTime = 0;
-      } catch {}
-      setMode("ready");
-    };
-    const onPlay = () => setMode("playing");
-    const onPause = () => setMode(modeRef.current === "ended" ? "ended" : "ready");
-    const onEnded = () => {
-      if (loop) {
-        try {
-          v.currentTime = 0;
-        } catch {}
-        v.play().catch(() => {});
-      } else {
-        setMode("ended");
-      }
-    };
 
-    v.addEventListener("loadeddata", onReady);
-    v.addEventListener("canplay", onReady);
-    v.addEventListener("play", onPlay);
-    v.addEventListener("pause", onPause);
-    v.addEventListener("ended", onEnded);
+    bindVideo(cur);
 
     const io = new IntersectionObserver(
       (entries) => {
-        const inter = entries[0]?.isIntersecting ?? false;
-        if (inter) {
+        if (entries[0]?.isIntersecting) {
           tryPlay();
-        } else if (loop) {
-          v.pause();
         }
       },
       { threshold: loop ? 0.4 : 0.3 }
@@ -155,22 +167,47 @@ export default function InlineMedia({
     io.observe(wrap);
 
     return () => {
-      v.removeEventListener("loadeddata", onReady);
-      v.removeEventListener("canplay", onReady);
-      v.removeEventListener("play", onPlay);
-      v.removeEventListener("pause", onPause);
-      v.removeEventListener("ended", onEnded);
+      if (stallRef.current) clearTimeout(stallRef.current);
       io.disconnect();
     };
-  }, [reduced, videoBase, tall, loop]);
+  }, [reduced, videoBase, tall, loop, bindVideo]);
 
+  // Assign the picked source when it's known. A stall watchdog swaps in a fresh
+  // <video> if the element never reaches `canplay`: some software-decode
+  // environments leave a hydration-time element wedged at readyState 1.
   useEffect(() => {
     const v = videoRef.current;
-    if (v && src && v.getAttribute("src") !== src) {
-      v.setAttribute("src", src);
-      v.load();
-    }
-  }, [src]);
+    if (!v || !src || v.getAttribute("src") === src) return;
+    v.setAttribute("src", src);
+    try {
+      v.currentTime = 0;
+    } catch {}
+    v.load();
+    if (stallRef.current) clearTimeout(stallRef.current);
+    stallRef.current = setTimeout(() => {
+      if (stallRef.current) clearTimeout(stallRef.current);
+      const cur = videoRef.current;
+      if (!cur || cur.getAttribute("src") !== src || cur.readyState >= 2) return;
+      const fresh = document.createElement("video");
+      fresh.muted = true;
+      fresh.defaultMuted = true;
+      fresh.setAttribute("data-inline-media-basepath", cur.getAttribute("data-inline-media-basepath") ?? "");
+      fresh.playsInline = true;
+      fresh.loop = loop;
+      fresh.preload = "auto";
+      fresh.setAttribute("disablePictureInPicture", "");
+      fresh.setAttribute("aria-hidden", "true");
+      fresh.tabIndex = -1;
+      fresh.setAttribute("src", src);
+      cur.replaceWith(fresh);
+      videoRef.current = fresh;
+      bindVideo(fresh);
+      fresh.load();
+    }, 4500);
+    return () => {
+      if (stallRef.current) clearTimeout(stallRef.current);
+    };
+  }, [src, loop, bindVideo]);
 
   // Reduced motion: pause at the final frame (maxframe image).
   if (reduced) {
@@ -220,7 +257,7 @@ export default function InlineMedia({
           aria-hidden="true"
         tabIndex={-1}
       />
-      <picture className="static">
+      <picture className="end-frame">
         <ApplePicture
           stem={endStem}
           alt=""

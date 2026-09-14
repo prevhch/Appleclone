@@ -1,10 +1,22 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
-export function ProductSubnav({ items, title }: { title: string; items: { label: string; href: string; tag?: string }[] }) {
+export function ProductSubnav({
+  items,
+  title,
+  dark = false,
+}: {
+  title: string;
+  items: { label: string; href: string; tag?: string }[];
+  dark?: boolean;
+}) {
   return (
-    <div className="sticky top-11 z-40 bg-white/80 apple-nav-light border-b border-black/10">
-      <div className="mx-auto max-w-[1024px] px-4 py-2 flex items-center justify-between">
+    <div
+      className={`sticky top-11 z-40 ${
+        dark ? "bg-black/70 backdrop-blur-md border-b border-white/15" : "bg-white/80 apple-nav-light border-b border-black/10"
+      }`}
+    >
+      <div className={`mx-auto max-w-[1024px] px-4 py-2 flex items-center justify-between ${dark ? "text-white" : ""}`}>
         <span className="font-semibold text-[17px] mr-6">{title}</span>
         <ul className="flex gap-4 overflow-x-auto no-scrollbar text-[12px]">
           {items.map((i) => (
