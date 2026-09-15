@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { BagProvider } from "@/lib/store/bag-context";
 
 export const metadata: Metadata = {
   title: {
@@ -22,9 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* eslint-enable @next/next/no-css-tags */}
       </head>
       <body className="min-h-full flex flex-col bg-white text-[#1d1d1f]">
-        <Navbar />
-        <div className="flex-1">{children}</div>
-        <Footer />
+        <BagProvider>
+          <Navbar />
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </BagProvider>
       </body>
     </html>
   );
