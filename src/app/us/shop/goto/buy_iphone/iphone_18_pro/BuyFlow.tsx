@@ -64,8 +64,56 @@ const MODELS = [
 ];
 
 const STORAGE = ["256GB", "512GB", "1TB", "2TB"];
-
 const CARRIERS = ["AT&T", "T-Mobile", "Verizon", "Connect to any carrier later"];
+
+function OptLabel({
+  id,
+  name,
+  checked,
+  defaultChecked,
+  onChange,
+  title,
+  sub,
+  prices,
+}: {
+  id: string;
+  name: string;
+  checked?: boolean;
+  defaultChecked?: boolean;
+  onChange?: () => void;
+  title: string;
+  sub?: string;
+  prices?: string[];
+}) {
+  return (
+    <div className="rc-dimension-selector-row form-selector">
+      <input
+        className="form-selector-input"
+        id={id}
+        type="radio"
+        name={name}
+        checked={checked}
+        defaultChecked={defaultChecked}
+        onChange={onChange}
+      />
+      <label className="form-selector-label" htmlFor={id}>
+        <span className="row">
+          <span className="column form-selector-left-col rf-bfe-selector-left-col">
+            <span className="form-selector-title">{title}</span>
+            {sub ? <span className="form-selector-list-header">{sub}</span> : null}
+          </span>
+          {prices ? (
+            <span className="column form-selector-right-col rf-bfe-selector-right-col">
+              {prices.map((pr) => (
+                <span key={pr} className="rf-bfe-config-options-price price-point">{pr}</span>
+              ))}
+            </span>
+          ) : null}
+        </span>
+      </label>
+    </div>
+  );
+}
 
 export default function BuyFlow() {
   const [modelIdx, setModelIdx] = useState(0);
@@ -84,8 +132,57 @@ export default function BuyFlow() {
   const g = FINISH_GALLERY[finish];
 
   return (
-    <>
-      <div className="rf-bfe-container row">
+    <div className="rf-bfe">
+      <div className="rf-bfe-header-wrapper">
+        <div className="rf-bfe-header">
+          <div data-autom="bfe-header">
+            <span className="badge badge-no-scrim">New</span>
+            <h1 className="fwl">Pre-order {model.name}</h1>
+            Already have an iPhone saved? <span className="more">View</span>
+            <br />
+            Available starting 9.18.
+          </div>
+          <div className="rf-bfe-header-price-wrapper">
+            <div className="rf-bfe-header-price" data-autom="headerPrice">
+              <div className="rc-prices rc-prices-default typography-label">
+                <div className="rc-price">
+                  <div className="rc-prices-currentprice typography-label">
+                    <div className="rc-prices-fullprice" data-autom="full-price">
+                      <span className="price-point price-point-fullPrice">
+                        Buy from <span className="nowrap">{price.buy}</span>
+                      </span>{" "}
+                      <span className="price-point price-point-acmiPrice">
+                        or <span className="nowrap">{price.mo}</span> per month for 24 mo.months
+                      </span>
+                    </div>
+                    <div className="rc-prices-leasetext">
+                      <span className="price-point">
+                        Lease from <span className="nowrap">{price.lease}</span> per month for 24 mo.months with Apple Upgrade
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="rf-bfe-header-rightsection">
+          <div className="rf-bfe-header-learnmorelink-items">
+            <div className="rf-bfe-header-learnmorelink rf-bfe-header-tradein-learnmorelink">
+              <span className="rf-bfe-header-plusicon" role="button">
+                Get $35–$885 for your trade-in.
+              </span>
+            </div>
+            <div className="rf-bfe-header-learnmorelink">
+              <span className="rf-bfe-header-plusicon" role="button">
+                See how to pay monthly.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="rf-bfe-main row">
       <div className="rf-bfe-column-left column large-7">
         <section className="rf-bfe-gallery-section">
           <div className="rf-bfe-gallery-wrapper">
@@ -157,19 +254,7 @@ export default function BuyFlow() {
         </section>
       </div>
 
-      <div className="rf-bfe-column-right column large-5">
-        <header className="rf-bfe-header">
-          <div className="rf-bfe-header-wrapper">
-            <span className="rf-bfe-coming-soon-violator">New</span>
-            <h1 className="rf-bfe-header-title">Pre-order {model.name}</h1>
-            <div className="rf-bfe-header-price">
-              <span className="price-point">{buyLine}</span>
-              <span className="price-point">{leaseLine} with Apple Upgrade</span>
-            </div>
-            <div className="rf-bfe-availabilitybanner">Available starting 9.18.</div>
-          </div>
-        </header>
-
+      <div className="rf-bfe-column-right column large-5 rf-bfe-selectionarea">
         <div className="rf-bfe-step rf-bfe-first-step rf-bfe-dimension rf-bfe-dimension-dimensionscreensize">
           <h2 id="dimensionScreensize" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
             <span>Model. </span>
@@ -177,30 +262,19 @@ export default function BuyFlow() {
           </h2>
           <div className="rf-bfe-config-options">
             {MODELS.map((o, i) => (
-              <div key={o.name} className="rc-dimension-selector-row form-selector">
-                <input
-                  className="form-selector-input"
-                  id={`model-${i}`}
-                  type="radio"
-                  name="dimensionScreensize"
-                  checked={i === modelIdx}
-                  onChange={() => setModelIdx(i)}
-                />
-                <label className="form-selector-label" htmlFor={`model-${i}`}>
-                  <span className="row">
-                    <span className="column form-selector-left-col rf-bfe-selector-left-col">
-                      <span className="form-selector-title">{o.name}</span>
-                      <span className="form-selector-list-header">{o.display}</span>
-                      <span className="rf-bfe-config-options-price price-point">
-                        Buy from {o.prices[storageIdx].buy} or {o.prices[storageIdx].mo} per month for 24 mo.months
-                      </span>
-                      <span className="rf-bfe-config-options-price price-point">
-                        Lease from {o.prices[storageIdx].lease} per month for 24 mo.months
-                      </span>
-                    </span>
-                  </span>
-                </label>
-              </div>
+              <OptLabel
+                key={o.name}
+                id={`model-${i}`}
+                name="dimensionScreensize"
+                checked={i === modelIdx}
+                onChange={() => setModelIdx(i)}
+                title={o.name}
+                sub={o.display}
+                prices={[
+                  `Buy from ${o.prices[storageIdx].buy} or ${o.prices[storageIdx].mo} per month for 24 mo.months`,
+                  `Lease from ${o.prices[storageIdx].lease} per month for 24 mo.months`,
+                ]}
+              />
             ))}
           </div>
           <div className="rf-bfe-dimension-footer">
@@ -216,6 +290,7 @@ export default function BuyFlow() {
                 <span className="as-subheading">Pick your favorite.</span>
               </h2>
             </legend>
+            <div className="rf-bfe-product-dimension-colornav-header">Color</div>
             <ul className="colornav-items">
               {FINISHES.map((f) => (
                 <li key={f} className="colornav-item">
@@ -258,29 +333,18 @@ export default function BuyFlow() {
           </h2>
           <div className="rf-bfe-config-options">
             {STORAGE.map((size, i) => (
-              <div key={size} className="rc-dimension-selector-row form-selector">
-                <input
-                  className="form-selector-input"
-                  id={`storage-${i}`}
-                  type="radio"
-                  name="dimensionCapacity"
-                  checked={i === storageIdx}
-                  onChange={() => setStorageIdx(i)}
-                />
-                <label className="form-selector-label" htmlFor={`storage-${i}`}>
-                  <span className="row">
-                    <span className="column form-selector-left-col rf-bfe-selector-left-col">
-                      <span className="form-selector-title">{size}</span>
-                      <span className="rf-bfe-config-options-price price-point">
-                        Buy from {model.prices[i].buy} or {model.prices[i].mo} per month for 24 mo.months
-                      </span>
-                      <span className="rf-bfe-config-options-price price-point">
-                        Lease from {model.prices[i].lease} per month for 24 mo.months
-                      </span>
-                    </span>
-                  </span>
-                </label>
-              </div>
+              <OptLabel
+                key={size}
+                id={`storage-${i}`}
+                name="dimensionCapacity"
+                checked={i === storageIdx}
+                onChange={() => setStorageIdx(i)}
+                title={size}
+                prices={[
+                  `Buy from ${model.prices[i].buy} or ${model.prices[i].mo} per month for 24 mo.months`,
+                  `Lease from ${model.prices[i].lease} per month for 24 mo.months`,
+                ]}
+              />
             ))}
           </div>
           <div className="rf-bfe-dimension-footer">
@@ -298,23 +362,14 @@ export default function BuyFlow() {
           </h2>
           <div className="rf-bfe-dimension-carriermodel-options">
             {CARRIERS.map((c, i) => (
-              <div key={c} className="rc-dimension-selector-row form-selector">
-                <input
-                  className="form-selector-input"
-                  id={`carrier-${i}`}
-                  type="radio"
-                  name="dimensionCarrierModel"
-                  defaultChecked={i === 0}
-                />
-                <label className="form-selector-label" htmlFor={`carrier-${i}`}>
-                  <span className="row">
-                    <span className="column form-selector-left-col rf-bfe-selector-left-col">
-                      <span className="form-selector-title">{c}</span>
-                      <span className="typography-body-reduced rf-bfe-dimension-carriermodel-optionprice">5G included</span>
-                    </span>
-                  </span>
-                </label>
-              </div>
+              <OptLabel
+                key={c}
+                id={`carrier-${i}`}
+                name="dimensionCarrierModel"
+                defaultChecked={i === 0}
+                title={c}
+                sub="5G included"
+              />
             ))}
           </div>
           <div className="rf-bfe-dimension-footer">
@@ -327,27 +382,8 @@ export default function BuyFlow() {
             <span>Apple Trade In. Get $35–$885 credit towards your new iPhone.</span>
           </h2>
           <div className="rf-bfe-config-options">
-            <div className="rc-dimension-selector-row form-selector">
-              <input className="form-selector-input" id="tradein-add" type="radio" name="tradein" defaultChecked />
-              <label className="form-selector-label" htmlFor="tradein-add">
-                <span className="row">
-                  <span className="column form-selector-left-col rf-bfe-selector-left-col">
-                    <span className="form-selector-title">Add a trade-in</span>
-                    <span className="form-selector-list-header">Answer a few questions to get your estimate.</span>
-                  </span>
-                </span>
-              </label>
-            </div>
-            <div className="rc-dimension-selector-row form-selector">
-              <input className="form-selector-input" id="tradein-no" type="radio" name="tradein" />
-              <label className="form-selector-label" htmlFor="tradein-no">
-                <span className="row">
-                  <span className="column form-selector-left-col rf-bfe-selector-left-col">
-                    <span className="form-selector-title">No trade-in</span>
-                  </span>
-                </span>
-              </label>
-            </div>
+            <OptLabel id="tradein-add" name="tradein" defaultChecked title="Add a trade-in" sub="Answer a few questions to get your estimate." />
+            <OptLabel id="tradein-no" name="tradein" title="No trade-in" />
             <span className="as-price-tradeinmsg">
               Save even more when you trade in and finance with select carrier deals at Apple.
             </span>
@@ -365,23 +401,9 @@ export default function BuyFlow() {
             <span className="as-subheading">Select the one that works for you.</span>
           </h2>
           <div className="rf-bfe-config-options">
-            {[
-              { t: "Buy", d: "Pay with Apple Pay or other payment methods." },
-              { t: "Finance", d: "Pay over time at 0% APR." },
-              { t: "Lease with Apple Upgrade", d: "Pay monthly with Klarna. Easily upgrade at the end of your term." },
-            ].map((o, i) => (
-              <div key={o.t} className="rc-dimension-selector-row form-selector">
-                <input className="form-selector-input" id={`pay-${i}`} type="radio" name="payment" defaultChecked={i === 0} />
-                <label className="form-selector-label" htmlFor={`pay-${i}`}>
-                  <span className="row">
-                    <span className="column form-selector-left-col rf-bfe-selector-left-col">
-                      <span className="form-selector-title">{o.t}</span>
-                      <span className="form-selector-list-header">{o.d}</span>
-                    </span>
-                  </span>
-                </label>
-              </div>
-            ))}
+            <OptLabel id="pay-0" name="payment" defaultChecked title="Buy" sub="Pay with Apple Pay or other payment methods." />
+            <OptLabel id="pay-1" name="payment" title="Finance" sub="Pay over time at 0% APR." />
+            <OptLabel id="pay-2" name="payment" title="Lease with Apple Upgrade" sub="Pay monthly with Klarna. Easily upgrade at the end of your term." />
           </div>
         </div>
 
@@ -392,27 +414,13 @@ export default function BuyFlow() {
             </h2>
           </div>
           <div className="rf-bfe-config-options">
-            {[
-              { t: "AppleCare+ with Theft and Loss", d: "Cover this product only. Unlimited repairs for accidents like drops and spills. 24/7 priority support from Apple experts." },
-              { t: "AppleCare One", d: "Cover multiple products, including this iPhone. Theft and loss coverage for iPhone, iPad, and Apple Watch." },
-              { t: "No AppleCare coverage", d: "" },
-            ].map((o, i) => (
-              <div key={o.t} className="rc-dimension-selector-row form-selector">
-                <input className="form-selector-input" id={`care-${i}`} type="radio" name="applecare" defaultChecked={i === 0} />
-                <label className="form-selector-label" htmlFor={`care-${i}`}>
-                  <span className="row">
-                    <span className="column form-selector-left-col rf-bfe-selector-left-col">
-                      <span className="form-selector-title">{o.t}</span>
-                      {o.d ? <span className="form-selector-list-header">{o.d}</span> : null}
-                    </span>
-                  </span>
-                </label>
-              </div>
-            ))}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${MEDIA}/iphone-apple-care-one-vid1-thumbnail`} alt="" aria-hidden="true" />
+            <OptLabel id="care-0" name="applecare" defaultChecked title="AppleCare+ with Theft and Loss" sub="Cover this product only. Unlimited repairs for accidents like drops and spills. 24/7 priority support from Apple experts." />
+            <OptLabel id="care-1" name="applecare" title="AppleCare One" sub="Cover multiple products, including this iPhone. Theft and loss coverage for iPhone, iPad, and Apple Watch." />
+            <OptLabel id="care-2" name="applecare" title="No AppleCare coverage" />
           </div>
           <div className="rf-bfe-complimentary-description">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`${MEDIA}/iphone-apple-care-one-vid1-thumbnail`} alt="" aria-hidden="true" />
             How does AppleCare work? Explore the features and coverage of AppleCare.
           </div>
         </section>
@@ -447,7 +455,7 @@ export default function BuyFlow() {
             <span className="form-selector-list-header">USB-C to USB-C charging cable, white woven cable</span>
           </div>
           <div className="rf-bfe-box-environment">
-            Our environmental goals. As part of our efforts to reach carbon neutrality by 2030, {model.name} and {model.name} Max do not include a power adapter or EarPods. Included in the box is a USB‑C Charge Cable that supports fast charging and is compatible with USB‑C power adapters and computer ports.
+            Our environmental goals. As part of our efforts to reach carbon neutrality by 2030, {model.name} does not include a power adapter or EarPods. Included in the box is a USB‑C Charge Cable that supports fast charging and is compatible with USB‑C power adapters and computer ports.
           </div>
         </section>
 
@@ -468,7 +476,7 @@ export default function BuyFlow() {
       </div>
       </div>
 
-      <div className="rf-bfe-stickybar">
+      <div className="rf-bfe-stickybar" style={{ top: 48 }}>
         <div className="rf-bfe-stickybar-scroller">
           <div className="rf-bfe-stickybar-header">Your {model.name}</div>
           <button className="rf-bfe-stickybar-button" type="button">
@@ -476,6 +484,6 @@ export default function BuyFlow() {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
