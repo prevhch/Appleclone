@@ -18,6 +18,10 @@ const CSS = [
   "/apple/har/iphone-18-pro-buy/css/live-4-step1evolution.built.css",
   "/apple/har/iphone-18-pro-buy/css/live-5-buy-flow-iphone.built.css",
   "/apple/har/iphone-18-pro-buy/css/live-6-as-iphone-18pro.built.css",
+  "/apple/har/iphone-18-pro-buy/css/live-8-lazy-tradeup.built.css",
+  "/apple/har/iphone-18-pro-buy/css/live-8-lazy-purchase-options.built.css",
+  "/apple/har/iphone-18-pro-buy/css/live-8-lazy-applecare-options.built.css",
+  "/apple/har/iphone-18-pro-buy/css/live-8-7770.built.css",
 ];
 
 export default function BuyPage() {

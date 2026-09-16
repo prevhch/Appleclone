@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const FAQ: Array<[string, string]> = [
   [
     "What is eSIM?",
@@ -131,6 +135,23 @@ const FOOTER_COLS: Array<[string, string[]]> = [
   ["About Apple", ["Newsroom", "Apple Leadership", "Career Opportunities", "Investors", "Events", "Contact Apple"]],
 ];
 
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="rc-accordion-item">
+      <button type="button" className="rc-accordion-button" aria-expanded={open} onClick={() => setOpen(!open)}>
+        <span className="rc-accordion-title">{q}</span>
+        <span className="icon icon-plus as-accordion-plusicon" aria-hidden="true" />
+      </button>
+      {open ? (
+        <div className="rc-accordion-content">
+          <p>{a}</p>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export default function BelowFold() {
   return (
     <>
@@ -164,12 +185,7 @@ export default function BelowFold() {
         <h2 className="rc-accordion-title">Frequently Asked Questions</h2>
         <div className="rc-accordion">
           {FAQ.map(([q, a]) => (
-            <details key={q} className="rc-accordion-item">
-              <summary className="rc-accordion-headline">{q}</summary>
-              <div className="rc-accordion-content">
-                <p>{a}</p>
-              </div>
-            </details>
+            <FaqItem key={q} q={q} a={a} />
           ))}
         </div>
       </section>

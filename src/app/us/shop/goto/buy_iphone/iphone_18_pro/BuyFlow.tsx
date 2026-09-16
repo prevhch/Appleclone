@@ -270,7 +270,10 @@ export default function BuyFlow() {
       </div>
 
       <div className="rf-bfe-column-right column large-5 rf-bfe-selectionarea">
-        <div className="rf-bfe-step rf-bfe-first-step rf-bfe-dimension rf-bfe-dimension-dimensionscreensize">
+        <div
+          className="rf-bfe-step rf-bfe-first-step rf-bfe-focused-step rf-bfe-dimension rf-bfe-dimension-dimensionscreensize"
+          style={{ margin: "max(0px, -285.5px + 50vh) 0px max(60px, -343.5px + 50vh)" }}
+        >
           <h2 id="dimensionScreensize" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
             <span>Model. </span>
             <span className="as-subheading">Which is best for you?</span>
@@ -442,23 +445,30 @@ export default function BuyFlow() {
 
         <section className="rf-bfe-summary">
           <div className="rf-bfe-summary-section">
+            <div className="rf-bfe-summary-price-title rf-bfe-updated-summary">
+              Your new {model.name}. Just the way you want it.
+            </div>
             <div className="rf-bfe-summary-price-box">
-              <span className="rf-bfe-summary-title">Your new {model.name}.</span>
-              <span className="rf-bfe-summary-subtitle">Just the way you want it.</span>
-              <span className="rf-bfe-summary-desc">{summaryDesc}</span>
-              <span className="rf-bfe-summary-price price-point">{buyLine}</span>
-              <span className="price-point">{leaseLine} with Apple Upgrade</span>
-              <span className="price-point">Get 3% Daily Cash back with Apple Card</span>
-              <span className="rf-bfe-summary-saves">Need a moment?</span>
-              <span>Keep all your selections by saving this device to Your Saves, then come back anytime and pick up right where you left off.</span>
-              <span className="rf-bfe-summary-saves">Save for later</span>
-              <span className="rf-bfe-summary-fulfillment">Free shipping</span>
-              <span className="rf-bfe-summary-fulfillment">Pick up from Store</span>
+              <div className="rf-bfe-summary-price-content">
+                <span>{summaryDesc}</span>
+                <span className="rf-bfe-summary-price price-point">{buyLine}</span>
+                <span className="price-point">{leaseLine} with Apple Upgrade</span>
+                <span className="price-point">Get 3% Daily Cash back with Apple Card</span>
+              </div>
+              <div className="rf-bfe-summary-price-content">
+                <span>Need a moment?</span>
+                <span>Keep all your selections by saving this device to Your Saves, then come back anytime and pick up right where you left off.</span>
+                <span>Save for later</span>
+              </div>
+              <div className="rf-bfe-summary-fulfillment">
+                <span>Free shipping</span>
+                <span>Pick up from Store</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="rf-bfe-box-section">
+        <section className="dd-info">
           <h2 className="rf-bfe-dimension-header typography-eyebrow">
             <span>What&rsquo;s in the Box</span>
           </h2>
@@ -474,19 +484,29 @@ export default function BuyFlow() {
           </div>
         </section>
 
-        <section className="rf-bfe-setup-section">
-          <h2 className="rf-bfe-dimension-header typography-eyebrow">
-            <span>Set up your device with one-on-one sessions with a Specialist.</span>
-          </h2>
-          <p>When you buy directly from Apple, you can get help transferring your data and making the most of your new device with our free online Personal Setup sessions.</p>
+        <section className="dd-shared-personal-setup dd-fill-tertiary">
+          <div className="dd-l-plate">
+            <div className="dd-info dd-text-align-center">
+              <h2 className="rf-bfe-dimension-header typography-eyebrow">
+                <span>Set up your device with one-on-one sessions with a Specialist.</span>
+              </h2>
+              <p>When you buy directly from Apple, you can get help transferring your data and making the most of your new device with our free online Personal Setup sessions.</p>
+            </div>
+          </div>
         </section>
 
-        <section className="rf-bfe-services-section">
-          <h2 className="rf-bfe-dimension-header typography-eyebrow">
-            <span>Your new iPhone comes with so much more.</span>
-          </h2>
-          <p>Get 3 months of select services free when you purchase an Apple device.</p>
-          <span>Apple TV, Apple Music, Apple Arcade, Apple News+, Apple Fitness+</span>
+        <section className="dd-services">
+          <div className="dd-l-mw1070">
+            <div className="dd-l-plate">
+              <div className="dd-info">
+                <h2 className="rf-bfe-dimension-header typography-eyebrow">
+                  <span>Your new iPhone comes with so much more.</span>
+                </h2>
+                <p>Get 3 months of select services free when you purchase an Apple device.</p>
+                <span>Apple TV, Apple Music, Apple Arcade, Apple News+, Apple Fitness+</span>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
       </div>
