@@ -32,18 +32,7 @@ export default function BuyPage() {
         <div className="as-carrierpromotion-ribbon-item">T-Mobile — Save up to $1200 for an eligible trade-in in any condition.</div>
         <div className="as-carrierpromotion-ribbon-item">Verizon — Save up to $1020 for an eligible trade-in in any condition.</div>
       </div>
-      <div className="rf-bfe-container row">
-        <BuyFlow />
-      </div>
-
-      <div className="rf-bfe-stickybar">
-        <div className="rf-bfe-stickybar-scroller">
-          <div className="rf-bfe-stickybar-header">Your iPhone 18 Pro</div>
-          <button className="rf-bfe-stickybar-button" type="button">
-            Continue
-          </button>
-        </div>
-      </div>
+      <BuyFlow />
     </>
   );
 }

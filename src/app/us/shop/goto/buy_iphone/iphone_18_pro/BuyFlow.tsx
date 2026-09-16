@@ -14,27 +14,70 @@ const FINISH_LABEL: Record<Finish, string> = {
   black: "Black",
 };
 
+const FINISH_DESC: Record<Finish, string> = {
+  burgundy: "burgundy color (dark red)",
+  glacier: "glacier color (light blue)",
+  silver: "silver color",
+  black: "black color",
+};
+
 const FINISH_GALLERY: Record<Finish, { src: string; alt: string }> = {
   burgundy: {
     src: `${MEDIA}/iphone-18-pro-witb-burgundy-202609`,
-    alt: "iPhone 18 Pro, back exterior, burgundy color, Pro Fusion camera system",
+    alt: "iPhone 18 Pro, back exterior, burgundy color (dark red), Pro Fusion camera system",
   },
   glacier: {
     src: `${MEDIA}/iphone-compare-iphone-18-pro-202609`,
-    alt: "iPhone 18 Pro, glacier finish",
+    alt: "iPhone 18 Pro, back exterior, glacier color (light blue), Pro Fusion camera system",
   },
   silver: {
     src: `${MEDIA}/iphone-compare-iphone-duo-202609`,
-    alt: "iPhone 18 Pro, silver finish",
+    alt: "iPhone 18 Pro, back exterior, silver color, Pro Fusion camera system",
   },
   black: {
     src: `${MEDIA}/iphone-compare-iphone-air-202609`,
-    alt: "iPhone 18 Pro, black finish",
+    alt: "iPhone 18 Pro, back exterior, black color, Pro Fusion camera system",
   },
 };
 
+const MODELS = [
+  {
+    name: "iPhone 18 Pro",
+    display: "6.3-inch display",
+    prices: [
+      { buy: "$1199", mo: "$49.95/mo.", lease: "$34.99/mo." },
+      { buy: "$1399", mo: "$58.29/mo.", lease: "$40.83/mo." },
+      { buy: "$1799", mo: "$74.95/mo.", lease: "$52.50/mo." },
+      { buy: "$2399", mo: "$99.95/mo.", lease: "$70.01/mo." },
+    ],
+  },
+  {
+    name: "iPhone 18 Pro Max",
+    display: "6.9-inch display",
+    prices: [
+      { buy: "$1299", mo: "$54.12/mo.", lease: "$37.99/mo." },
+      { buy: "$1499", mo: "$62.45/mo.", lease: "$43.84/mo." },
+      { buy: "$1899", mo: "$79.12/mo.", lease: "$55.54/mo." },
+      { buy: "$2499", mo: "$104.12/mo.", lease: "$73.09/mo." },
+    ],
+  },
+];
+
+const STORAGE = ["256GB", "512GB", "1TB", "2TB"];
+
+const CARRIERS = ["AT&T", "T-Mobile", "Verizon", "Connect to any carrier later"];
+
 export default function BuyFlow() {
+  const [modelIdx, setModelIdx] = useState(0);
   const [finish, setFinish] = useState<Finish>("burgundy");
+  const [storageIdx, setStorageIdx] = useState(0);
+
+  const model = MODELS[modelIdx];
+  const price = model.prices[storageIdx];
+  const buyLine = `Buy from ${price.buy} or ${price.mo} per month for 24 mo.months`;
+  const leaseLine = `Lease from ${price.lease} per month for 24 mo.months`;
+  const summaryDesc = `${model.name}, back exterior, ${FINISH_DESC[finish]}, Pro Fusion camera system, rectangular housing spanning the top, 3 lenses on left, flash, microphone, and LiDAR Scanner on right`;
+
   const idx = FINISHES.indexOf(finish);
   const prev = () => setFinish(FINISHES[(idx + FINISHES.length - 1) % FINISHES.length]);
   const next = () => setFinish(FINISHES[(idx + 1) % FINISHES.length]);
@@ -42,6 +85,7 @@ export default function BuyFlow() {
 
   return (
     <>
+      <div className="rf-bfe-container row">
       <div className="rf-bfe-column-left column large-7">
         <section className="rf-bfe-gallery-section">
           <div className="rf-bfe-gallery-wrapper">
@@ -64,7 +108,7 @@ export default function BuyFlow() {
                   <span className="rf-bfe-gallery-info-text-bold">
                     Get 3 free months of AppleCare+
                   </span>{" "}
-                  with your iPhone 18 Pro purchase.
+                  with your {model.name} purchase.
                 </div>
               </div>
               <div className="rc-gallery-dotnav dotnav">
@@ -117,10 +161,10 @@ export default function BuyFlow() {
         <header className="rf-bfe-header">
           <div className="rf-bfe-header-wrapper">
             <span className="rf-bfe-coming-soon-violator">New</span>
-            <h1 className="rf-bfe-header-title">Pre-order iPhone 18 Pro</h1>
+            <h1 className="rf-bfe-header-title">Pre-order {model.name}</h1>
             <div className="rf-bfe-header-price">
-              <span className="price-point">Buy from $1199 or $49.95/mo. per month for 24 mo.months</span>
-              <span className="price-point">Lease from $34.99/mo. per month for 24 mo.months with Apple Upgrade</span>
+              <span className="price-point">{buyLine}</span>
+              <span className="price-point">{leaseLine} with Apple Upgrade</span>
             </div>
             <div className="rf-bfe-availabilitybanner">Available starting 9.18.</div>
           </div>
@@ -132,19 +176,27 @@ export default function BuyFlow() {
             <span className="as-subheading">Which is best for you?</span>
           </h2>
           <div className="rf-bfe-config-options">
-            {[
-              { m: "iPhone 18 Pro", d: "6.3-inch display", buy: "Buy from $1199 or $49.95/mo. per month for 24 mo.months", lease: "Lease from $34.99/mo. per month for 24 mo.months" },
-              { m: "iPhone 18 Pro Max", d: "6.9-inch display", buy: "Buy from $1299 or $54.12/mo. per month for 24 mo.months", lease: "Lease from $37.99/mo. per month for 24 mo.months" },
-            ].map((o, i) => (
-              <div key={o.m} className="rc-dimension-selector-row form-selector">
-                <input className="form-selector-input" id={`model-${i}`} type="radio" name="dimensionScreensize" defaultChecked={i === 0} />
+            {MODELS.map((o, i) => (
+              <div key={o.name} className="rc-dimension-selector-row form-selector">
+                <input
+                  className="form-selector-input"
+                  id={`model-${i}`}
+                  type="radio"
+                  name="dimensionScreensize"
+                  checked={i === modelIdx}
+                  onChange={() => setModelIdx(i)}
+                />
                 <label className="form-selector-label" htmlFor={`model-${i}`}>
                   <span className="row">
                     <span className="column form-selector-left-col rf-bfe-selector-left-col">
-                      <span className="form-selector-title">{o.m}</span>
-                      <span className="form-selector-list-header">{o.d}</span>
-                      <span className="rf-bfe-config-options-price price-point">{o.buy}</span>
-                      <span className="rf-bfe-config-options-price price-point">{o.lease}</span>
+                      <span className="form-selector-title">{o.name}</span>
+                      <span className="form-selector-list-header">{o.display}</span>
+                      <span className="rf-bfe-config-options-price price-point">
+                        Buy from {o.prices[storageIdx].buy} or {o.prices[storageIdx].mo} per month for 24 mo.months
+                      </span>
+                      <span className="rf-bfe-config-options-price price-point">
+                        Lease from {o.prices[storageIdx].lease} per month for 24 mo.months
+                      </span>
                     </span>
                   </span>
                 </label>
@@ -205,20 +257,26 @@ export default function BuyFlow() {
             <span className="as-subheading">How much space do you need?</span>
           </h2>
           <div className="rf-bfe-config-options">
-            {[
-              { size: "256GB", buy: "Buy from $1199 or $49.95/mo. per month for 24 mo.months", lease: "Lease from $34.99/mo. per month for 24 mo.months" },
-              { size: "512GB", buy: "Buy from $1399 or $58.29/mo. per month for 24 mo.months", lease: "Lease from $40.83/mo. per month for 24 mo.months" },
-              { size: "1TB", buy: "Buy from $1799 or $74.95/mo. per month for 24 mo.months", lease: "Lease from $52.50/mo. per month for 24 mo.months" },
-              { size: "2TB", buy: "Buy from $2399 or $99.95/mo. per month for 24 mo.months", lease: "Lease from $70.01/mo. per month for 24 mo.months" },
-            ].map((s, i) => (
-              <div key={s.size} className="rc-dimension-selector-row form-selector">
-                <input className="form-selector-input" id={`storage-${i}`} type="radio" name="dimensionCapacity" defaultChecked={i === 0} />
+            {STORAGE.map((size, i) => (
+              <div key={size} className="rc-dimension-selector-row form-selector">
+                <input
+                  className="form-selector-input"
+                  id={`storage-${i}`}
+                  type="radio"
+                  name="dimensionCapacity"
+                  checked={i === storageIdx}
+                  onChange={() => setStorageIdx(i)}
+                />
                 <label className="form-selector-label" htmlFor={`storage-${i}`}>
                   <span className="row">
                     <span className="column form-selector-left-col rf-bfe-selector-left-col">
-                      <span className="form-selector-title">{s.size}</span>
-                      <span className="rf-bfe-config-options-price price-point">{s.buy}</span>
-                      <span className="rf-bfe-config-options-price price-point">{s.lease}</span>
+                      <span className="form-selector-title">{size}</span>
+                      <span className="rf-bfe-config-options-price price-point">
+                        Buy from {model.prices[i].buy} or {model.prices[i].mo} per month for 24 mo.months
+                      </span>
+                      <span className="rf-bfe-config-options-price price-point">
+                        Lease from {model.prices[i].lease} per month for 24 mo.months
+                      </span>
                     </span>
                   </span>
                 </label>
@@ -239,9 +297,15 @@ export default function BuyFlow() {
             <span className="as-subheading">Choose a carrier.</span>
           </h2>
           <div className="rf-bfe-dimension-carriermodel-options">
-            {["AT&T", "T-Mobile", "Verizon", "Connect to any carrier later"].map((c, i) => (
+            {CARRIERS.map((c, i) => (
               <div key={c} className="rc-dimension-selector-row form-selector">
-                <input className="form-selector-input" id={`carrier-${i}`} type="radio" name="dimensionCarrierModel" defaultChecked={i === 0} />
+                <input
+                  className="form-selector-input"
+                  id={`carrier-${i}`}
+                  type="radio"
+                  name="dimensionCarrierModel"
+                  defaultChecked={i === 0}
+                />
                 <label className="form-selector-label" htmlFor={`carrier-${i}`}>
                   <span className="row">
                     <span className="column form-selector-left-col rf-bfe-selector-left-col">
@@ -252,6 +316,9 @@ export default function BuyFlow() {
                 </label>
               </div>
             ))}
+          </div>
+          <div className="rf-bfe-dimension-footer">
+            Is it easy to get connected? Yes. We&rsquo;ll help you set up your carrier, number, and rate plan.
           </div>
         </div>
 
@@ -353,14 +420,61 @@ export default function BuyFlow() {
         <section className="rf-bfe-summary">
           <div className="rf-bfe-summary-section">
             <div className="rf-bfe-summary-price-box">
-              <span className="rf-bfe-header-title">Your new iPhone awaits. Make it yours.</span>
-              <span className="rf-bfe-summary-price price-point">
-                Buy from $1199 or $49.95/mo. per month for 24 mo.months
-              </span>
+              <span className="rf-bfe-summary-title">Your new {model.name}.</span>
+              <span className="rf-bfe-summary-subtitle">Just the way you want it.</span>
+              <span className="rf-bfe-summary-desc">{summaryDesc}</span>
+              <span className="rf-bfe-summary-price price-point">{buyLine}</span>
+              <span className="price-point">{leaseLine} with Apple Upgrade</span>
               <span className="price-point">Get 3% Daily Cash back with Apple Card</span>
+              <span className="rf-bfe-summary-saves">Need a moment?</span>
+              <span>Keep all your selections by saving this device to Your Saves, then come back anytime and pick up right where you left off.</span>
+              <span className="rf-bfe-summary-saves">Save for later</span>
+              <span className="rf-bfe-summary-fulfillment">Free shipping</span>
+              <span className="rf-bfe-summary-fulfillment">Pick up from Store</span>
             </div>
           </div>
         </section>
+
+        <section className="rf-bfe-box-section">
+          <h2 className="rf-bfe-dimension-header typography-eyebrow">
+            <span>What&rsquo;s in the Box</span>
+          </h2>
+          <div className="rf-bfe-box-item">
+            <span className="form-selector-title">{model.name}</span>
+          </div>
+          <div className="rf-bfe-box-item">
+            <span className="form-selector-title">USB-C Charge Cable</span>
+            <span className="form-selector-list-header">USB-C to USB-C charging cable, white woven cable</span>
+          </div>
+          <div className="rf-bfe-box-environment">
+            Our environmental goals. As part of our efforts to reach carbon neutrality by 2030, {model.name} and {model.name} Max do not include a power adapter or EarPods. Included in the box is a USB‑C Charge Cable that supports fast charging and is compatible with USB‑C power adapters and computer ports.
+          </div>
+        </section>
+
+        <section className="rf-bfe-setup-section">
+          <h2 className="rf-bfe-dimension-header typography-eyebrow">
+            <span>Set up your device with one-on-one sessions with a Specialist.</span>
+          </h2>
+          <p>When you buy directly from Apple, you can get help transferring your data and making the most of your new device with our free online Personal Setup sessions.</p>
+        </section>
+
+        <section className="rf-bfe-services-section">
+          <h2 className="rf-bfe-dimension-header typography-eyebrow">
+            <span>Your new iPhone comes with so much more.</span>
+          </h2>
+          <p>Get 3 months of select services free when you purchase an Apple device.</p>
+          <span>Apple TV, Apple Music, Apple Arcade, Apple News+, Apple Fitness+</span>
+        </section>
+      </div>
+      </div>
+
+      <div className="rf-bfe-stickybar">
+        <div className="rf-bfe-stickybar-scroller">
+          <div className="rf-bfe-stickybar-header">Your {model.name}</div>
+          <button className="rf-bfe-stickybar-button" type="button">
+            Continue — {buyLine}
+          </button>
+        </div>
       </div>
     </>
   );
