@@ -169,7 +169,6 @@ export default function BuyFlow() {
         <div data-autom="bfe-header">
           <span className="badge badge-no-scrim">New</span>
           <h1 className="fwl">Pre-order {model.name}</h1>
-          Already have an iPhone saved? <span className="more">View</span>
           <br />
           Available starting 9.18.
         </div>
@@ -197,7 +196,7 @@ export default function BuyFlow() {
             </div>
           </div>
           <div className="rf-bfe-header-ai">
-            <span>Apple Intelligence and Siri AI</span> <span className="more">Learn more</span>
+            <span>Apple Intelligence and Siri AI</span> <a className="more" href="#apple-intelligence">Learn more</a>
           </div>
         </div>
         <div className="rf-bfe-header-rightsection" style={{ maxWidth: 340 }}>
@@ -419,11 +418,16 @@ export default function BuyFlow() {
           </div>
         </div>
 
-        <div className="rf-bfe-step rf-bfe-dimension rf-bfe-dimension-carriermodel-section">
+      </div>
+      </div>
+
+      <div className="rf-bfe-selectionarea">
+        <div className="rf-bfe-step row rf-bfe-dimension rf-bfe-dimension-carriermodel">
           <h2 id="dimensionCarrier" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
             <span>Connectivity. </span>
             <span className="as-subheading">Choose a carrier.</span>
           </h2>
+          <div className="row">
           <div className="rf-bfe-dimension-carriermodel-options">
             {CARRIERS.map((c, i) => (
               <OptLabel
@@ -449,21 +453,38 @@ export default function BuyFlow() {
               <span role="button" className="rc-decisionsection-link">Show more</span>
             </div>
           </div>
+          </div>
         </div>
 
-        <div className="rf-bfe-step rf-bfe-right-rail-step rf-bfe-dimension">
-          <h2 id="dimensionTradeIn" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
-            <span>Apple Trade In. Get $35–$885 credit towards your new iPhone.</span>
-          </h2>
+        <div className="rf-bfe-step rf-bfe-tradeup-fullwidth">
+          <div className="rf-bfe-tradeup-header">
+            <h2 id="tradeupinline" className="typography-eyebrow" tabIndex={-1}>
+              <span>Apple Trade In.</span>
+              <span className="rf-bfe-tradeup-subheader typography-eyebrow">Get $35–$885 credit towards your new iPhone.</span>
+            </h2>
+          </div>
+          <div className="row">
+          <div className="rf-bfe-tradeup-column-left">
+          <div className="rf-tradeupinline-mainwrapper rf-tradeupinline-mainwrapper-fullwidth">
+          <div className="rf-bfe-tradeup-carriers">
+            {["att", "tmobile", "verizon"].map((c) => (
+              <span key={c} className="rf-bfe-tradeup-carrier">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${MEDIA}/iphone-carrier-${c}-202207`} alt={c} width={100} loading="lazy" />
+              </span>
+            ))}
+          </div>
           <fieldset className="rc-dimension rf-bfe-product-dimension-group">
             <div className="rc-dimension-selector-group form-selector-group">
-            <OptLabel subHeader id="tradein-add"  name="tradein" defaultChecked title="Add a trade-in" sub="Answer a few questions to get your estimate." />
-            <OptLabel subHeader id="tradein-no"  name="tradein" title="No trade-in" />
+            <OptLabel subHeader id="tradein-add" name="tradein" checked={tradeIdx === 0} disabled={storageIdx === null} onChange={() => { setTradeIdx(0); setPayIdx(null); setCarrierIdx(null); setCareIdx(null); }} title="Add a trade-in" sub="Answer a few questions to get your estimate." />
+            <OptLabel subHeader id="tradein-no" name="tradein" checked={tradeIdx === 1} disabled={storageIdx === null} onChange={() => { setTradeIdx(1); setPayIdx(null); setCarrierIdx(null); setCareIdx(null); }} title="No trade-in" />
             <span className="as-price-tradeinmsg">
               Save even more when you trade in and finance with select carrier deals at Apple.
             </span>
           </div>
           </fieldset>
+          </div>
+          <div className="rf-bfe-tradeup-column-right">
           <div className="rf-bfe-decision-support">
             <div className="rc-decisionsection as-util-relatedlink">
               <div className="rc-decisionsection-image-wrapper">
@@ -479,23 +500,50 @@ export default function BuyFlow() {
               <span role="button" className="rc-decisionsection-link">Show more</span>
             </div>
           </div>
+          </div>
+          </div>
         </div>
 
-        <div className="rf-bfe-step rf-bfe-right-rail-step rf-bfe-dimension">
-          <h2 id="dimensionPayment" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
+        <div className="rf-bfe-purchase-options rf-bfe-step rf-bfe-purchase-options-fullwidth">
+          <div className="r-in-view-transition r-in-view-transition-enter-done">
+          <div className="rf-po-bfe-purchaseoptions-wrapper rf-po-bfe-purchaseoptions-view-full-width">
+          <h2 id="dimensionPayment" className="rf-po-bfe-purchaseoptions-header typography-eyebrow" tabIndex={-1}>
             <span>Payment options. </span>
             <span className="as-subheading">Select the one that works for you.</span>
           </h2>
-          <fieldset className="rc-dimension rf-bfe-product-dimension-group">
-            <div className="rc-dimension-selector-group form-selector-group">
-            <OptLabel subHeader id="pay-0"  name="payment" defaultChecked title="Buy" sub="Pay with Apple Pay or other payment methods." />
-            <OptLabel subHeader id="pay-1"  name="payment" title="Finance" sub="Pay over time at 0% APR." />
-            <OptLabel subHeader id="pay-2"  name="payment" title="Lease with Apple Upgrade" sub="Pay monthly with Klarna. Easily upgrade at the end of your term." />
+          <div className="row rf-po-bfe-purchaseoptions-wrapper-disabled">
+            <div className="rc-dimension-selector-row form-selector">
+              <input className="form-selector-input" id="pay-buy" type="radio" name="payment" checked={payIdx === 0} disabled={tradeIdx === null} onChange={() => setPayIdx(0)} />
+              <label className="form-selector-label" htmlFor="pay-buy">
+                <span className="rf-po-bfe-dimension-base-title">Buy</span>
+                <span className="rf-po-bfe-purchasegroupoption-price">{fmtFull(model.prices[si].buy.replace("$", ""))}</span>
+                <span className="rf-po-bfe-dimension-base-detail">Pay with Apple Pay or other payment methods.</span>
+              </label>
+            </div>
+            <div className="rc-dimension-selector-row form-selector">
+              <input className="form-selector-input" id="pay-fin" type="radio" name="payment" checked={payIdx === 1} disabled={tradeIdx === null} onChange={() => setPayIdx(1)} />
+              <label className="form-selector-label" htmlFor="pay-fin">
+                <span className="rf-po-bfe-dimension-base-title">Finance</span>
+                <span className="rf-po-bfe-purchasegroupoption-price">{fmtFull(model.prices[si].buy.replace("$", ""))}</span>
+                <span className="rf-po-bfe-dimension-base-detail">Pay over time at 0% APR.</span>
+              </label>
+            </div>
+            <div className="rc-dimension-selector-row form-selector">
+              <input className="form-selector-input" id="pay-lease" type="radio" name="payment" checked={payIdx === 2} disabled={tradeIdx === null} onChange={() => setPayIdx(2)} />
+              <label className="form-selector-label" htmlFor="pay-lease">
+                <span className="rf-po-bfe-dimension-base-title">Lease with {/* eslint-disable-next-line @next/next/no-img-element */}<img src={`${MEDIA}/step1-payments-logo-upgrade`} alt="" width={82} height={17} className="ir" /><span className="visuallyhidden">Apple Upgrade</span></span>
+                <span className="rf-po-bfe-purchasegroupoption-price">{fmtFull(model.prices[si].buy.replace("$", ""))}</span>
+                <span className="rf-po-bfe-dimension-base-detail">Pay monthly with Klarna. Easily upgrade at the end of your term.</span>
+              </label>
+            </div>
           </div>
-          </fieldset>
+          </div>
+          </div>
         </div>
 
-        <section className="rf-bfe-complimentary-section">
+        <div className="rf-bfe-applecare-options rf-bfe-step rf-bfe-applecare-options-fullwidth">
+          <div className="rf-applecare-section">
+          <div className="row rf-applecare-section-disabled">
           <div className="rf-bfe-complimentary-header">
             <h2 className="rf-bfe-complimentary-title">
               AppleCare coverage. Peace of mind in every plan.
@@ -503,11 +551,13 @@ export default function BuyFlow() {
           </div>
           <fieldset className="rc-dimension rf-bfe-product-dimension-group">
             <div className="rc-dimension-selector-group form-selector-group">
-            <OptLabel subHeader id="care-0"  name="applecare" defaultChecked title="AppleCare+ with Theft and Loss" sub="Cover this product only. Unlimited repairs for accidents like drops and spills. 24/7 priority support from Apple experts." />
-            <OptLabel subHeader id="care-1"  name="applecare" title="AppleCare One" sub="Cover multiple products, including this iPhone. Theft and loss coverage for iPhone, iPad, and Apple Watch." />
-            <OptLabel subHeader id="care-2"  name="applecare" title="No AppleCare coverage" />
+            <OptLabel subHeader id="care-0" name="applecare" checked={careIdx === 0} disabled={carrierIdx === null} onChange={() => setCareIdx(0)} title="AppleCare+ with Theft and Loss" sub="Cover this product only. Unlimited repairs for accidents like drops and spills. 24/7 priority support from Apple experts." />
+            <OptLabel subHeader id="care-1" name="applecare" checked={careIdx === 1} disabled={carrierIdx === null} onChange={() => setCareIdx(1)} title="AppleCare One" sub="Cover multiple products, including this iPhone. Theft and loss coverage for iPhone, iPad, and Apple Watch." />
+            <OptLabel subHeader id="care-2" name="applecare" checked={careIdx === 2} disabled={carrierIdx === null} onChange={() => setCareIdx(2)} title="No AppleCare coverage" />
           </div>
           </fieldset>
+          </div>
+          </div>
           <div className="rf-applecare-decision-support">
             <div className="rc-decisionsection as-util-relatedlink">
               <div className="rc-decisionsection-image-wrapper">
@@ -523,11 +573,8 @@ export default function BuyFlow() {
               <span role="button" className="rc-decisionsection-link">Show more</span>
             </div>
           </div>
-        </section>
-      </div>
-      </div>
+        </div>
 
-      <div className="rf-bfe-selectionarea">
       <div className="rf-bfe-summary-wrapper">
         <section className="rf-bfe-summary">
           <div className="rf-bfe-summary-section">
@@ -609,6 +656,7 @@ export default function BuyFlow() {
             </div>
           </div>
         </section>
+      </div>
 
       <div className="rf-bfe-stickybar" style={{ position: "sticky", top: 48, background: "#fff", zIndex: 10 }}>
         <div className="rf-bfe-stickybar-scroller">
