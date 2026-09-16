@@ -302,8 +302,8 @@ export default function BuyFlow() {
                 title={o.name}
                 sub={o.display}
                 prices={[
-                  `Buy from ${o.prices[storageIdx].buy} or ${o.prices[storageIdx].mo} for 24 mo.*`,
-                  `Lease from ${o.prices[storageIdx].lease} for 24 mo.#`,
+                  `Buy from ${o.prices[si].buy} or ${o.prices[si].mo} for 24 mo.*`,
+                  `Lease from ${o.prices[si].lease} for 24 mo.#`,
                 ]}
               />
             ))}
