@@ -66,6 +66,9 @@ const MEDIA = "/apple/har/iphone-18-pro-buy/media";
 const COMPARE = [
   {
     swatch: `${MEDIA}/iphone-compare-iphone-duo-swatch-202609`,
+    swatchW: 31,
+    swatchH: 13,
+    swatchAlt: "iPhone Duo available colors: night sky, star white",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-202509`,
     zoom: "0.5x, 1x, 2x",
     name: "iPhone Duo",
@@ -81,6 +84,9 @@ const COMPARE = [
   },
   {
     swatch: `${MEDIA}/iphone-compare-iphone-18-pro-swatch-202609`,
+    swatchW: 67,
+    swatchH: 13,
+    swatchAlt: "iPhone 18 Pro available colors: burgundy, glacier, silver, black",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-pro-202509`,
     zoom: "0.5x, 1x, 2x, 4x, 8x",
     name: "iPhone 18 Pro",
@@ -96,6 +102,9 @@ const COMPARE = [
   },
   {
     swatch: `${MEDIA}/iphone-compare-iphone-air-swatch-202509`,
+    swatchW: 67,
+    swatchH: 13,
+    swatchAlt: "iPhone Air available colors: sky blue, light gold, cloud white, space black",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-air-202509`,
     zoom: "1x, 2x",
     name: "iPhone Air",
@@ -111,6 +120,9 @@ const COMPARE = [
   },
   {
     swatch: `${MEDIA}/iphone-compare-iphone-17-swatch-202509`,
+    swatchW: 85,
+    swatchH: 13,
+    swatchAlt: "iPhone 17 available colors: lavender, sage, mist blue, white, black",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-202509`,
     zoom: "0.5x, 1x, 2x",
     name: "iPhone 17",
@@ -126,6 +138,9 @@ const COMPARE = [
   },
   {
     swatch: `${MEDIA}/iphone-compare-iphone-17e-swatch-202603`,
+    swatchW: 54,
+    swatchH: 18,
+    swatchAlt: "iPhone 17e available colors: soft pink, white, black",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-air-202509`,
     zoom: "1x, 2x",
     name: "iPhone 17e",
@@ -153,17 +168,23 @@ const FOOTER_COLS: Array<[string, string[]]> = [
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="rc-accordion-item">
-      <button type="button" className="rc-accordion-button" aria-expanded={open} onClick={() => setOpen(!open)}>
-        <span className="rc-accordion-title">{q}</span>
-        <span className="icon icon-plus as-accordion-plusicon" aria-hidden="true" />
-      </button>
+    <li className="rc-accordion-item">
+      <h3 className="rc-accordion-header">
+        <button type="button" className="rc-accordion-button" aria-expanded={open} onClick={() => setOpen(!open)}>
+          <span className="rc-accordion-title">{q}</span>
+          <span className="icon icon-plus as-accordion-plusicon" aria-hidden="true" />
+        </button>
+      </h3>
       {open ? (
-        <div className="rc-accordion-content">
-          <p>{a}</p>
+        <div data-core-accordion-content>
+          <div className="rc-accordion-content row">
+            <div className="rc-accordion-box-content column large-10 small-12">
+              <p>{a}</p>
+            </div>
+          </div>
         </div>
       ) : null}
-    </div>
+    </li>
   );
 }
 
@@ -175,41 +196,55 @@ export default function BelowFold() {
         <div className="dd-compare row">
           {COMPARE.map((m) => (
             <div key={m.name} className="column large-2 dd-compare-model" style={{ textAlign: "center" }}>
+              <div className="dd-column-header">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={m.img} alt={m.imgAlt} loading="lazy" style={{ width: "100%", height: "auto" }} />
+              <img src={m.img} alt={m.imgAlt} width={200} height={256} className="dd-compare-hero ir" loading="lazy" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={m.swatch} alt={`${m.name} available colors`} width={62} height={26} className="dd-color-swatch" loading="lazy" />
-              {m.tag ? <span className="badge badge-no-scrim">{m.tag}</span> : null}
-              <h3 className="dd-compare-modelname">{m.name}</h3>
-              <p className="dd-compare-blurb">{m.blurb}</p>
-              <p className="dd-compare-price">{m.price}</p>
-              <dl className="dd-compare-specs">
-                <dt>Display</dt>
-                <dd>{m.display}</dd>
-                <dt>Chip</dt>
-                <dd>{m.chip}</dd>
-                <dt>Camera</dt>
-                <dd>{m.camera}</dd>
-                <dt>Optical zoom</dt>
-                <dd>
+              <img src={m.swatch} alt={m.swatchAlt} width={m.swatchW} height={m.swatchH} className="dd-color-swatch ir" loading="lazy" />
+              {m.tag ? <span className="badge badge-reduced badge-no-scrim dd-violator">{m.tag}</span> : null}
+              <p className="t-label dd-product-name">{m.name}</p>
+              <p className="t-body-tight dd-subtitle">{m.blurb}</p>
+              <p className="t-body-reduced-tight dd-compare-price">{m.price}</p>
+              </div>
+              <div className="dd-features" role="list">
+                <div className="dd-feature display" role="listitem">
+                  <p className="t-eyebrow-elevated dd-display-size">{m.display.split(" ")[0]}</p>
+                  <p>{m.display}</p>
+                </div>
+                <div className="dd-feature chip" role="listitem">
+                  <p>{m.chip}</p>
+                </div>
+                <div className="dd-feature camera" role="listitem">
+                  <p>{m.camera}</p>
+                </div>
+                <div className="dd-feature zoom" role="listitem">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={m.zoomIcon} alt={`Optical zoom options ${m.zoom}`} loading="lazy" />
-                  <span>{m.zoom}</span>
-                </dd>
-                <dt>Battery</dt>
-                <dd>{m.battery}</dd>
-              </dl>
+                  <img src={m.zoomIcon} alt={`Optical zoom options ${m.zoom}`} width={76} height={56} className="dd-icon dd-invert-classic ir" loading="lazy" />
+                  <p>Optical zoom options <span className="visuallyhidden">{m.zoom}</span></p>
+                </div>
+                <div className="dd-feature apple-intelligence" role="listitem">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`${MEDIA}/iphone-compare-icon-apple-intelligence-202609`} alt="Siri AI and Apple Intelligence" width={42} height={56} className="dd-icon dd-icon-apple-intelligence dd-invert-classic ir" loading="lazy" />
+                  <p className="column">Apple Intelligence</p>
+                  <p className="column">Siri AI</p>
+                </div>
+                <div className="dd-feature battery" role="listitem">
+                  <p>{m.battery}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="rc-accordion-section">
+      <section className="faq-section as-l-container">
         <h2 className="rc-accordion-title">Frequently Asked Questions</h2>
-        <div className="rc-accordion">
-          {FAQ.map(([q, a]) => (
-            <FaqItem key={q} q={q} a={a} />
-          ))}
+        <div className="rc-accordion rc-accordion-compact rc-accordion-hover">
+          <ul className="rc-accordion">
+            {FAQ.map(([q, a]) => (
+              <FaqItem key={q} q={q} a={a} />
+            ))}
+          </ul>
         </div>
       </section>
 

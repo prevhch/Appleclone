@@ -547,10 +547,17 @@ export default function BuyFlow() {
         <section className="dd-shared-personal-setup dd-fill-tertiary">
           <div className="dd-l-plate">
             <div className="dd-info dd-text-align-center">
-              <h2 className="rf-bfe-dimension-header typography-eyebrow">
-                <span>Set up your device with one-on-one sessions with a Specialist.</span>
+              <h2 className="t-headline-reduced dd-compact-large-12 dd-compact-small-10">
+                Set up your device with one-on-one sessions with a Specialist.
               </h2>
-              <p>When you buy directly from Apple, you can get help transferring your data and making the most of your new device with our free online Personal Setup sessions.</p>
+              <div className="dd-image">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${MEDIA}/personal-setup-shop-shared-202511_GEO_US`} alt="" width={708} height={152} className="dd-hero ir" loading="lazy" />
+              </div>
+              <p className="t-intro-elevated dd-compact-large-14">When you buy directly from Apple, you can get help transferring your data and making the most of your new device with our free online Personal Setup sessions.</p>
+              <p className="dd-link t-intro-elevated">
+                <span className="as-buttonlink icon icon-after icon-pluscircle" role="button">Learn more about Personal Setup</span>
+              </p>
             </div>
           </div>
         </section>
@@ -559,11 +566,17 @@ export default function BuyFlow() {
           <div className="dd-l-mw1070">
             <div className="dd-l-plate">
               <div className="dd-info">
-                <h2 className="rf-bfe-dimension-header typography-eyebrow">
-                  <span>Your new iPhone comes with so much more.</span>
+                <h2 className="dd-header t-custom-header dd-compact-small-5">
+                  Your new iPhone comes with so much more.
                 </h2>
-                <p>Get 3 months of select services free when you purchase an Apple device.</p>
+                <p className="dd-subcopy">
+                  Get 3 months of select services free when you purchase an Apple device.
+                </p>
                 <span>Apple TV, Apple Music, Apple Arcade, Apple News+, Apple Fitness+</span>
+              </div>
+              <div className="dd-image">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${MEDIA}/services-iphone-202605_GEO_US`} alt="Apple TV, Apple Music, Apple Arcade, Apple News+, Apple Fitness+" width={1070} height={481} className="dd-hero ir" loading="lazy" />
               </div>
             </div>
           </div>

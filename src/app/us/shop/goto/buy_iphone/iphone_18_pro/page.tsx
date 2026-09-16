@@ -30,23 +30,33 @@ export default function BuyPage() {
       {CSS.map((href) => (
         <link key={href} rel="stylesheet" href={href} />
       ))}
-      <div className="as-carrierpromotion-ribboncontainer row large-12 small-12 large-centered small-centered" style={{ background: "#f5f5f7", borderRadius: 12, padding: "12px 20px", margin: "12px auto", maxWidth: 1024 }}>
-        <span><strong>Carrier Deals at Apple</strong> <a href="#carrier-deals">See all deals ⊕</a></span>
-        <span>Carrier Financing</span>
-        <div className="as-carrierpromotion-ribbon-item">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="as-carrierpromotion-ribbon-carrierlogo" src="/apple/har/iphone-18-pro-buy/media/carrier-logo-att" alt="AT&T" />
-          <strong>AT&amp;T</strong> — Save up to $1200 for an eligible trade-in in any condition.
-        </div>
-        <div className="as-carrierpromotion-ribbon-item">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="as-carrierpromotion-ribbon-carrierlogo" src="/apple/har/iphone-18-pro-buy/media/carrier-logo-tmobile" alt="T-Mobile" />
-          <strong>T-Mobile</strong> — Save up to $1200 for an eligible trade-in in any condition.
-        </div>
-        <div className="as-carrierpromotion-ribbon-item">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="as-carrierpromotion-ribbon-carrierlogo" src="/apple/har/iphone-18-pro-buy/media/carrier-logo-verizon" alt="Verizon" />
-          <strong>Verizon</strong> — Save up to $1020 for an eligible trade-in in any condition.
+      <div className="as-carrierpromotion-ribbon pd-carrierpromotion-ribbon-202010">
+        <div className="as-l-container">
+          <div className="as-carrierpromotion-ribboncontainer row large-12 small-12 large-centered small-centered" data-autom="as-carrierpromotion-ribboncontainer">
+            <div className="as-carrierpromotion-offerslinkcontainer">
+              <div className="as-carrierpromotion-offersheader">Carrier Deals at Apple</div>
+              <button type="button" className="as-buttonlink as-carrierpromotion-ribbonlearnmore icon icon-after icon-pluscircle">
+                See all deals<span className="visuallyhidden">Carrier Financing</span>
+              </button>
+            </div>
+            {[
+              { logo: "carrier-logo-att", name: "AT&T", text: "Save up to $1200 for an eligible trade-in in any condition.", fn: "∆" },
+              { logo: "carrier-logo-tmobile", name: "T-Mobile", text: "Save up to $1200 for an eligible trade-in in any condition.", fn: "§" },
+              { logo: "carrier-logo-verizon", name: "Verizon", text: "Save up to $1020 for an eligible trade-in in any condition.", fn: "±" },
+            ].map((c) => (
+              <div key={c.name} className="as-carrierpromotion-ribbon-item" data-autom="as-carrierpromotion-ribbon-item">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="as-carrierpromotion-ribbon-carrierlogo" src={`/apple/har/iphone-18-pro-buy/media/${c.logo}`} width={25} height={25} alt={c.name} />
+                <span className="as-carrierpromotion-ribbon-carrierprice" role="text">
+                  {c.text}
+                  <sup data-autom="footnote-sub" className="as-footnote">
+                    <span className="visuallyhidden">&nbsp;Footnote&nbsp;</span>
+                    {c.fn}
+                  </sup>
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <BuyFlow />
