@@ -52,6 +52,14 @@ export default function BuyPage() {
       {CSS.map((href) => (
         <link key={href} rel="stylesheet" href={href} />
       ))}
+      <div className="as-carrierpromotion-ribboncontainer row large-12 small-12 large-centered small-centered">
+        <span>Carrier Deals at Apple</span>
+        <a href="#carrier-deals">See all deals</a>
+        <span>Carrier Financing</span>
+        <div className="as-carrierpromotion-ribbon-item">AT&amp;T — Save up to $1200 for an eligible trade-in in any condition.</div>
+        <div className="as-carrierpromotion-ribbon-item">T-Mobile — Save up to $1200 for an eligible trade-in in any condition.</div>
+        <div className="as-carrierpromotion-ribbon-item">Verizon — Save up to $1020 for an eligible trade-in in any condition.</div>
+      </div>
       <div className="rf-bfe-container row">
         <div className="rf-bfe-column-left column large-7">
           <section className="rf-bfe-gallery-section">
@@ -78,6 +86,45 @@ export default function BuyPage() {
                     </span>{" "}
                     with your iPhone 18 Pro purchase.
                   </div>
+                </div>
+                <div className="rc-gallery-dotnav dotnav">
+                  <ul className="dotnav-items" role="tablist">
+                    {[1, 2].map((n) => (
+                      <li key={n} role="presentation" className="dotnav-item">
+                        <button
+                          type="button"
+                          role="tab"
+                          aria-selected={n === 1}
+                          aria-label={`Gallery image ${n}`}
+                          tabIndex={-1}
+                          className="rc-gallery-dotnav-item"
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rc-gallery-paddlenav paddlenav paddlenav-alpha paddlenav-elevated">
+                  <button
+                    type="button"
+                    className="paddlenav-arrow paddlenav-arrow-previous"
+                    disabled
+                    aria-label="Previous gallery image"
+                  >
+                    <span className="visuallyhidden">Previous gallery image</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true">
+                      <path d="M21.559,12.062 L15.618,17.984 L21.5221,23.944 C22.105,24.533 22.1021,25.482 21.5131,26.065 C20.9241,26.648 19.9761,26.646 19.3921,26.056 L12.4351,19.034 C11.8531,18.446 11.8551,17.5 12.4411,16.916 L19.4411,9.938 C20.0261,9.353 20.9781,9.354 21.5621,9.941 C22.1461,10.528 22.1441,11.477 21.559,12.062 Z" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    className="paddlenav-arrow paddlenav-arrow-next"
+                    aria-label="Next gallery image"
+                  >
+                    <span className="visuallyhidden">Next gallery image</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true">
+                      <path d="M14.4411,12.062 L20.3821,17.984 L14.4779,23.944 C13.895,24.533 13.8979,25.482 14.4869,26.065 C15.0759,26.648 16.0239,26.646 16.6079,26.056 L23.5649,19.034 C24.1469,18.446 24.1449,17.5 23.5589,16.916 L16.5589,9.938 C15.9739,9.353 15.0219,9.354 14.4379,9.941 C13.8539,10.528 13.8559,11.477 14.4411,12.062 Z" />
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
