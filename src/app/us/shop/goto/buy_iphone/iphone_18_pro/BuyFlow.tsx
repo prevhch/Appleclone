@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MEDIA = "/apple/har/iphone-18-pro-buy/media";
 
@@ -119,6 +119,14 @@ export default function BuyFlow() {
   const [modelIdx, setModelIdx] = useState(0);
   const [finish, setFinish] = useState<Finish>("burgundy");
   const [storageIdx, setStorageIdx] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 600);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const model = MODELS[modelIdx];
   const price = model.prices[storageIdx];
@@ -476,12 +484,24 @@ export default function BuyFlow() {
       </div>
       </div>
 
-      <div className="rf-bfe-stickybar" style={{ top: 48 }}>
+      <div className="rf-bfe-stickybar" style={{ top: 48, background: "#fff" }}>
         <div className="rf-bfe-stickybar-scroller">
-          <div className="rf-bfe-stickybar-header">Your {model.name}</div>
-          <button className="rf-bfe-stickybar-button" type="button">
-            Continue — {buyLine}
-          </button>
+          {scrolled ? (
+            <>
+              <div className="rf-bfe-stickybar-header">Your {model.name}</div>
+              <button className="rf-bfe-stickybar-button" type="button">
+                Continue — {buyLine}
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="rf-bfe-stickybar-header">{buyLine}</div>
+              <div className="rf-bfe-stickybar-fulfillment">
+                <span>Free shipping</span>
+                <span>Pick up from Store</span>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

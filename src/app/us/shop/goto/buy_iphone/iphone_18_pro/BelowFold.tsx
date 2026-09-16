@@ -126,7 +126,7 @@ export default function BelowFold() {
         <h2 className="t-headline-reduced dd-compare-header">Which iPhone is right for you?</h2>
         <div className="dd-compare row">
           {COMPARE.map((m) => (
-            <div key={m.name} className="column large-2 dd-compare-model">
+            <div key={m.name} className="column large-2 dd-compare-model" style={{ textAlign: "center" }}>
               {m.tag ? <span className="badge badge-no-scrim">{m.tag}</span> : null}
               <h3 className="dd-compare-modelname">{m.name}</h3>
               <p className="dd-compare-blurb">{m.blurb}</p>
