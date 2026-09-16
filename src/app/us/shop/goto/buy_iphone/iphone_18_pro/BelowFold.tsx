@@ -71,6 +71,7 @@ const COMPARE = [
     swatchAlt: "iPhone Duo available colors: night sky, star white",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-202509`,
     zoom: "0.5x, 1x, 2x",
+    ddLink: "iphone-duo",
     name: "iPhone Duo",
     img: `${MEDIA}/iphone-compare-iphone-duo-202609`,
     imgAlt: "iPhone Duo, folded back exterior and unfolded interior display",
@@ -89,6 +90,7 @@ const COMPARE = [
     swatchAlt: "iPhone 18 Pro available colors: burgundy, glacier, silver, black",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-pro-202509`,
     zoom: "0.5x, 1x, 2x, 4x, 8x",
+    ddLink: "iphone-18-pro",
     name: "iPhone 18 Pro",
     img: `${MEDIA}/iphone-compare-iphone-18-pro-202609`,
     imgAlt: "iPhone 18 Pro Max and iPhone 18 Pro in Burgundy",
@@ -107,6 +109,7 @@ const COMPARE = [
     swatchAlt: "iPhone Air available colors: sky blue, light gold, cloud white, space black",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-air-202509`,
     zoom: "1x, 2x",
+    ddLink: "iphone-air",
     name: "iPhone Air",
     img: `${MEDIA}/iphone-compare-iphone-air-202609`,
     imgAlt: "iPhone Air, back and front exterior",
@@ -125,6 +128,7 @@ const COMPARE = [
     swatchAlt: "iPhone 17 available colors: lavender, sage, mist blue, white, black",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-202509`,
     zoom: "0.5x, 1x, 2x",
+    ddLink: "iphone-17",
     name: "iPhone 17",
     img: `${MEDIA}/iphone-compare-iphone-17-202609`,
     imgAlt: "iPhone 17, back and front exterior",
@@ -143,6 +147,7 @@ const COMPARE = [
     swatchAlt: "iPhone 17e available colors: soft pink, white, black",
     zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-air-202509`,
     zoom: "1x, 2x",
+    ddLink: "iphone-17e",
     name: "iPhone 17e",
     img: `${MEDIA}/iphone-compare-iphone-17e-202609`,
     imgAlt: "iPhone 17e, back and front exterior",
@@ -199,13 +204,13 @@ export default function BelowFold() {
           <div className="dd-compare-grid t-caption">
             {COMPARE.map((m, i) => (
             <div key={m.name} className={`dd-grid-column column-${i + 1}`} aria-labelledby={`dd-column-${i + 1}-product-name`}>
-              <div className="dd-column-header">
+              <div className="dd-column-header" data-trigger-click={`click [data-dd-link='${m.ddLink}']`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={m.img} alt={m.imgAlt} width={200} height={256} className="dd-compare-hero ir" loading="lazy" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={m.swatch} alt={m.swatchAlt} width={m.swatchW} height={m.swatchH} className="dd-color-swatch ir" loading="lazy" />
               {m.tag ? <span className="badge badge-reduced badge-no-scrim dd-violator">{m.tag}</span> : null}
-              <p className="t-label dd-product-name">{m.name}</p>
+              <p className="t-label dd-product-name"><span>{m.name}</span></p>
               <p className="t-body-tight dd-subtitle">{m.blurb}</p>
               <p className="t-body-reduced-tight dd-compare-price">{m.price}</p>
               </div>
