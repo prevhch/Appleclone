@@ -301,7 +301,8 @@ export default function BuyFlow() {
             <span>Model. </span>
             <span className="as-subheading">Which is best for you?</span>
           </h2>
-          <div className="rf-bfe-config-options">
+          <fieldset className="rc-dimension rf-bfe-product-dimension-group">
+            <div className="rc-dimension-selector-group form-selector-group">
             {MODELS.map((o, i) => (
               <OptLabel
                 key={o.name}
@@ -318,6 +319,7 @@ export default function BuyFlow() {
               />
             ))}
           </div>
+          </fieldset>
           <div className="rf-bfe-decision-support">
             <div className="rc-decisionsection as-util-relatedlink">
               <div className="rc-decisionsection-details typography-body-reduced">
@@ -381,7 +383,8 @@ export default function BuyFlow() {
             <span>Storage. </span>
             <span className="as-subheading">How much space do you need?</span>
           </h2>
-          <div className="rf-bfe-config-options">
+          <fieldset className="rc-dimension rf-bfe-product-dimension-group">
+            <div className="rc-dimension-selector-group form-selector-group">
             {STORAGE.map((size, i) => (
               <OptLabel
                 key={size}
@@ -398,6 +401,7 @@ export default function BuyFlow() {
               />
             ))}
           </div>
+          </fieldset>
           <div className="rf-bfe-decision-support">
             <div className="rc-decisionsection as-util-relatedlink">
               <div className="rc-decisionsection-image-wrapper">
@@ -451,13 +455,15 @@ export default function BuyFlow() {
           <h2 id="dimensionTradeIn" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
             <span>Apple Trade In. Get $35–$885 credit towards your new iPhone.</span>
           </h2>
-          <div className="rf-bfe-config-options">
+          <fieldset className="rc-dimension rf-bfe-product-dimension-group">
+            <div className="rc-dimension-selector-group form-selector-group">
             <OptLabel subHeader id="tradein-add"  name="tradein" defaultChecked title="Add a trade-in" sub="Answer a few questions to get your estimate." />
             <OptLabel subHeader id="tradein-no"  name="tradein" title="No trade-in" />
             <span className="as-price-tradeinmsg">
               Save even more when you trade in and finance with select carrier deals at Apple.
             </span>
           </div>
+          </fieldset>
           <div className="rf-bfe-decision-support">
             <div className="rc-decisionsection as-util-relatedlink">
               <div className="rc-decisionsection-image-wrapper">
@@ -480,11 +486,13 @@ export default function BuyFlow() {
             <span>Payment options. </span>
             <span className="as-subheading">Select the one that works for you.</span>
           </h2>
-          <div className="rf-bfe-config-options">
+          <fieldset className="rc-dimension rf-bfe-product-dimension-group">
+            <div className="rc-dimension-selector-group form-selector-group">
             <OptLabel subHeader id="pay-0"  name="payment" defaultChecked title="Buy" sub="Pay with Apple Pay or other payment methods." />
             <OptLabel subHeader id="pay-1"  name="payment" title="Finance" sub="Pay over time at 0% APR." />
             <OptLabel subHeader id="pay-2"  name="payment" title="Lease with Apple Upgrade" sub="Pay monthly with Klarna. Easily upgrade at the end of your term." />
           </div>
+          </fieldset>
         </div>
 
         <section className="rf-bfe-complimentary-section">
@@ -493,11 +501,13 @@ export default function BuyFlow() {
               AppleCare coverage. Peace of mind in every plan.
             </h2>
           </div>
-          <div className="rf-bfe-config-options">
+          <fieldset className="rc-dimension rf-bfe-product-dimension-group">
+            <div className="rc-dimension-selector-group form-selector-group">
             <OptLabel subHeader id="care-0"  name="applecare" defaultChecked title="AppleCare+ with Theft and Loss" sub="Cover this product only. Unlimited repairs for accidents like drops and spills. 24/7 priority support from Apple experts." />
             <OptLabel subHeader id="care-1"  name="applecare" title="AppleCare One" sub="Cover multiple products, including this iPhone. Theft and loss coverage for iPhone, iPad, and Apple Watch." />
             <OptLabel subHeader id="care-2"  name="applecare" title="No AppleCare coverage" />
           </div>
+          </fieldset>
           <div className="rf-applecare-decision-support">
             <div className="rc-decisionsection as-util-relatedlink">
               <div className="rc-decisionsection-image-wrapper">
