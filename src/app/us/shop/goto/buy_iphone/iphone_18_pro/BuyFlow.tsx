@@ -577,7 +577,7 @@ export default function BuyFlow() {
 
       <div className="rf-bfe-summary-wrapper">
         <section className="rf-bfe-summary">
-          <div className="rf-bfe-summary-section">
+          <div className="rf-bfe-summary-price-section">
             <div className="rf-bfe-summary-price-title rf-bfe-updated-summary">
               Your new {model.name}. Just the way you want it.
             </div>
