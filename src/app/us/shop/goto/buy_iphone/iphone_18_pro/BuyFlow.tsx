@@ -422,39 +422,6 @@ export default function BuyFlow() {
       </div>
 
       <div className="rf-bfe-selectionarea">
-        <div className="rf-bfe-step row rf-bfe-dimension rf-bfe-dimension-carriermodel">
-          <h2 id="dimensionCarrier" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
-            <span>Connectivity. </span>
-            <span className="as-subheading">Choose a carrier.</span>
-          </h2>
-          <div className="row">
-          <div className="rf-bfe-dimension-carriermodel-options">
-            {CARRIERS.map((c, i) => (
-              <OptLabel
-                key={c}
-                id={`carrier-${i}`}
-                name="dimensionCarrierModel"
-                checked={i === carrierIdx}
-                disabled={storageIdx === null}
-                onChange={() => { setCarrierIdx(i); setCareIdx(null); }}
-                title={c}
-                sub={fmtFull(model.prices[si].buy.replace("$", ""))}
-              />
-            ))}
-          </div>
-          <div className="rf-bfe-decision-support">
-            <div className="rc-decisionsection as-util-relatedlink">
-              <div className="rc-decisionsection-details typography-body-reduced">
-                <div className="rc-decisionsection-info">
-                  <div className="rc-decisionsection-header typography-body-reduced-tight">Is it easy to get connected?</div>
-                  <div className="rc-decisionsection-desc typography-body-reduced-tight">Yes. We&rsquo;ll help you set up your carrier, number, and rate plan.</div>
-                </div>
-              </div>
-              <span role="button" className="rc-decisionsection-link">Show more</span>
-            </div>
-          </div>
-          </div>
-        </div>
 
         <div className="rf-bfe-step rf-bfe-tradeup-fullwidth">
           <div className="rf-bfe-tradeup-header">
@@ -537,6 +504,40 @@ export default function BuyFlow() {
               </label>
             </div>
           </div>
+          </div>
+          </div>
+        </div>
+
+        <div className="rf-bfe-step row rf-bfe-dimension rf-bfe-dimension-carriermodel">
+          <h2 id="dimensionCarrier" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
+            <span>Connectivity. </span>
+            <span className="as-subheading">Choose a carrier.</span>
+          </h2>
+          <div className="row">
+          <div className="rf-bfe-dimension-carriermodel-options">
+            {CARRIERS.map((c, i) => (
+              <OptLabel
+                key={c}
+                id={`carrier-${i}`}
+                name="dimensionCarrierModel"
+                checked={i === carrierIdx}
+                disabled={storageIdx === null}
+                onChange={() => { setCarrierIdx(i); setCareIdx(null); }}
+                title={c}
+                sub={fmtFull(model.prices[si].buy.replace("$", ""))}
+              />
+            ))}
+          </div>
+          <div className="rf-bfe-decision-support">
+            <div className="rc-decisionsection as-util-relatedlink">
+              <div className="rc-decisionsection-details typography-body-reduced">
+                <div className="rc-decisionsection-info">
+                  <div className="rc-decisionsection-header typography-body-reduced-tight">Is it easy to get connected?</div>
+                  <div className="rc-decisionsection-desc typography-body-reduced-tight">Yes. We&rsquo;ll help you set up your carrier, number, and rate plan.</div>
+                </div>
+              </div>
+              <span role="button" className="rc-decisionsection-link">Show more</span>
+            </div>
           </div>
           </div>
         </div>
