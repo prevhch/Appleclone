@@ -175,7 +175,7 @@ export default function BuyFlow() {
           </div>
         </div>
         </div>
-        <div className="rf-bfe-header-rightsection">
+        <div className="rf-bfe-header-rightsection" style={{ maxWidth: 340 }}>
           <div className="rf-bfe-header-learnmorelink-items">
             <div className="rf-bfe-header-learnmorelink rf-bfe-header-tradein-learnmorelink">
               <a className="rf-bfe-header-plusicon" role="button" href="#tradein">
