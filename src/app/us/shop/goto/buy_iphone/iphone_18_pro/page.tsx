@@ -20,9 +20,9 @@ const CSS = [
 const MEDIA = "/apple/har/iphone-18-pro-buy/media";
 
 const FINISHES = [
-  { name: "Black Titanium", src: `${MEDIA}/iphone-compare-iphone-18-pro-202609` },
-  { name: "Desert Titanium", src: `${MEDIA}/iphone-compare-iphone-duo-202609` },
-  { name: "Natural Titanium", src: `${MEDIA}/iphone-compare-iphone-air-202609` },
+  { name: "Black Titanium", puck: "#3c3f41", src: `${MEDIA}/iphone-compare-iphone-18-pro-202609` },
+  { name: "Desert Titanium", puck: "#b9a58f", src: `${MEDIA}/iphone-compare-iphone-duo-202609` },
+  { name: "Natural Titanium", puck: "#c2bcb2", src: `${MEDIA}/iphone-compare-iphone-air-202609` },
 ];
 
 const STORAGE = [
@@ -82,20 +82,26 @@ export default function BuyPage() {
           <section className="rf-bfe-dimension rf-bfe-dimension-dimensionscreensize">
             <div className="rf-bfe-dimension-header">
               <h2 className="rf-bfe-dimension-title">
-                Model. <span>Which is best for you?</span>
+                <span>Model. </span>
+                <span className="as-subheading">Which is best for you?</span>
               </h2>
             </div>
             <div className="rf-bfe-config-options">
               {["iPhone 18 Pro 6.5-inch", "iPhone 18 Pro Max 6.9-inch"].map((m) => (
-                <label key={m} className="form-selector">
-                  <input type="radio" name="model" defaultChecked={m.startsWith("iPhone 18 Pro 6")} />
-                  <span className="form-selector-label">
+                <div key={m} className="form-selector">
+                  <input
+                    className="form-selector-input"
+                    type="radio"
+                    name="model"
+                    defaultChecked={m.startsWith("iPhone 18 Pro 6")}
+                  />
+                  <label className="form-selector-label">
                     {m}
                     <span className="rf-bfe-config-options-price price-point">
                       {m.includes("Max") ? "From $1,299" : "From $1,199"}
                     </span>
-                  </span>
-                </label>
+                  </label>
+                </div>
               ))}
             </div>
           </section>
@@ -103,7 +109,8 @@ export default function BuyPage() {
           <section className="rf-bfe-dimension rf-bfe-dimension-dimensioncolor">
             <div className="rf-bfe-dimension-header">
               <h2 className="rf-bfe-dimension-title">
-                Finish. <span>Pick your favorite.</span>
+                <span>Finish. </span>
+                <span className="as-subheading">Pick your favorite.</span>
               </h2>
             </div>
             <div className="colornav-items">
@@ -116,7 +123,8 @@ export default function BuyPage() {
                     defaultChecked={i === 0}
                     aria-label={f.name}
                   />
-                  <label className="rc-dimension-colornav-link" aria-hidden="true">
+                  <label className="rf-bfe-product-dimension-colornav-label" aria-hidden="true">
+                    <span className="colornav-swatch" style={{ backgroundColor: f.puck }} />
                     <span className="colornav-label">{f.name}</span>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={f.src} alt="" aria-hidden="true" />
@@ -132,18 +140,24 @@ export default function BuyPage() {
           <section className="rf-bfe-dimension rf-bfe-dimension-dimensioncapacity">
             <div className="rf-bfe-dimension-header">
               <h2 className="rf-bfe-dimension-title">
-                Storage. <span>How much space do you need?</span>
+                <span>Storage. </span>
+                <span className="as-subheading">How much space do you need?</span>
               </h2>
             </div>
             <div className="rf-bfe-config-options">
               {STORAGE.map((s, i) => (
-                <label key={s.size} className="form-selector">
-                  <input type="radio" name="storage" defaultChecked={i === 0} />
-                  <span className="form-selector-label">
+                <div key={s.size} className="form-selector">
+                  <input
+                    className="form-selector-input"
+                    type="radio"
+                    name="storage"
+                    defaultChecked={i === 0}
+                  />
+                  <label className="form-selector-label">
                     {s.size}
                     <span className="rf-bfe-config-options-price price-point">{s.price}</span>
-                  </span>
-                </label>
+                  </label>
+                </div>
               ))}
             </div>
             <div className="rf-bfe-dimension-footer">
@@ -155,29 +169,33 @@ export default function BuyPage() {
           <section className="rf-bfe-dimension rf-bfe-dimension-carriermodel">
             <div className="rf-bfe-dimension-header">
               <h2 className="rf-bfe-dimension-title">
-                Carrier. <span>Choose how you connect.</span>
+                <span>Connectivity. </span>
+                <span className="as-subheading">Choose a carrier.</span>
               </h2>
             </div>
             <div className="rf-bfe-dimension-carriermodel-options">
               {CARRIERS.map((c, i) => (
-                <label key={c} className="form-selector">
-                  <input type="radio" name="carrier" defaultChecked={i === 0} />
-                  <span className="form-selector-label">
+                <div key={c} className="form-selector">
+                  <input
+                    className="form-selector-input"
+                    type="radio"
+                    name="carrier"
+                    defaultChecked={i === 0}
+                  />
+                  <label className="form-selector-label">
                     {c}
                     <span className="rf-bfe-dimension-carriermodel-optionprice price-point">
                       5G included
                     </span>
-                  </span>
-                </label>
+                  </label>
+                </div>
               ))}
             </div>
           </section>
 
           <section className="rf-bfe-dimension">
             <div className="rf-bfe-dimension-header">
-              <h2 className="rf-bfe-dimension-title">
-                Trade-in. <span>Save with your current phone.</span>
-              </h2>
+              <h2 className="rf-bfe-dimension-title">Apple Trade In.</h2>
             </div>
             <div className="rf-bfe-config-options">
               <span className="as-price-tradeinmsg">
