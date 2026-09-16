@@ -1,0 +1,32 @@
+/* Neutralize Tailwind preflight inside Apple-vendored markup so Apple's own
+   CSS is the only author origin (preflight otherwise wins where Apple is
+   intentionally silent, e.g. h3 UA sizing, img max-width). */
+.rf-bfe h1,
+.rf-bfe h2,
+.rf-bfe h3,
+.rf-bfe h4,
+.rf-bfe h5,
+.rf-bfe h6,
+.dd-compare h1,
+.dd-compare h2,
+.dd-compare h3,
+.faq-section h1,
+.faq-section h2,
+.faq-section h3,
+.as-globalfooter h1,
+.as-globalfooter h2,
+.as-globalfooter h3,
+.as-carrierpromotion-ribbon h1,
+.as-carrierpromotion-ribbon h2,
+.as-carrierpromotion-ribbon h3 {
+  font-size: revert;
+  font-weight: revert;
+  margin: revert;
+}
+.rf-bfe img,
+.dd-compare img,
+.faq-section img,
+.as-globalfooter img,
+.as-carrierpromotion-ribbon img {
+  max-width: none;
+}

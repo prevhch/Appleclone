@@ -676,7 +676,7 @@ export default function BuyFlow() {
         </section>
       </div>
 
-      <div className="rf-bfe-stickybar" style={{ position: "sticky", top: 48, background: "#fff", zIndex: 10 }}>
+      <div className="rf-bfe-stickybar" style={{ position: "fixed", top: 96, left: 0, right: 0, zIndex: 10 }}>
         <div className="rf-bfe-stickybar-scroller">
           {scrolled ? (
             <>

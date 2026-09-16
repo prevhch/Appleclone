@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 export const dynamic = "force-static";
 
 const CSS = [
+  "/apple/har/iphone-18-pro-buy/css/live-0-reset.css",
   "/apple/har/iphone-18-pro-buy/css/live-0-fonts.css",
   "/apple/har/iphone-18-pro-buy/css/live-1-ac-globalnav.built.css",
   "/apple/har/iphone-18-pro-buy/css/live-2-ac-external.built.css",
