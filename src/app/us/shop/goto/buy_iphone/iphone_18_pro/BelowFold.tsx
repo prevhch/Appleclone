@@ -280,19 +280,40 @@ export default function BelowFold() {
           </nav>
           <div className="row">
           {FOOTER_COLS.map(([h, links]) => (
-            <div key={h} className="column large-2 as-globalfooter-col">
-              <h3 className="as-globalfooter-label">{h}</h3>
-              <ul>
-                {links.map((l) => (
-                  <li key={l}>{l}</li>
-                ))}
-              </ul>
+            <div key={h} className="as-globalfooter-directory-column">
+              <div className="as-globalfooter-directory-column-section">
+                <h3 className="as-globalfooter-directory-column-section-title">
+                  <span className="as-globalfooter-directory-column-section-title-text">{h}</span>
+                  <button className="as-globalfooter-directory-column-section-title-button" disabled>
+                    <span className="as-globalfooter-directory-column-section-title-text">{h}</span>
+                    <span className="as-globalfooter-directory-column-section-title-icon" aria-hidden="true">+</span>
+                  </button>
+                </h3>
+                <ul className="as-globalfooter-directory-column-section-list" role="list">
+                  {links.map((l) => (
+                    <li key={l} className="as-globalfooter-directory-column-section-item" role="listitem">
+                      <span className="as-globalfooter-directory-column-section-link">{l}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
           </div>
         </div>
-        <div className="as-globalfooter-mini">
-          <span>Copyright © 2026 AppleClone (school project). All rights reserved.</span>
+        <div className="as-globalfooter-mini" data-nosnippet>
+          <div className="as-globalfooter-mini-shop">
+            More ways to shop: Find an Apple Store or other retailer near you. Or call 1‑800‑MY‑APPLE.
+          </div>
+          <div className="as-globalfooter-mini-locale">United States</div>
+          <div className="as-globalfooter-mini-legal">
+            <div className="as-globalfooter-mini-legal-copyright">Copyright © 2026 AppleClone (school project). All rights reserved.</div>
+            <span>Privacy Policy</span>
+            <span>Terms of Use</span>
+            <span>Sales Policy</span>
+            <span>Legal</span>
+            <span>Site Map</span>
+          </div>
         </div>
       </footer>
     </>
