@@ -64,7 +64,7 @@ function fmtFull(n: string) {
   const v = Number(n);
   return "$" + v.toLocaleString("en-US") + ".00";
 }
-const CARRIERS = ["AT&T", "T-Mobile", "Verizon", "Connect to any carrier later"];
+const CARRIERS = ["AT&T", "T-Mobile", "Verizon", "Connect on your own later."];
 
 function OptLabel({
   id,
