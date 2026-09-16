@@ -104,7 +104,7 @@ function OptLabel({
         disabled={disabled}
         onChange={onChange}
       />
-      <label className="form-selector-label" htmlFor={id}>
+      <label className={`form-selector-label${subHeader ? " form-selector-list-header" : ""}`} htmlFor={id}>
         <span className="row">
           <span className="column form-selector-left-col rf-bfe-selector-left-col">
             <span className="form-selector-title">
@@ -112,7 +112,7 @@ function OptLabel({
               {sub && !subHeader && !tradeSub ? <span className="form-label-small">{sub}</span> : null}
               {sub && tradeSub ? <span className="form-label-small rf-tradeupselector-subheader">{sub}</span> : null}
             </span>{" "}
-            {sub && subHeader ? <span className="form-selector-list-header">{sub}</span> : null}
+            {sub && subHeader ? <span>{sub}</span> : null}
           </span>
           {prices ? (
             <span className="column form-selector-right-col rf-bfe-selector-right-col">
