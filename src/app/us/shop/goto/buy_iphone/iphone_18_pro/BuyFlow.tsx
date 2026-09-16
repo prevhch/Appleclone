@@ -187,7 +187,6 @@ export default function BuyFlow() {
               <a className="rf-bfe-header-plusicon" role="button" href="#payment">
                 See how to pay monthly.
               </a>
-            </div>
           </div>
         </div>
       </div>
