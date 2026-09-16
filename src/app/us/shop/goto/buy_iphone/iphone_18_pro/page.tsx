@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BuyFlow from "./BuyFlow";
+import BelowFold from "./BelowFold";
 
 export const metadata: Metadata = {
   title: "Shop iPhone 18 Pro and iPhone 18 Pro Max - Apple",
@@ -33,6 +34,7 @@ export default function BuyPage() {
         <div className="as-carrierpromotion-ribbon-item">Verizon — Save up to $1020 for an eligible trade-in in any condition.</div>
       </div>
       <BuyFlow />
+      <BelowFold />
     </>
   );
 }
