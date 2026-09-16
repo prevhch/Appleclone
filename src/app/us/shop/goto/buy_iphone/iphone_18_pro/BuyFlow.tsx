@@ -130,8 +130,8 @@ export default function BuyFlow() {
 
   const model = MODELS[modelIdx];
   const price = model.prices[storageIdx];
-  const buyLine = `Buy from ${price.buy} or ${price.mo} per month for 24 mo.months`;
-  const leaseLine = `Lease from ${price.lease} per month for 24 mo.months`;
+  const buyLine = `Buy from ${price.buy} or ${price.mo} for 24 mo.*`;
+  const leaseLine = `Lease from ${price.lease} for 24 mo.#`;
   const summaryDesc = `${model.name}, back exterior, ${FINISH_DESC[finish]}, Pro Fusion camera system, rectangular housing spanning the top, 3 lenses on left, flash, microphone, and LiDAR Scanner on right`;
 
   const idx = FINISHES.indexOf(finish);
@@ -142,14 +142,13 @@ export default function BuyFlow() {
   return (
     <div className="rf-bfe">
       <div className="rf-bfe-header-wrapper">
-        <div className="rf-bfe-header">
-          <div data-autom="bfe-header">
-            <span className="badge badge-no-scrim">New</span>
-            <h1 className="fwl">Pre-order {model.name}</h1>
-            Already have an iPhone saved? <span className="more">View</span>
-            <br />
-            Available starting 9.18.
-          </div>
+        <div data-autom="bfe-header">
+          <span className="badge badge-no-scrim">New</span>
+          <h1 className="fwl">Pre-order {model.name}</h1>
+          Already have an iPhone saved? <span className="more">View ›</span>
+          <br />
+          Available starting 9.18.
+        </div>
           <div className="rf-bfe-header-price-wrapper">
             <div className="rf-bfe-header-price" data-autom="headerPrice">
               <div className="rc-prices rc-prices-default typography-label">
@@ -160,12 +159,12 @@ export default function BuyFlow() {
                         Buy from <span className="nowrap">{price.buy}</span>
                       </span>{" "}
                       <span className="price-point price-point-acmiPrice">
-                        or <span className="nowrap">{price.mo}</span> per month for 24 mo.months
+                        or <span className="nowrap">{price.mo}</span> for 24 mo.*
                       </span>
                     </div>
                     <div className="rc-prices-leasetext">
                       <span className="price-point">
-                        Lease from <span className="nowrap">{price.lease}</span> per month for 24 mo.months with Apple Upgrade
+                        Lease from <span className="nowrap">{price.lease}</span> for 24 mo. with Apple Upgrade#
                       </span>
                     </div>
                   </div>
@@ -173,18 +172,21 @@ export default function BuyFlow() {
               </div>
             </div>
           </div>
+          <div className="rf-bfe-header-ai">
+            <span>Apple Intelligence and Siri AI</span> <span className="more">Learn more ⊕</span>
+          </div>
         </div>
         <div className="rf-bfe-header-rightsection">
           <div className="rf-bfe-header-learnmorelink-items">
             <div className="rf-bfe-header-learnmorelink rf-bfe-header-tradein-learnmorelink">
-              <span className="rf-bfe-header-plusicon" role="button">
+              <a className="rf-bfe-header-plusicon" role="button" href="#tradein">
                 Get $35–$885 for your trade-in.
-              </span>
+              </a>
             </div>
             <div className="rf-bfe-header-learnmorelink">
-              <span className="rf-bfe-header-plusicon" role="button">
+              <a className="rf-bfe-header-plusicon" role="button" href="#payment">
                 See how to pay monthly.
-              </span>
+              </a>
             </div>
           </div>
         </div>
@@ -279,8 +281,8 @@ export default function BuyFlow() {
                 title={o.name}
                 sub={o.display}
                 prices={[
-                  `Buy from ${o.prices[storageIdx].buy} or ${o.prices[storageIdx].mo} per month for 24 mo.months`,
-                  `Lease from ${o.prices[storageIdx].lease} per month for 24 mo.months`,
+                  `Buy from ${o.prices[storageIdx].buy} or ${o.prices[storageIdx].mo} for 24 mo.*`,
+                  `Lease from ${o.prices[storageIdx].lease} for 24 mo.#`,
                 ]}
               />
             ))}
@@ -349,8 +351,8 @@ export default function BuyFlow() {
                 onChange={() => setStorageIdx(i)}
                 title={size}
                 prices={[
-                  `Buy from ${model.prices[i].buy} or ${model.prices[i].mo} per month for 24 mo.months`,
-                  `Lease from ${model.prices[i].lease} per month for 24 mo.months`,
+                  `Buy from ${model.prices[i].buy} or ${model.prices[i].mo} for 24 mo.*`,
+                  `Lease from ${model.prices[i].lease} for 24 mo.#`,
                 ]}
               />
             ))}
