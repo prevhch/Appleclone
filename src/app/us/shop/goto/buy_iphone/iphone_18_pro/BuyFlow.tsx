@@ -21,24 +21,19 @@ const FINISH_DESC: Record<Finish, string> = {
   black: "black color",
 };
 
-const FINISH_GALLERY: Record<Finish, { src: string; alt: string }> = {
-  burgundy: {
-    src: `${MEDIA}/iphone-18-pro-witb-burgundy-202609`,
-    alt: "iPhone 18 Pro, back exterior, burgundy color (dark red), Pro Fusion camera system",
-  },
-  glacier: {
-    src: `${MEDIA}/iphone-compare-iphone-18-pro-202609`,
-    alt: "iPhone 18 Pro, back exterior, glacier color (light blue), Pro Fusion camera system",
-  },
-  silver: {
-    src: `${MEDIA}/iphone-compare-iphone-duo-202609`,
-    alt: "iPhone 18 Pro, back exterior, silver color, Pro Fusion camera system",
-  },
-  black: {
-    src: `${MEDIA}/iphone-compare-iphone-air-202609`,
-    alt: "iPhone 18 Pro, back exterior, black color, Pro Fusion camera system",
-  },
+const FINISH_GALLERY_ALT: Record<Finish, string> = {
+  burgundy: "iPhone 18 Pro, back exterior, burgundy color (dark red), Pro Fusion camera system",
+  glacier: "iPhone 18 Pro, back exterior, glacier color (light blue), Pro Fusion camera system",
+  silver: "iPhone 18 Pro, back exterior, silver color, Pro Fusion camera system",
+  black: "iPhone 18 Pro, back exterior, black color, Pro Fusion camera system",
 };
+
+const MODEL_SIZE = ["6-3inch", "6-9inch"] as const;
+
+function gallerySrc(modelIdx: number, finish: Finish, variant: number) {
+  const base = `iphone-18-pro-finish-select-202609-${MODEL_SIZE[modelIdx]}-${finish}`;
+  return `${MEDIA}/${base}${variant === 1 ? "_AV1" : ""}`;
+}
 
 const MODELS = [
   {
@@ -120,6 +115,12 @@ export default function BuyFlow() {
   const [finish, setFinish] = useState<Finish>("burgundy");
   const [storageIdx, setStorageIdx] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [galIdx, setGalIdx] = useState(0);
+
+  const pickFinish = (f: Finish) => { setFinish(f); setGalIdx(0); };
+  const pickModel = (i: number) => { setModelIdx(i); setGalIdx(0); };
+  const gSrc = gallerySrc(modelIdx, finish, galIdx);
+  const gAlt = FINISH_GALLERY_ALT[finish];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 600);
@@ -134,10 +135,6 @@ export default function BuyFlow() {
   const leaseLine = `Lease from ${price.lease} for 24 mo.#`;
   const summaryDesc = `${model.name}, back exterior, ${FINISH_DESC[finish]}, Pro Fusion camera system, rectangular housing spanning the top, 3 lenses on left, flash, microphone, and LiDAR Scanner on right`;
 
-  const idx = FINISHES.indexOf(finish);
-  const prev = () => setFinish(FINISHES[(idx + FINISHES.length - 1) % FINISHES.length]);
-  const next = () => setFinish(FINISHES[(idx + 1) % FINISHES.length]);
-  const g = FINISH_GALLERY[finish];
 
   return (
     <div className="rf-bfe">
@@ -202,8 +199,8 @@ export default function BuyFlow() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       className="rf-bfe-gallery-image"
-                      src={g.src}
-                      alt={g.alt}
+                      src={gSrc}
+                      alt={gAlt}
                       data-finish={finish}
                     />
                   </div>
@@ -219,16 +216,16 @@ export default function BuyFlow() {
               </div>
               <div className="rc-gallery-dotnav dotnav">
                 <ul className="dotnav-items" role="tablist">
-                  {FINISHES.map((f) => (
-                    <li key={f} role="presentation" className="dotnav-item">
+                  {[0, 1].map((n) => (
+                    <li key={n} role="presentation" className="dotnav-item">
                       <button
                         type="button"
                         role="tab"
-                        aria-selected={f === finish}
-                        aria-label={`Gallery image ${FINISH_LABEL[f]}`}
+                        aria-selected={n === galIdx}
+                        aria-label={`Gallery image ${n + 1}`}
                         tabIndex={-1}
                         className="rc-gallery-dotnav-item"
-                        onClick={() => setFinish(f)}
+                        onClick={() => setGalIdx(n)}
                       />
                     </li>
                   ))}
@@ -238,8 +235,9 @@ export default function BuyFlow() {
                 <button
                   type="button"
                   className="paddlenav-arrow paddlenav-arrow-previous"
+                  disabled={galIdx === 0}
                   aria-label="Previous gallery image"
-                  onClick={prev}
+                  onClick={() => setGalIdx(0)}
                 >
                   <span className="visuallyhidden">Previous gallery image</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true">
@@ -249,8 +247,9 @@ export default function BuyFlow() {
                 <button
                   type="button"
                   className="paddlenav-arrow paddlenav-arrow-next"
+                  disabled={galIdx === 1}
                   aria-label="Next gallery image"
-                  onClick={next}
+                  onClick={() => setGalIdx(1)}
                 >
                   <span className="visuallyhidden">Next gallery image</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" aria-hidden="true">
@@ -276,7 +275,7 @@ export default function BuyFlow() {
                 id={`model-${i}`}
                 name="dimensionScreensize"
                 checked={i === modelIdx}
-                onChange={() => setModelIdx(i)}
+                onChange={() => pickModel(i)}
                 title={o.name}
                 sub={o.display}
                 prices={[
@@ -310,7 +309,7 @@ export default function BuyFlow() {
                     value={f}
                     name="dimensionColor"
                     checked={f === finish}
-                    onChange={() => setFinish(f)}
+                    onChange={() => pickFinish(f)}
                     aria-label={FINISH_LABEL[f]}
                   />
                   <label
