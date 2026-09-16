@@ -3,6 +3,22 @@
 .faq-section h3 {
   font-size: revert;
 }
+.rf-bfe div,
+.rf-bfe section,
+.dd-compare div,
+.dd-compare section,
+.faq-section div,
+.faq-section section,
+.as-globalfooter div,
+.as-globalfooter section,
+.as-carrierpromotion-ribbon div,
+.as-carrierpromotion-ribbon section,
+.dd-shared-personal-setup div,
+.dd-shared-personal-setup section,
+.dd-services div,
+.dd-services section {
+  box-sizing: content-box;
+}
 .rf-bfe img,
 .dd-compare img,
 .faq-section img,

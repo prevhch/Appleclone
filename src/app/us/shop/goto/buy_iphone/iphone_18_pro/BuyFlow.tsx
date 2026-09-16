@@ -150,7 +150,9 @@ export default function BuyFlow() {
   const gAlt = FINISH_GALLERY_ALT[fin];
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 600);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 600);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -217,32 +219,11 @@ export default function BuyFlow() {
       </div>
 
       <div className="rf-bfe-main row">
-      <div className="rf-bfe-column-left column large-7">
+      <div className="rf-bfe-column-left">
         <div className="rf-bfe-gallery-container">
         <section className="rf-bfe-gallery-section">
           <div className="rf-bfe-gallery-wrapper">
-            <div className="rf-bfe-gallery">
-              <div className="rf-bfe-gallery-content">
-                <div className="rf-bfe-gallery-item">
-                  <div className="rf-bfe-gallery-image-wrapper">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      className="rf-bfe-gallery-image"
-                      src={gSrc}
-                      alt={gAlt}
-                      data-finish={fin}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="rf-bfe-gallery-info">
-                <div className="rf-bfe-gallery-info-content">
-                  <span className="rf-bfe-gallery-info-text-bold">
-                    Get 3 free months of AppleCare+
-                  </span>{" "}
-                  with your {model.name} purchase.
-                </div>
-              </div>
+            <div className="rc-inline-gallery rf-bfe-gallery">
               <div className="rc-gallery-dotnav dotnav">
                 <ul className="dotnav-items" role="tablist">
                   {[0, 1].map((n) => (
@@ -260,10 +241,35 @@ export default function BuyFlow() {
                   ))}
                 </ul>
               </div>
+              <div>
+                <div className="rc-inline-gallery-item">
+                  <div className="rf-bfe-gallery-item rf-bfe-gallery-item-dark">
+                    <div className="rf-bfe-gallery-content">
+                      <div className="rf-bfe-gallery-image-wrapper">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          className="rf-bfe-gallery-image"
+                          src={gSrc}
+                          alt={gAlt}
+                          data-finish={fin}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="rf-bfe-gallery-info">
+                <div className="rf-bfe-gallery-info-content">
+                  <span className="rf-bfe-gallery-info-text-bold">
+                    Get 3 free months of AppleCare+
+                  </span>{" "}
+                  with your {model.name} purchase.
+                </div>
+              </div>
               <div className="rc-gallery-paddlenav paddlenav paddlenav-alpha paddlenav-elevated">
                 <button
                   type="button"
-                  className="paddlenav-arrow paddlenav-arrow-previous"
+                  className={`paddlenav-arrow paddlenav-arrow-previous${galIdx === 0 ? " visuallyhidden" : ""}`}
                   disabled={galIdx === 0}
                   aria-label="Previous gallery image"
                   onClick={() => setGalIdx(0)}
@@ -275,7 +281,7 @@ export default function BuyFlow() {
                 </button>
                 <button
                   type="button"
-                  className="paddlenav-arrow paddlenav-arrow-next"
+                  className={`paddlenav-arrow paddlenav-arrow-next${galIdx === 1 ? " visuallyhidden" : ""}`}
                   disabled={galIdx === 1}
                   aria-label="Next gallery image"
                   onClick={() => setGalIdx(1)}
@@ -292,7 +298,7 @@ export default function BuyFlow() {
         </div>
       </div>
 
-      <div className="rf-bfe-column-right column large-5 rf-bfe-selectionarea">
+      <div className="rf-bfe-column-right rf-bfe-selectionarea">
         <div
           className="rf-bfe-step rf-bfe-first-step rf-bfe-focused-step rf-bfe-dimension rf-bfe-dimension-dimensionscreensize"
           style={{ margin: "max(0px, -285.5px + 50vh) 0px max(60px, -343.5px + 50vh)" }}
@@ -554,13 +560,52 @@ export default function BuyFlow() {
               AppleCare coverage. Peace of mind in every plan.
             </h2>
           </div>
-          <fieldset className="rc-dimension rf-bfe-product-dimension-group">
-            <div className="rc-dimension-selector-group form-selector-group">
-            <OptLabel subHeader id="care-0" name="applecare" checked={careIdx === 0} disabled={carrierIdx === null} onChange={() => setCareIdx(0)} title="AppleCare+ with Theft and Loss" sub="Cover this product only. Unlimited repairs for accidents like drops and spills. 24/7 priority support from Apple experts." />
-            <OptLabel subHeader id="care-1" name="applecare" checked={careIdx === 1} disabled={carrierIdx === null} onChange={() => setCareIdx(1)} title="AppleCare One" sub="Cover multiple products, including this iPhone. Theft and loss coverage for iPhone, iPad, and Apple Watch." />
-            <OptLabel subHeader id="care-2" name="applecare" checked={careIdx === 2} disabled={carrierIdx === null} onChange={() => setCareIdx(2)} title="No AppleCare coverage" />
+          <div className="row">
+            {[
+              {
+                id: "care-plus", t: "AppleCare+ with Theft and Loss", cover: "Cover this product only",
+                price: "$14.99/mo. or $149.99/yr.",
+                bullets: ["Unlimited repairs for accidents like drops and spills", "Theft and loss coverage for up to 2 claims every 12 months", "24/7 priority support from Apple experts", "Express Replacement Service — we’ll ship you a replacement so you don’t have to wait for a repair"],
+              },
+              {
+                id: "care-one", t: "AppleCare One", cover: "Cover multiple products, including this iPhone with AppleCare One Individual",
+                price: "$19.99/mo.",
+                bullets: ["All the benefits of AppleCare+ for up to 3 products, at one low price", "Theft and loss coverage for iPhone, iPad, and Apple Watch up to 3 total claims every 12 months", "Add more products anytime for $5.99/mo. each", "Cover all your family’s eligible devices with AppleCare One Family"],
+              },
+              {
+                id: "care-no", t: "No AppleCare coverage", cover: "Your device won’t be protected against accidental damage, theft, or loss.",
+                price: "",
+                bullets: [],
+              },
+            ].map((o, i) => (
+              <div key={o.id} className="column large-4 small-12 rf-applecare-option rc-dimension-selector-row form-selector-twocol-threeline form-selector">
+                <input className="form-selector-input rf-applecare-selector" id={o.id} type="radio" name="applecare" checked={careIdx === i} disabled={carrierIdx === null} onChange={() => setCareIdx(i)} />
+                <div className="form-selector-label rf-applecare-label">
+                  <label className="rc-dimension-list-header form-selector-list-header" htmlFor={o.id}>
+                    <span className="row row-logical">
+                      <span className="form-selector-left-col column large-12">
+                        <span aria-hidden="true" className="rf-applecare-override-svg as-svgicon-container rf-applecare-quote-icon">
+                          <svg viewBox="0 0 25 25" className="as-svgicon as-svgicon-applelogo as-svgicon-reduced as-svgicon-applelogoreduced" role="img" aria-hidden="true" width="25px" height="25px"><path fill="none" d="M0 0h25v25H0z"></path><path d="M18.4 8.146a3.5 3.5 0 0 0-1.675 2.948 3.41 3.41 0 0 0 2.075 3.129 8.2 8.2 0 0 1-1.063 2.2c-.662.953-1.354 1.905-2.407 1.905s-1.324-.612-2.537-.612c-1.183 0-1.6.632-2.567.632s-1.634-.882-2.407-1.965A9.5 9.5 0 0 1 6.2 11.255c0-3.008 1.955-4.6 3.881-4.6 1.023 0 1.875.672 2.517.672.612 0 1.564-.712 2.727-.712A3.65 3.65 0 0 1 18.4 8.146M12.68 6.442a1 1 0 0 1-.211-.02 1.4 1.4 0 0 1-.03-.281 3.36 3.36 0 0 1 .852-2.1 3.46 3.46 0 0 1 2.276-1.173 1.5 1.5 0 0 1 .03.311 3.46 3.46 0 0 1-.822 2.156 3 3 0 0 1-2.095 1.107"></path></svg>
+                        </span>
+                        <span className="form-selector-title">{o.t}</span>
+                        <span className="form-selector-list-header">{o.cover}</span>
+                        {o.price ? <span className="rf-bfe-config-options-price price-point">{o.price}</span> : null}
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                {o.bullets.length ? (
+                  <div className="as-form-choiceselectordesc-list">
+                    <ul className="as-form-choiceselectordesc-list">
+                      {o.bullets.map((b) => (
+                        <li key={b.slice(0, 20)} className="as-form-choiceselectordesc-listitem">{b}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
+            ))}
           </div>
-          </fieldset>
           </div>
           </div>
           <div className="rf-applecare-decision-support">
@@ -676,7 +721,7 @@ export default function BuyFlow() {
         </section>
       </div>
 
-      <div className="rf-bfe-stickybar" style={{ position: "fixed", top: 96, left: 0, right: 0, zIndex: 10 }}>
+      <div className="rf-bfe-stickybar" style={{ position: "sticky", top: 48, background: "#fff", zIndex: 10 }}>
         <div className="rf-bfe-stickybar-scroller">
           {scrolled ? (
             <>
