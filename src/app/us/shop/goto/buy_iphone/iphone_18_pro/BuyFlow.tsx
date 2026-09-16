@@ -597,18 +597,18 @@ export default function BuyFlow() {
             </div>
             <div className="rf-bfe-summary-price-box">
               <div className="rf-bfe-summary-price-content">
-                <span>{summaryDesc}</span>
-                <span className="rf-bfe-summary-price price-point">{buyLine}</span>
-                <span className="price-point">{leaseLine} with Apple Upgrade</span>
+                <span>{summaryDesc}</span>{" "}
+                <span className="rf-bfe-summary-price price-point">{buyLine}</span>{" "}
+                <span className="price-point">{leaseLine} with Apple Upgrade</span>{" "}
                 <span className="price-point">Get 3% Daily Cash back with Apple Card</span>
               </div>
               <div className="rf-bfe-summary-price-content">
-                <span>Need a moment?</span>
-                <span>Keep all your selections by saving this device to Your Saves, then come back anytime and pick up right where you left off.</span>
+                <span>Need a moment?</span>{" "}
+                <span>Keep all your selections by saving this device to Your Saves, then come back anytime and pick up right where you left off.</span>{" "}
                 <span>Save for later</span>
               </div>
               <div className="rf-bfe-summary-fulfillment">
-                <span>Free shipping</span>
+                <span>Free shipping</span>{" "}
                 <span>Pick up from Store</span>
               </div>
             </div>
