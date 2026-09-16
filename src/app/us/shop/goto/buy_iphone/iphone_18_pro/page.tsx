@@ -49,7 +49,7 @@ export default function BuyPage() {
           <h1 className="typography-headline-evolvability-large">iPhone 18 Pro</h1>
           <h2 className="typography-headline-evolvability">iPhone 18 Pro Max</h2>
           <LazyImage
-            src="/apple/har/iphone-18-pro-buy/media/iphone-18-pro-front-202609"
+            src="/apple/har/iphone-18-pro-buy/media/iphone-18-pro-witb-burgundy-202609"
             alt="iPhone 18 Pro in Black Titanium"
             ratio={1.2}
           />
@@ -75,14 +75,14 @@ export default function BuyPage() {
         <section className="rf-aos-step rf-aos-step2">
           <h2 className="typography-headline">Choose your finish.</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
-            {["black-titanium-202609", "silver-titanium-202609", "natural-titanium-202609"].map((m) => (
-              <div key={m} style={TILE} aria-selected={m === "black-titanium-202609"}>
-                <LazyImage
-                  src={`/apple/har/iphone-18-pro-buy/media/iphone-18-pro-finish-${m}`}
-                  alt={m}
-                  ratio={1.2}
-                />
-                <span className="typography-caption">{m}</span>
+            {[
+              { name: "iPhone 18 Pro", src: "/apple/har/iphone-18-pro-buy/media/iphone-compare-iphone-18-pro-202609" },
+              { name: "iPhone 18 Pro Max", src: "/apple/har/iphone-18-pro-buy/media/iphone-compare-iphone-duo-202609" },
+              { name: "iPhone Air", src: "/apple/har/iphone-18-pro-buy/media/iphone-compare-iphone-air-202609" },
+            ].map((m) => (
+              <div key={m.name} style={TILE} aria-selected={m.name === "iPhone 18 Pro"}>
+                <LazyImage src={m.src} alt={m.name} ratio={1.2} />
+                <span className="typography-caption">{m.name}</span>
               </div>
             ))}
           </div>
