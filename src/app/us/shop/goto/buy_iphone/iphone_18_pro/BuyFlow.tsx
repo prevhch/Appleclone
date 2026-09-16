@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
 
 const MEDIA = "/apple/har/iphone-18-pro-buy/media";
 
@@ -84,7 +85,7 @@ function OptLabel({
   checked?: boolean;
   defaultChecked?: boolean;
   onChange?: () => void;
-  title: string;
+  title: ReactNode;
   sub?: string;
   subHeader?: boolean;
   tradeSub?: boolean;
@@ -515,15 +516,18 @@ export default function BuyFlow() {
           </h2>
           <div className="row">
           <div className="rf-bfe-dimension-carriermodel-options">
-            {CARRIERS.map((c, i) => (
+            {[["AT&T", "att"], ["T-Mobile", "tmobile"], ["Verizon", "verizon"], ["Connect on your own later.", null]].map(([c, logo], i) => (
               <OptLabel
-                key={c}
+                key={c as string}
                 id={`carrier-${i}`}
                 name="dimensionCarrierModel"
                 checked={i === carrierIdx}
                 disabled={storageIdx === null}
                 onChange={() => { setCarrierIdx(i); setCareIdx(null); }}
-                title={c}
+                title={<span><span className="ie-label" />{logo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={`${MEDIA}/iphone-step1-logo-${logo}`} alt="" width={112} height={50} loading="lazy" />
+                ) : null}{c}</span>}
                 sub={fmtFull(model.prices[si].buy.replace("$", ""))}
               />
             ))}
@@ -578,6 +582,15 @@ export default function BuyFlow() {
 
       <div className="rf-bfe-summary-wrapper">
         <section className="rf-bfe-summary">
+          <div className="rf-bfe-summary-grid-image">
+            <div className="rf-bfe-summary-image">
+              <h2 className="rf-bfe-summary-image-headline"><span>Your new iPhone awaits. Make it yours.</span></h2>
+              <div className="rf-bfe-summary-image-wrapper">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img width={362} height={270} alt={gAlt} src={`${MEDIA}/iphone-18-pro-finish-select-${fin}-202609_AV2`} className="rf-bfe-summary-image-img" loading="lazy" />
+              </div>
+            </div>
+          </div>
           <div className="rf-bfe-summary-price-section">
             <div className="rf-bfe-summary-price-title rf-bfe-updated-summary">
               Your new {model.name}. Just the way you want it.
@@ -609,9 +622,13 @@ export default function BuyFlow() {
             <span>What&rsquo;s in the Box</span>
           </h2>
           <div className="rf-bfe-box-item">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`${MEDIA}/iphone-18-pro-witb-${fin}-202609`} alt={`${model.name} in box`} loading="lazy" />
             <span className="form-selector-title">{model.name}</span>
           </div>
           <div className="rf-bfe-box-item">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`${MEDIA}/iphone-18-pro-witb-cable-202609`} alt="USB-C Charge Cable" loading="lazy" />
             <span className="form-selector-title">USB-C Charge Cable</span>{" "}
             <span className="form-selector-list-header">USB-C to USB-C charging cable, white woven cable</span>
           </div>
