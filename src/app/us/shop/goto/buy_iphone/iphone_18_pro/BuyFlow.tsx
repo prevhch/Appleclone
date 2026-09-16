@@ -192,7 +192,6 @@ export default function BuyFlow() {
             <span>Apple Intelligence and Siri AI</span> <span className="more">Learn more</span>
           </div>
         </div>
-        </div>
         <div className="rf-bfe-header-rightsection" style={{ maxWidth: 340 }}>
           <div className="rf-bfe-header-learnmorelink-items">
             <div className="rf-bfe-header-learnmorelink rf-bfe-header-tradein-learnmorelink">
@@ -204,12 +203,14 @@ export default function BuyFlow() {
               <a className="rf-bfe-header-plusicon" role="button" href="#payment">
                 See how to pay monthly.
               </a>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="rf-bfe-main row">
       <div className="rf-bfe-column-left column large-7">
+        <div className="rf-bfe-gallery-container">
         <section className="rf-bfe-gallery-section">
           <div className="rf-bfe-gallery-wrapper">
             <div className="rf-bfe-gallery">
@@ -280,6 +281,7 @@ export default function BuyFlow() {
             </div>
           </div>
         </section>
+        </div>
       </div>
 
       <div className="rf-bfe-column-right column large-5 rf-bfe-selectionarea">
@@ -502,7 +504,11 @@ export default function BuyFlow() {
             </div>
           </div>
         </section>
+      </div>
+      </div>
 
+      <div className="rf-bfe-selectionarea">
+      <div className="rf-bfe-summary-wrapper">
         <section className="rf-bfe-summary">
           <div className="rf-bfe-summary-section">
             <div className="rf-bfe-summary-price-title rf-bfe-updated-summary">
@@ -527,6 +533,8 @@ export default function BuyFlow() {
             </div>
           </div>
         </section>
+      </div>
+      </div>
 
         <section className="dd-info">
           <h2 className="rf-bfe-dimension-header typography-eyebrow">
@@ -581,8 +589,6 @@ export default function BuyFlow() {
             </div>
           </div>
         </section>
-      </div>
-      </div>
 
       <div className="rf-bfe-stickybar" style={{ position: "sticky", top: 48, background: "#fff", zIndex: 10 }}>
         <div className="rf-bfe-stickybar-scroller">

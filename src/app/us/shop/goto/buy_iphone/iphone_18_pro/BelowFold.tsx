@@ -191,11 +191,14 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 export default function BelowFold() {
   return (
     <>
-      <section className="dd-compare-section">
-        <h2 className="t-headline-reduced dd-compare-header">Which iPhone is right for you?</h2>
-        <div className="dd-compare row">
-          {COMPARE.map((m) => (
-            <div key={m.name} className="column large-2 dd-compare-model" style={{ textAlign: "center" }}>
+      <section className="dd-compare dd-compare-iphone dd-compare-iphone-5-col">
+        <div className="dd-compare-info">
+          <h2 className="t-headline-reduced dd-compare-header">Which iPhone is right for you?</h2>
+        </div>
+        <div className="dd-l-plate">
+          <div className="dd-compare-grid t-caption">
+            {COMPARE.map((m, i) => (
+            <div key={m.name} className={`dd-grid-column column-${i + 1}`} aria-labelledby={`dd-column-${i + 1}-product-name`}>
               <div className="dd-column-header">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={m.img} alt={m.imgAlt} width={200} height={256} className="dd-compare-hero ir" loading="lazy" />
@@ -234,6 +237,7 @@ export default function BelowFold() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </section>
 
@@ -248,8 +252,33 @@ export default function BelowFold() {
         </div>
       </section>
 
-      <footer className="as-globalfooter">
-        <div className="as-globalfooter-content row">
+      <footer className="as-globalfooter" id="global-footersection" role="contentinfo" aria-labelledby="footer-label">
+        <div className="as-globalfooter-content">
+          <h2 className="as-globalfooter-label" id="footer-label">Footer</h2>
+          <h3 className="visuallyhidden">footnotes</h3>
+          <div className="as-globalfooter-sosumi" data-nosnippet>
+            <div className="footnotes">
+              <ul role="list">
+                <li>※&nbsp;Financing available to qualified customers, subject to credit approval and credit limit, and requires you to select Apple Card Monthly Installments (ACMI) as your payment type at checkout at Apple. An iPhone purchased with ACMI is always unlocked.</li>
+                <li>#&nbsp;Apple Upgrade Lease: This offer is for a consumer lease, not a purchase or loan. Lease provided by Klarna Inc. for 12-, 24-, or 36-month terms. For an iPhone 18 Pro 256GB with a purchase price of $1199, the typical monthly payment is $34.99 for a 24-month lease term.</li>
+                <li>¶&nbsp;Trade-in values will vary based on the condition, year, and configuration of your eligible trade-in device. Not all devices are eligible for credit. You must be at least the age of majority to be eligible to trade in for credit or for an Apple Gift Card.</li>
+                <li>†&nbsp;New and qualified returning subscribers only. $14.99/month after free trial for Apple TV. Only one offer per Apple Account. Plan automatically renews until cancelled.</li>
+                <li>1.&nbsp;Available space is less and varies due to many factors. A standard configuration uses approximately 12GB to 24GB of space, including iOS 27 with its latest features and Apple apps that can be deleted.</li>
+                <li>2.&nbsp;The display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape, the screen is 6.27 inches (iPhone 17, iPhone 18 Pro) or 6.86 inches (iPhone 18 Pro Max) diagonally. Actual viewable area is less.</li>
+                <li>°&nbsp;Trade-in values will vary based on the condition, year, and configuration of your eligible trade-in device. Not all devices are eligible for credit.</li>
+              </ul>
+            </div>
+          </div>
+          <nav className="as-globalfooter-breadcrumbs" aria-label="Breadcrumbs" role="navigation">
+            <span className="as-globalfooter-breadcrumbs-home-label">Apple</span>
+            <div className="as-globalfooter-breadcrumbs-path">
+              <ol className="as-globalfooter-breadcrumbs-list">
+                <li className="as-globalfooter-breadcrumbs-item">iPhone</li>
+                <li className="as-globalfooter-breadcrumbs-item">iPhone&nbsp;18&nbsp;Pro</li>
+              </ol>
+            </div>
+          </nav>
+          <div className="row">
           {FOOTER_COLS.map(([h, links]) => (
             <div key={h} className="column large-2 as-globalfooter-col">
               <h3 className="as-globalfooter-label">{h}</h3>
@@ -260,6 +289,7 @@ export default function BelowFold() {
               </ul>
             </div>
           ))}
+          </div>
         </div>
         <div className="as-globalfooter-mini">
           <span>Copyright © 2026 AppleClone (school project). All rights reserved.</span>
