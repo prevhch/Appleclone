@@ -65,6 +65,9 @@ const MEDIA = "/apple/har/iphone-18-pro-buy/media";
 
 const COMPARE = [
   {
+    swatch: `${MEDIA}/iphone-compare-iphone-duo-swatch-202609`,
+    zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-202509`,
+    zoom: "0.5x, 1x, 2x",
     name: "iPhone Duo",
     img: `${MEDIA}/iphone-compare-iphone-duo-202609`,
     imgAlt: "iPhone Duo, folded back exterior and unfolded interior display",
@@ -77,6 +80,9 @@ const COMPARE = [
     battery: "Up to 44 hours video playback",
   },
   {
+    swatch: `${MEDIA}/iphone-compare-iphone-18-pro-swatch-202609`,
+    zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-pro-202509`,
+    zoom: "0.5x, 1x, 2x, 4x, 8x",
     name: "iPhone 18 Pro",
     img: `${MEDIA}/iphone-compare-iphone-18-pro-202609`,
     imgAlt: "iPhone 18 Pro Max and iPhone 18 Pro in Burgundy",
@@ -89,6 +95,9 @@ const COMPARE = [
     battery: "Up to 45 hours video playback",
   },
   {
+    swatch: `${MEDIA}/iphone-compare-iphone-air-swatch-202509`,
+    zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-air-202509`,
+    zoom: "1x, 2x",
     name: "iPhone Air",
     img: `${MEDIA}/iphone-compare-iphone-air-202609`,
     imgAlt: "iPhone Air, back and front exterior",
@@ -101,6 +110,9 @@ const COMPARE = [
     battery: "Up to 27 hours video playback",
   },
   {
+    swatch: `${MEDIA}/iphone-compare-iphone-17-swatch-202509`,
+    zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-202509`,
+    zoom: "0.5x, 1x, 2x",
     name: "iPhone 17",
     img: `${MEDIA}/iphone-compare-iphone-17-202609`,
     imgAlt: "iPhone 17, back and front exterior",
@@ -113,6 +125,9 @@ const COMPARE = [
     battery: "Up to 30 hours video playback",
   },
   {
+    swatch: `${MEDIA}/iphone-compare-iphone-17e-swatch-202603`,
+    zoomIcon: `${MEDIA}/iphone-compare-icon-zoom-17-air-202509`,
+    zoom: "1x, 2x",
     name: "iPhone 17e",
     img: `${MEDIA}/iphone-compare-iphone-17e-202609`,
     imgAlt: "iPhone 17e, back and front exterior",
@@ -162,6 +177,8 @@ export default function BelowFold() {
             <div key={m.name} className="column large-2 dd-compare-model" style={{ textAlign: "center" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={m.img} alt={m.imgAlt} loading="lazy" style={{ width: "100%", height: "auto" }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={m.swatch} alt={`${m.name} available colors`} width={62} height={26} className="dd-color-swatch" loading="lazy" />
               {m.tag ? <span className="badge badge-no-scrim">{m.tag}</span> : null}
               <h3 className="dd-compare-modelname">{m.name}</h3>
               <p className="dd-compare-blurb">{m.blurb}</p>
@@ -173,6 +190,12 @@ export default function BelowFold() {
                 <dd>{m.chip}</dd>
                 <dt>Camera</dt>
                 <dd>{m.camera}</dd>
+                <dt>Optical zoom</dt>
+                <dd>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={m.zoomIcon} alt={`Optical zoom options ${m.zoom}`} loading="lazy" />
+                  <span>{m.zoom}</span>
+                </dd>
                 <dt>Battery</dt>
                 <dd>{m.battery}</dd>
               </dl>

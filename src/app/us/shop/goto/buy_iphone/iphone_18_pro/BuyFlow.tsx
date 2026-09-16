@@ -66,6 +66,7 @@ function OptLabel({
   name,
   checked,
   defaultChecked,
+  disabled,
   onChange,
   title,
   sub,
@@ -81,6 +82,7 @@ function OptLabel({
   sub?: string;
   subHeader?: boolean;
   prices?: string[];
+  disabled?: boolean;
 }) {
   return (
     <div className="rc-dimension-selector-row form-selector">
@@ -91,6 +93,7 @@ function OptLabel({
         name={name}
         checked={checked}
         defaultChecked={defaultChecked}
+        disabled={disabled}
         onChange={onChange}
       />
       <label className="form-selector-label" htmlFor={id}>
@@ -116,16 +119,26 @@ function OptLabel({
 }
 
 export default function BuyFlow() {
-  const [modelIdx, setModelIdx] = useState(0);
-  const [finish, setFinish] = useState<Finish>("burgundy");
-  const [storageIdx, setStorageIdx] = useState(0);
+  const [modelIdx, setModelIdx] = useState<number | null>(null);
+  const [finish, setFinish] = useState<Finish | null>(null);
+  const [storageIdx, setStorageIdx] = useState<number | null>(null);
+  const [tradeIdx, setTradeIdx] = useState<number | null>(null);
+  const [payIdx, setPayIdx] = useState<number | null>(null);
+  const [carrierIdx, setCarrierIdx] = useState<number | null>(null);
+  const [careIdx, setCareIdx] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [galIdx, setGalIdx] = useState(0);
 
-  const pickFinish = (f: Finish) => { setFinish(f); setGalIdx(0); };
-  const pickModel = (i: number) => { setModelIdx(i); setGalIdx(0); };
-  const gSrc = gallerySrc(modelIdx, finish, galIdx);
-  const gAlt = FINISH_GALLERY_ALT[finish];
+  const pickFinish = (f: Finish) => { setFinish(f); setGalIdx(0); setStorageIdx(null); setTradeIdx(null); setPayIdx(null); setCarrierIdx(null); setCareIdx(null); };
+  const pickModel = (i: number) => { setModelIdx(i); setGalIdx(0); setFinish(null); setStorageIdx(null); setTradeIdx(null); setPayIdx(null); setCarrierIdx(null); setCareIdx(null); };
+  const pickStorage = (i: number) => { setStorageIdx(i); setTradeIdx(null); setPayIdx(null); setCarrierIdx(null); setCareIdx(null); };
+  const mi = modelIdx ?? 0;
+  const si = storageIdx ?? 0;
+  const fin: Finish = finish ?? "burgundy";
+  const gSrc = finish === null && modelIdx === null
+    ? `${MEDIA}/iphone-18-pro-model-unselect-gallery-${galIdx + 1}-202609`
+    : gallerySrc(mi, fin, galIdx);
+  const gAlt = FINISH_GALLERY_ALT[fin];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 600);
@@ -134,11 +147,11 @@ export default function BuyFlow() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const model = MODELS[modelIdx];
-  const price = model.prices[storageIdx];
+  const model = MODELS[mi];
+  const price = model.prices[si];
   const buyLine = `Buy from ${price.buy} or ${price.mo} for 24 mo.*`;
   const leaseLine = `Lease from ${price.lease} for 24 mo.#`;
-  const summaryDesc = `${model.name}, back exterior, ${FINISH_DESC[finish]}, Pro Fusion camera system, rectangular housing spanning the top, 3 lenses on left, flash, microphone, and LiDAR Scanner on right`;
+  const summaryDesc = `${model.name}, back exterior, ${FINISH_DESC[fin]}, Pro Fusion camera system, rectangular housing spanning the top, 3 lenses on left, flash, microphone, and LiDAR Scanner on right`;
 
 
   return (
@@ -208,7 +221,7 @@ export default function BuyFlow() {
                       className="rf-bfe-gallery-image"
                       src={gSrc}
                       alt={gAlt}
-                      data-finish={finish}
+                      data-finish={fin}
                     />
                   </div>
                 </div>
@@ -327,6 +340,7 @@ export default function BuyFlow() {
                     value={f}
                     name="dimensionColor"
                     checked={f === finish}
+                    disabled={modelIdx === null}
                     onChange={() => pickFinish(f)}
                     aria-label={FINISH_LABEL[f]}
                   />
@@ -348,7 +362,7 @@ export default function BuyFlow() {
             </ul>
           </fieldset>
           <div className="rf-bfe-dimension-footer">
-            <span className="as-price-highlight">Color {FINISH_LABEL[finish]}</span>
+            <span className="as-price-highlight">Color {FINISH_LABEL[fin]}</span>
           </div>
         </div>
 
@@ -364,7 +378,8 @@ export default function BuyFlow() {
                 id={`storage-${i}`}
                 name="dimensionCapacity"
                 checked={i === storageIdx}
-                onChange={() => setStorageIdx(i)}
+                disabled={finish === null}
+                onChange={() => pickStorage(i)}
                 title={size}
                 prices={[
                   `Buy from ${model.prices[i].buy} or ${model.prices[i].mo} for 24 mo.*`,
