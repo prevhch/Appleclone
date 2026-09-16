@@ -37,7 +37,7 @@ function gallerySrc(modelIdx: number, finish: Finish, variant: number) {
 
 const MODELS = [
   {
-    name: "iPhone 18 Pro",
+    name: "iPhone\u00a018\u00a0Pro",
     display: "6.3-inch display",
     prices: [
       { buy: "$1199", mo: "$49.95/mo.", lease: "$34.99/mo." },
@@ -47,7 +47,7 @@ const MODELS = [
     ],
   },
   {
-    name: "iPhone 18 Pro Max",
+    name: "iPhone\u00a018\u00a0Pro\u00a0Max",
     display: "6.9-inch display",
     prices: [
       { buy: "$1299", mo: "$54.12/mo.", lease: "$37.99/mo." },
@@ -69,6 +69,7 @@ function OptLabel({
   onChange,
   title,
   sub,
+  subHeader,
   prices,
 }: {
   id: string;
@@ -78,6 +79,7 @@ function OptLabel({
   onChange?: () => void;
   title: string;
   sub?: string;
+  subHeader?: boolean;
   prices?: string[];
 }) {
   return (
@@ -94,8 +96,11 @@ function OptLabel({
       <label className="form-selector-label" htmlFor={id}>
         <span className="row">
           <span className="column form-selector-left-col rf-bfe-selector-left-col">
-            <span className="form-selector-title">{title}</span>{" "}
-            {sub ? <span className="form-selector-list-header">{sub}</span> : null}
+            <span className="form-selector-title">
+              {title}
+              {sub && !subHeader ? <span className="form-label-small">{sub}</span> : null}
+            </span>{" "}
+            {sub && subHeader ? <span className="form-selector-list-header">{sub}</span> : null}
           </span>
           {prices ? (
             <span className="column form-selector-right-col rf-bfe-selector-right-col">
@@ -392,8 +397,8 @@ export default function BuyFlow() {
             <span>Apple Trade In. Get $35–$885 credit towards your new iPhone.</span>
           </h2>
           <div className="rf-bfe-config-options">
-            <OptLabel id="tradein-add" name="tradein" defaultChecked title="Add a trade-in" sub="Answer a few questions to get your estimate." />
-            <OptLabel id="tradein-no" name="tradein" title="No trade-in" />
+            <OptLabel subHeader id="tradein-add"  name="tradein" defaultChecked title="Add a trade-in" sub="Answer a few questions to get your estimate." />
+            <OptLabel subHeader id="tradein-no"  name="tradein" title="No trade-in" />
             <span className="as-price-tradeinmsg">
               Save even more when you trade in and finance with select carrier deals at Apple.
             </span>
@@ -411,9 +416,9 @@ export default function BuyFlow() {
             <span className="as-subheading">Select the one that works for you.</span>
           </h2>
           <div className="rf-bfe-config-options">
-            <OptLabel id="pay-0" name="payment" defaultChecked title="Buy" sub="Pay with Apple Pay or other payment methods." />
-            <OptLabel id="pay-1" name="payment" title="Finance" sub="Pay over time at 0% APR." />
-            <OptLabel id="pay-2" name="payment" title="Lease with Apple Upgrade" sub="Pay monthly with Klarna. Easily upgrade at the end of your term." />
+            <OptLabel subHeader id="pay-0"  name="payment" defaultChecked title="Buy" sub="Pay with Apple Pay or other payment methods." />
+            <OptLabel subHeader id="pay-1"  name="payment" title="Finance" sub="Pay over time at 0% APR." />
+            <OptLabel subHeader id="pay-2"  name="payment" title="Lease with Apple Upgrade" sub="Pay monthly with Klarna. Easily upgrade at the end of your term." />
           </div>
         </div>
 
@@ -424,9 +429,9 @@ export default function BuyFlow() {
             </h2>
           </div>
           <div className="rf-bfe-config-options">
-            <OptLabel id="care-0" name="applecare" defaultChecked title="AppleCare+ with Theft and Loss" sub="Cover this product only. Unlimited repairs for accidents like drops and spills. 24/7 priority support from Apple experts." />
-            <OptLabel id="care-1" name="applecare" title="AppleCare One" sub="Cover multiple products, including this iPhone. Theft and loss coverage for iPhone, iPad, and Apple Watch." />
-            <OptLabel id="care-2" name="applecare" title="No AppleCare coverage" />
+            <OptLabel subHeader id="care-0"  name="applecare" defaultChecked title="AppleCare+ with Theft and Loss" sub="Cover this product only. Unlimited repairs for accidents like drops and spills. 24/7 priority support from Apple experts." />
+            <OptLabel subHeader id="care-1"  name="applecare" title="AppleCare One" sub="Cover multiple products, including this iPhone. Theft and loss coverage for iPhone, iPad, and Apple Watch." />
+            <OptLabel subHeader id="care-2"  name="applecare" title="No AppleCare coverage" />
           </div>
           <div className="rf-bfe-complimentary-description">
             {/* eslint-disable-next-line @next/next/no-img-element */}
