@@ -41,8 +41,8 @@ export default function BuyPage() {
       {CSS.map((href) => (
         <link key={href} rel="stylesheet" href={href} />
       ))}
-      <div className="rf-bfe-container">
-        <div className="rf-bfe-column-left">
+      <div className="rf-bfe-container row">
+        <div className="rf-bfe-column-left column large-7">
           <section className="rf-bfe-gallery-section">
             <div className="rf-bfe-gallery-wrapper">
               <div className="rf-bfe-gallery">
@@ -71,7 +71,7 @@ export default function BuyPage() {
           </section>
         </div>
 
-        <div className="rf-bfe-column-right">
+        <div className="rf-bfe-column-right column large-5">
           <header className="rf-bfe-header">
             <div className="rf-bfe-header-wrapper">
               <span className="rf-bfe-coming-soon-violator">New</span>
@@ -299,13 +299,14 @@ export default function BuyPage() {
           </section>
         </div>
 
-        <div className="rf-bfe-stickybar">
-          <div className="rf-bfe-stickybar-scroller">
-            <div className="rf-bfe-stickybar-header">Your iPhone 18 Pro</div>
-            <button className="rf-bfe-stickybar-button" type="button">
-              Continue
-            </button>
-          </div>
+      </div>
+
+      <div className="rf-bfe-stickybar">
+        <div className="rf-bfe-stickybar-scroller">
+          <div className="rf-bfe-stickybar-header">Your iPhone 18 Pro</div>
+          <button className="rf-bfe-stickybar-button" type="button">
+            Continue
+          </button>
         </div>
       </div>
     </>
