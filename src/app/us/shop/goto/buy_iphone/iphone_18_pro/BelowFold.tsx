@@ -78,6 +78,7 @@ const COMPARE = [
     tag: "New",
     blurb: "The largest display of any iPhone. Foldable. Posable. And durable.",
     price: "From $1999",
+    displaySize: "7.6″",
     display: "7.6-inch Super Retina XDR folding display",
     chip: "A20 Pro chip",
     camera: "48MP Dual Fusion camera system",
@@ -97,6 +98,7 @@ const COMPARE = [
     tag: "New",
     blurb: "The ultimate battery life, performance, and camera of any iPhone.",
     price: "From $1199",
+    displaySize: "6.9″ or 6.3″",
     display: "6.9″ or 6.3″ Super Retina XDR display",
     chip: "A20 Pro chip",
     camera: "48MP Pro Fusion camera system",
@@ -116,6 +118,7 @@ const COMPARE = [
     tag: "",
     blurb: "Incredibly light and thin with pro performance.",
     price: "From $1099",
+    displaySize: "6.5”",
     display: "6.5” Super Retina XDR display",
     chip: "A19 Pro chip",
     camera: "48MP Fusion camera system",
@@ -135,6 +138,7 @@ const COMPARE = [
     tag: "",
     blurb: "Powerful, durable, and delightful.",
     price: "From $899",
+    displaySize: "6.3”",
     display: "6.3” Super Retina XDR display",
     chip: "A19 chip",
     camera: "48MP Dual Fusion camera system",
@@ -154,6 +158,7 @@ const COMPARE = [
     tag: "",
     blurb: "Feature stacked. Value packed.",
     price: "From $699",
+    displaySize: "6.1″",
     display: "6.1″ Super Retina XDR display",
     chip: "A19 chip",
     camera: "48MP Fusion camera system",
@@ -209,14 +214,14 @@ export default function BelowFold() {
               <img src={m.img} alt={m.imgAlt} width={200} height={256} className="dd-compare-hero ir" loading="lazy" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={m.swatch} alt={m.swatchAlt} width={m.swatchW} height={m.swatchH} className="dd-color-swatch ir" loading="lazy" />
-              {m.tag ? <span className="badge badge-reduced badge-no-scrim dd-violator">{m.tag}</span> : null}
+              {m.tag ? <span className="badge badge-reduced badge-no-scrim dd-violator">{m.tag}</span> : <span className="badge badge-reduced badge-no-scrim dd-violator"> </span>}
               <p className="t-label dd-product-name"><span>{m.name}</span></p>
               <p className="t-body-tight dd-subtitle">{m.blurb}</p>
               <p className="t-body-reduced-tight dd-compare-price">{m.price}</p>
               </div>
               <div className="dd-features" role="list">
                 <div className="dd-feature display" role="listitem">
-                  <p className="t-eyebrow-elevated dd-display-size">{m.display.split(" ")[0]}</p>
+                  <p className="t-eyebrow-elevated dd-display-size">{m.displaySize}</p>
                   <p>{m.display}</p>
                 </div>
                 <div className="dd-feature chip" role="listitem">
@@ -227,17 +232,20 @@ export default function BelowFold() {
                 </div>
                 <div className="dd-feature zoom" role="listitem">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={m.zoomIcon} alt={`Optical zoom options ${m.zoom}`} width={76} height={56} className="dd-icon dd-invert-classic ir" loading="lazy" />
+                  <img src={m.zoomIcon} alt={`Optical zoom options ${m.zoom}`} width={128} height={56} className="dd-icon dd-invert-classic ir" loading="lazy" />
                   <p>Optical zoom options <span className="visuallyhidden">{m.zoom}</span></p>
                 </div>
                 <div className="dd-feature apple-intelligence" role="listitem">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`${MEDIA}/iphone-compare-icon-apple-intelligence-202609`} alt="Siri AI and Apple Intelligence" width={42} height={56} className="dd-icon dd-icon-apple-intelligence dd-invert-classic ir" loading="lazy" />
-                  <p className="column">Apple Intelligence</p>
-                  <p className="column">Siri AI</p>
+                  <p className="column">Apple Intelligence<sup data-autom="footnote-sub" className="as-footnote"><span className="visuallyhidden">&nbsp;Footnote&nbsp;</span>4</sup></p>
+                  <p className="column">Siri AI<sup data-autom="footnote-sub" className="as-footnote"><span className="visuallyhidden">&nbsp;Footnote&nbsp;</span>4</sup></p>
                 </div>
                 <div className="dd-feature battery" role="listitem">
                   <p>{m.battery}</p>
+                </div>
+                <div className="dd-feature" aria-hidden="true">
+                  <hr className="dd-separator" aria-hidden="true" />
                 </div>
               </div>
             </div>

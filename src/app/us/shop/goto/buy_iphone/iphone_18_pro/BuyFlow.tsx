@@ -59,6 +59,11 @@ const MODELS = [
 ];
 
 const STORAGE = ["256GB", "512GB", "1TB", "2TB"];
+
+function fmtFull(n: string) {
+  const v = Number(n);
+  return "$" + v.toLocaleString("en-US") + ".00";
+}
 const CARRIERS = ["AT&T", "T-Mobile", "Verizon", "Connect to any carrier later"];
 
 function OptLabel({
@@ -71,6 +76,7 @@ function OptLabel({
   title,
   sub,
   subHeader,
+  tradeSub,
   prices,
 }: {
   id: string;
@@ -81,6 +87,7 @@ function OptLabel({
   title: string;
   sub?: string;
   subHeader?: boolean;
+  tradeSub?: boolean;
   prices?: string[];
   disabled?: boolean;
 }) {
@@ -101,7 +108,8 @@ function OptLabel({
           <span className="column form-selector-left-col rf-bfe-selector-left-col">
             <span className="form-selector-title">
               {title}
-              {sub && !subHeader ? <span className="form-label-small">{sub}</span> : null}
+              {sub && !subHeader && !tradeSub ? <span className="form-label-small">{sub}</span> : null}
+              {sub && tradeSub ? <span className="form-label-small rf-tradeupselector-subheader">{sub}</span> : null}
             </span>{" "}
             {sub && subHeader ? <span className="form-selector-list-header">{sub}</span> : null}
           </span>
@@ -407,7 +415,7 @@ export default function BuyFlow() {
           </div>
         </div>
 
-        <div className="rf-bfe-step row rf-bfe-dimension rf-bfe-dimension-carriermodel-section">
+        <div className="rf-bfe-step rf-bfe-dimension rf-bfe-dimension-carriermodel-section">
           <h2 id="dimensionCarrier" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
             <span>Connectivity. </span>
             <span className="as-subheading">Choose a carrier.</span>
@@ -418,9 +426,11 @@ export default function BuyFlow() {
                 key={c}
                 id={`carrier-${i}`}
                 name="dimensionCarrierModel"
-                defaultChecked={i === 0}
+                checked={i === carrierIdx}
+                disabled={storageIdx === null}
+                onChange={() => { setCarrierIdx(i); setCareIdx(null); }}
                 title={c}
-                sub="5G included"
+                sub={fmtFull(model.prices[si].buy.replace("$", ""))}
               />
             ))}
           </div>
