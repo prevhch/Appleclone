@@ -148,7 +148,7 @@ export default function BuyFlow() {
         <div data-autom="bfe-header">
           <span className="badge badge-no-scrim">New</span>
           <h1 className="fwl">Pre-order {model.name}</h1>
-          Already have an iPhone saved? <span className="more">View ›</span>
+          Already have an iPhone saved? <span className="more">View</span>
           <br />
           Available starting 9.18.
         </div>
@@ -176,7 +176,7 @@ export default function BuyFlow() {
             </div>
           </div>
           <div className="rf-bfe-header-ai">
-            <span>Apple Intelligence and Siri AI</span> <span className="more">Learn more ⊕</span>
+            <span>Apple Intelligence and Siri AI</span> <span className="more">Learn more</span>
           </div>
         </div>
         </div>
@@ -295,12 +295,20 @@ export default function BuyFlow() {
               />
             ))}
           </div>
-          <div className="rf-bfe-dimension-footer">
-            Need help choosing a model? Explore the differences in screen size and battery life.
+          <div className="rf-bfe-decision-support">
+            <div className="rc-decisionsection as-util-relatedlink">
+              <div className="rc-decisionsection-details typography-body-reduced">
+                <div className="rc-decisionsection-info">
+                  <div className="rc-decisionsection-header typography-body-reduced-tight">Need help choosing a model?</div>
+                  <div className="rc-decisionsection-desc typography-body-reduced-tight">Explore the differences in screen size and battery&nbsp;life.</div>
+                </div>
+              </div>
+              <span role="button" className="rc-decisionsection-link">Show more</span>
+            </div>
           </div>
         </div>
 
-        <div className="rf-bfe-step rf-bfe-right-rail-step rf-bfe-dimension rf-bfe-dimension-dimensioncolor">
+        <div className="rf-bfe-step rf-bfe-right-rail-step rf-bfe-dimension rf-bfe-dimension-dimensioncolor" style={{ margin: "0px 0px max(60px, -194.5px + 50vh)" }}>
           <fieldset className="colornav rc-dimension-colornav rf-bfe-product-dimension-group">
             <legend>
               <h2 id="dimensionColor" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
@@ -344,7 +352,7 @@ export default function BuyFlow() {
           </div>
         </div>
 
-        <div className="rf-bfe-step rf-bfe-right-rail-step rf-bfe-dimension rf-bfe-dimension-dimensioncapacity">
+        <div className="rf-bfe-step rf-bfe-right-rail-step rf-bfe-dimension rf-bfe-dimension-dimensioncapacity" style={{ margin: "0px 0px max(60px, -473.5px + 50vh)" }}>
           <h2 id="dimensionCapacity" className="rf-bfe-dimension-header typography-eyebrow" tabIndex={-1}>
             <span>Storage. </span>
             <span className="as-subheading">How much space do you need?</span>
@@ -365,11 +373,20 @@ export default function BuyFlow() {
               />
             ))}
           </div>
-          <div className="rf-bfe-dimension-footer">
-            Not sure how much storage to get? Get a better understanding of how much space
-            you&rsquo;ll need.
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${MEDIA}/iphone-storage-thumbnail`} alt="" aria-hidden="true" />
+          <div className="rf-bfe-decision-support">
+            <div className="rc-decisionsection as-util-relatedlink">
+              <div className="rc-decisionsection-image-wrapper">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${MEDIA}/iphone-storage-thumbnail`} alt="" aria-hidden="true" width={120} />
+              </div>
+              <div className="rc-decisionsection-details typography-body-reduced">
+                <div className="rc-decisionsection-info">
+                  <div className="rc-decisionsection-header typography-body-reduced-tight">Not sure how much storage to get?</div>
+                  <div className="rc-decisionsection-desc typography-body-reduced-tight">Get a better understanding of how much space you&rsquo;ll need.</div>
+                </div>
+              </div>
+              <span role="button" className="rc-decisionsection-link">Show more</span>
+            </div>
           </div>
         </div>
 
@@ -390,8 +407,16 @@ export default function BuyFlow() {
               />
             ))}
           </div>
-          <div className="rf-bfe-dimension-footer">
-            Is it easy to get connected? Yes. We&rsquo;ll help you set up your carrier, number, and rate plan.
+          <div className="rf-bfe-decision-support">
+            <div className="rc-decisionsection as-util-relatedlink">
+              <div className="rc-decisionsection-details typography-body-reduced">
+                <div className="rc-decisionsection-info">
+                  <div className="rc-decisionsection-header typography-body-reduced-tight">Is it easy to get connected?</div>
+                  <div className="rc-decisionsection-desc typography-body-reduced-tight">Yes. We&rsquo;ll help you set up your carrier, number, and rate plan.</div>
+                </div>
+              </div>
+              <span role="button" className="rc-decisionsection-link">Show more</span>
+            </div>
           </div>
         </div>
 
@@ -405,11 +430,21 @@ export default function BuyFlow() {
             <span className="as-price-tradeinmsg">
               Save even more when you trade in and finance with select carrier deals at Apple.
             </span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${MEDIA}/iphone-trade-in-pre-purchase-thumbnail`} alt="" aria-hidden="true" />
           </div>
-          <div className="rf-bfe-dimension-footer">
-            How does trade-in work? Learn how you can save on your order with a trade-in.
+          <div className="rf-bfe-decision-support">
+            <div className="rc-decisionsection as-util-relatedlink">
+              <div className="rc-decisionsection-image-wrapper">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${MEDIA}/iphone-trade-in-pre-purchase-thumbnail`} alt="" aria-hidden="true" width={120} />
+              </div>
+              <div className="rc-decisionsection-details typography-body-reduced">
+                <div className="rc-decisionsection-info">
+                  <div className="rc-decisionsection-header typography-body-reduced-tight">How does trade-in work?</div>
+                  <div className="rc-decisionsection-desc typography-body-reduced-tight">Learn how you can save on your order with a trade-in.</div>
+                </div>
+              </div>
+              <span role="button" className="rc-decisionsection-link">Show more</span>
+            </div>
           </div>
         </div>
 
@@ -436,10 +471,20 @@ export default function BuyFlow() {
             <OptLabel subHeader id="care-1"  name="applecare" title="AppleCare One" sub="Cover multiple products, including this iPhone. Theft and loss coverage for iPhone, iPad, and Apple Watch." />
             <OptLabel subHeader id="care-2"  name="applecare" title="No AppleCare coverage" />
           </div>
-          <div className="rf-bfe-complimentary-description">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${MEDIA}/iphone-apple-care-one-vid1-thumbnail`} alt="" aria-hidden="true" />
-            How does AppleCare work? Explore the features and coverage of AppleCare.
+          <div className="rf-applecare-decision-support">
+            <div className="rc-decisionsection as-util-relatedlink">
+              <div className="rc-decisionsection-image-wrapper">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${MEDIA}/iphone-apple-care-one-vid1-thumbnail`} alt="" aria-hidden="true" width={120} />
+              </div>
+              <div className="rc-decisionsection-details typography-body-reduced">
+                <div className="rc-decisionsection-info">
+                  <div className="rc-decisionsection-header typography-body-reduced-tight">How does AppleCare work?</div>
+                  <div className="rc-decisionsection-desc typography-body-reduced-tight">Explore the features and coverage of AppleCare.</div>
+                </div>
+              </div>
+              <span role="button" className="rc-decisionsection-link">Show more</span>
+            </div>
           </div>
         </section>
 
