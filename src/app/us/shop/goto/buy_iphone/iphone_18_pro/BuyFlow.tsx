@@ -94,7 +94,7 @@ function OptLabel({
       <label className="form-selector-label" htmlFor={id}>
         <span className="row">
           <span className="column form-selector-left-col rf-bfe-selector-left-col">
-            <span className="form-selector-title">{title}</span>
+            <span className="form-selector-title">{title}</span>{" "}
             {sub ? <span className="form-selector-list-header">{sub}</span> : null}
           </span>
           {prices ? (
@@ -139,6 +139,7 @@ export default function BuyFlow() {
   return (
     <div className="rf-bfe">
       <div className="rf-bfe-header-wrapper">
+        <div className="rf-bfe-header">
         <div data-autom="bfe-header">
           <span className="badge badge-no-scrim">New</span>
           <h1 className="fwl">Pre-order {model.name}</h1>
@@ -172,6 +173,7 @@ export default function BuyFlow() {
           <div className="rf-bfe-header-ai">
             <span>Apple Intelligence and Siri AI</span> <span className="more">Learn more ⊕</span>
           </div>
+        </div>
         </div>
         <div className="rf-bfe-header-rightsection">
           <div className="rf-bfe-header-learnmorelink-items">
@@ -459,7 +461,7 @@ export default function BuyFlow() {
             <span className="form-selector-title">{model.name}</span>
           </div>
           <div className="rf-bfe-box-item">
-            <span className="form-selector-title">USB-C Charge Cable</span>
+            <span className="form-selector-title">USB-C Charge Cable</span>{" "}
             <span className="form-selector-list-header">USB-C to USB-C charging cable, white woven cable</span>
           </div>
           <div className="rf-bfe-box-environment">
@@ -484,7 +486,7 @@ export default function BuyFlow() {
       </div>
       </div>
 
-      <div className="rf-bfe-stickybar" style={{ top: 48, background: "#fff" }}>
+      <div className="rf-bfe-stickybar" style={{ position: "sticky", top: 48, background: "#fff", zIndex: 10 }}>
         <div className="rf-bfe-stickybar-scroller">
           {scrolled ? (
             <>
