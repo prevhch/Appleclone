@@ -104,15 +104,26 @@ function OptLabel({
         disabled={disabled}
         onChange={onChange}
       />
-      <label className={`form-selector-label${subHeader ? " form-selector-list-header" : ""}`} htmlFor={id}>
+      {subHeader ? (
+        <div className="form-selector-label rf-applecare-label">
+          <label className="rc-dimension-list-header form-selector-list-header" htmlFor={id}>
+            <span className="row row-logical">
+              <span className="form-selector-left-col column large-12">
+                <span className="form-selector-title">{title}</span>{" "}
+                <span>{sub}</span>
+              </span>
+            </span>
+          </label>
+        </div>
+      ) : (
+      <label className="form-selector-label" htmlFor={id}>
         <span className="row">
           <span className="column form-selector-left-col rf-bfe-selector-left-col">
             <span className="form-selector-title">
               {title}
-              {sub && !subHeader && !tradeSub ? <span className="form-label-small">{sub}</span> : null}
+              {sub && !tradeSub ? <span className="form-label-small">{sub}</span> : null}
               {sub && tradeSub ? <span className="form-label-small rf-tradeupselector-subheader">{sub}</span> : null}
             </span>{" "}
-            {sub && subHeader ? <span>{sub}</span> : null}
           </span>
           {prices ? (
             <span className="column form-selector-right-col rf-bfe-selector-right-col">
@@ -123,6 +134,7 @@ function OptLabel({
           ) : null}
         </span>
       </label>
+      )}
     </div>
   );
 }
@@ -450,8 +462,8 @@ export default function BuyFlow() {
           </div>
           <fieldset className="rc-dimension rf-bfe-product-dimension-group">
             <div className="rc-dimension-selector-group form-selector-group">
-            <OptLabel subHeader id="tradein-add" name="tradein" checked={tradeIdx === 0} disabled={storageIdx === null} onChange={() => { setTradeIdx(0); setPayIdx(null); setCarrierIdx(null); setCareIdx(null); }} title="Add a trade-in" sub="Answer a few questions to get your estimate." />
-            <OptLabel subHeader id="tradein-no" name="tradein" checked={tradeIdx === 1} disabled={storageIdx === null} onChange={() => { setTradeIdx(1); setPayIdx(null); setCarrierIdx(null); setCareIdx(null); }} title="No trade-in" />
+            <OptLabel tradeSub id="tradein-add" name="tradein" checked={tradeIdx === 0} disabled={storageIdx === null} onChange={() => { setTradeIdx(0); setPayIdx(null); setCarrierIdx(null); setCareIdx(null); }} title="Add a trade-in" sub="Answer a few questions to get your estimate." />
+            <OptLabel tradeSub id="tradein-no" name="tradein" checked={tradeIdx === 1} disabled={storageIdx === null} onChange={() => { setTradeIdx(1); setPayIdx(null); setCarrierIdx(null); setCareIdx(null); }} title="No trade-in" />
             <span className="as-price-tradeinmsg">
               Save even more when you trade in and finance with select carrier deals at Apple.
             </span>
